@@ -1,0 +1,102 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Файлы исходного кода">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Заголовочные файлы">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="Файлы ресурсов">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="src">
+      <UniqueIdentifier>{ff757733-ef1d-4e4e-a205-c5c730ce0465}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\parsers">
+      <UniqueIdentifier>{95880f85-0ad0-41fc-9d10-bccd0d59e76d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\utils">
+      <UniqueIdentifier>{f2d848bb-37ef-4911-9d8e-d436354df4cc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\utils\stacks">
+      <UniqueIdentifier>{b37fc4b6-c96f-4c3c-a150-1de111fc72e4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\parsers\bauer and zamelzon">
+      <UniqueIdentifier>{a74d8637-1b40-4b04-b3b5-a5cde105679e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\parsers\dijkstra">
+      <UniqueIdentifier>{205c557c-842d-4da0-994f-1ae3dd751500}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\parsers\rutishauser">
+      <UniqueIdentifier>{e00fbd1d-9c57-4225-b41a-6f693f6be5ba}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\utils\allocators">
+      <UniqueIdentifier>{70034c7d-93a3-4be4-9aaa-c8815927375c}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="main.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="MyParser.cpp">
+      <Filter>src\parsers</Filter>
+    </ClCompile>
+    <ClCompile Include="MyString.cpp">
+      <Filter>src\utils</Filter>
+    </ClCompile>
+    <ClCompile Include="BauerAndZamelzon.cpp">
+      <Filter>src\parsers\bauer and zamelzon</Filter>
+    </ClCompile>
+    <ClCompile Include="Dijkstra.cpp">
+      <Filter>src\parsers\dijkstra</Filter>
+    </ClCompile>
+    <ClCompile Include="Rutishauser.cpp">
+      <Filter>src\parsers\rutishauser</Filter>
+    </ClCompile>
+    <ClCompile Include="ParserPack.cpp">
+      <Filter>src\utils\allocators</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="TListStack.h">
+      <Filter>src\utils\stacks</Filter>
+    </ClInclude>
+    <ClInclude Include="IParser.h">
+      <Filter>src\parsers</Filter>
+    </ClInclude>
+    <ClInclude Include="MyParser.h">
+      <Filter>src\parsers</Filter>
+    </ClInclude>
+    <ClInclude Include="MyString.h">
+      <Filter>src\utils</Filter>
+    </ClInclude>
+    <ClInclude Include="BauerAndZamelzon.h">
+      <Filter>src\parsers\bauer and zamelzon</Filter>
+    </ClInclude>
+    <ClInclude Include="Dijkstra.h">
+      <Filter>src\parsers\dijkstra</Filter>
+    </ClInclude>
+    <ClInclude Include="Rutishauser.h">
+      <Filter>src\parsers\rutishauser</Filter>
+    </ClInclude>
+    <ClInclude Include="TArrayStack.h">
+      <Filter>src\utils\stacks</Filter>
+    </ClInclude>
+    <ClInclude Include="IStack.h">
+      <Filter>src\utils\stacks</Filter>
+    </ClInclude>
+    <ClInclude Include="ListItem.h">
+      <Filter>src\utils</Filter>
+    </ClInclude>
+    <ClInclude Include="StackAllocator.h">
+      <Filter>src\utils\allocators</Filter>
+    </ClInclude>
+    <ClInclude Include="ParserPack.h">
+      <Filter>src\utils\allocators</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>
