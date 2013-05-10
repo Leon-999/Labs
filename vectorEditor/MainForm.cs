@@ -25,9 +25,11 @@ namespace vectorEditor
 
         private Line line;
         private Triangle triangle;
+        private Quadrate quadrate;
 
         private bool drawLine = false;
         private bool drawTriangle = false;
+        private bool drawQuadrate = false;
 
         public MainForm()
         {
@@ -85,7 +87,13 @@ namespace vectorEditor
                 this.triangle = new Triangle(this.points[0], this.points[1],this.points[2]);
                 this.triangle.draw(this.canvas);
                 this.countPoint = 0;
-            } 
+            }
+            else if (this.drawQuadrate && this.countPoint == 2)
+            {
+                this.quadrate = new Quadrate(this.points[0], this.points[1]);
+                this.quadrate.draw(this.canvas);
+                this.countPoint = 0;
+            }
         }
 
         private void buttonClear_Click(object sender, EventArgs e)
@@ -105,10 +113,17 @@ namespace vectorEditor
             this.drawTriangle = true;
         }
 
+        private void radioButtonQuadrate_CheckedChanged(object sender, EventArgs e)
+        {
+            this.switchOffAll();
+            this.drawQuadrate = true;
+        }
+
         private void switchOffAll ()
         {
             this.drawLine = false;
             this.drawTriangle = false;
+            this.drawQuadrate = false;
         }
     }
 }
