@@ -54,6 +54,7 @@
     </Compile>
     <Compile Include="Object\Line.cs" />
     <Compile Include="Object\Object2D.cs" />
+    <Compile Include="Object\Triangle.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="MainForm.resx">

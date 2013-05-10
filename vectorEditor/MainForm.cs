@@ -13,8 +13,7 @@ namespace vectorEditor
 {
     public partial class MainForm : Form
     {
-        private Line line;
-        private Point2D[] points = new Point2D[2];
+        private Point2D[] points = new Point2D[9];
         private int countPoint;
 
         private Brush currentColor;
@@ -24,7 +23,11 @@ namespace vectorEditor
         private static Color COLOR_BACKGROUND = Color.White;
         private int lastX, lastY;
 
+        private Line line;
+        private Triangle triangle;
+
         private bool drawLine = false;
+        private bool drawTriangle = false;
 
         public MainForm()
         {
@@ -77,16 +80,35 @@ namespace vectorEditor
                 this.line.draw(this.canvas);
                 this.countPoint = 0;
             }
-        }
-
-        private void buttonLine_Click(object sender, EventArgs e)
-        {
-            this.drawLine = true;
+            else if (this.drawTriangle && this.countPoint == 3)
+            {
+                this.triangle = new Triangle(this.points[0], this.points[1],this.points[2]);
+                this.triangle.draw(this.canvas);
+                this.countPoint = 0;
+            } 
         }
 
         private void buttonClear_Click(object sender, EventArgs e)
         {
             this.clearCanvas();
+        }
+
+        private void radioButtonLine_CheckedChanged(object sender, EventArgs e)
+        {
+            this.switchOffAll();
+            this.drawLine = true;
+        }
+
+        private void radioButtonTriangle_CheckedChanged(object sender, EventArgs e)
+        {
+            this.switchOffAll();
+            this.drawTriangle = true;
+        }
+
+        private void switchOffAll ()
+        {
+            this.drawLine = false;
+            this.drawTriangle = false;
         }
     }
 }
