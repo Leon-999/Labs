@@ -34,6 +34,7 @@
             this.radioButtonLine = new System.Windows.Forms.RadioButton();
             this.radioButtonTriangle = new System.Windows.Forms.RadioButton();
             this.radioButtonQuadrate = new System.Windows.Forms.RadioButton();
+            this.radioButtonEllipse = new System.Windows.Forms.RadioButton();
             ((System.ComponentModel.ISupportInitialize)(this.canvas)).BeginInit();
             this.SuspendLayout();
             // 
@@ -93,11 +94,24 @@
             this.radioButtonQuadrate.UseVisualStyleBackColor = true;
             this.radioButtonQuadrate.CheckedChanged += new System.EventHandler(this.radioButtonQuadrate_CheckedChanged);
             // 
+            // radioButtonEllipse
+            // 
+            this.radioButtonEllipse.AutoSize = true;
+            this.radioButtonEllipse.Location = new System.Drawing.Point(220, 482);
+            this.radioButtonEllipse.Name = "radioButtonEllipse";
+            this.radioButtonEllipse.Size = new System.Drawing.Size(54, 17);
+            this.radioButtonEllipse.TabIndex = 7;
+            this.radioButtonEllipse.TabStop = true;
+            this.radioButtonEllipse.Text = "ellipse";
+            this.radioButtonEllipse.UseVisualStyleBackColor = true;
+            this.radioButtonEllipse.CheckedChanged += new System.EventHandler(this.radioButtonEllipse_CheckedChanged);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(568, 517);
+            this.Controls.Add(this.radioButtonEllipse);
             this.Controls.Add(this.radioButtonQuadrate);
             this.Controls.Add(this.radioButtonTriangle);
             this.Controls.Add(this.radioButtonLine);
@@ -120,6 +134,7 @@
         private System.Windows.Forms.RadioButton radioButtonLine;
         private System.Windows.Forms.RadioButton radioButtonTriangle;
         private System.Windows.Forms.RadioButton radioButtonQuadrate;
+        private System.Windows.Forms.RadioButton radioButtonEllipse;
     }
 }
 

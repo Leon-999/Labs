@@ -17,6 +17,7 @@ namespace vectorEditor
         private int countPoint;
 
         private Brush currentColor;
+        private Brush backgroundColor;
         private Pen pen;
         private const float SIZE_PEN = 1;
         private static Color COLOR_PEN = Color.Black;
@@ -26,19 +27,21 @@ namespace vectorEditor
         private Line line;
         private Triangle triangle;
         private Quadrate quadrate;
+        private Ellipse ellipse;
 
         private bool drawLine = false;
         private bool drawTriangle = false;
         private bool drawQuadrate = false;
+        private bool drawEllipse = false;
 
         public MainForm()
         {
             InitializeComponent();
 
             this.countPoint = 0;
-            //this.line = new Line(new Point2D(0, 0), new Point2D(120, 120));
 
             this.currentColor = new SolidBrush(MainForm.COLOR_PEN);
+            this.backgroundColor = new SolidBrush(MainForm.COLOR_BACKGROUND);
 
             this.clearCanvas();
         }
@@ -56,7 +59,7 @@ namespace vectorEditor
         {
 
             // Рисовать так: 
-            this.pen = new Pen(currentColor, MainForm.SIZE_PEN);
+            this.pen = new Pen(this.currentColor, MainForm.SIZE_PEN);
             Graphics graphics = Graphics.FromImage(this.canvas.Image);
             Point2D point1, point2;
 
@@ -79,21 +82,52 @@ namespace vectorEditor
             if (this.drawLine && this.countPoint == 2)
             {
                 this.line = new Line(this.points[0], this.points[1]);
+                this.removePoints();
                 this.line.draw(this.canvas);
-                this.countPoint = 0;
             }
             else if (this.drawTriangle && this.countPoint == 3)
             {
                 this.triangle = new Triangle(this.points[0], this.points[1],this.points[2]);
+                this.removePoints();
                 this.triangle.draw(this.canvas);
-                this.countPoint = 0;
             }
             else if (this.drawQuadrate && this.countPoint == 2)
             {
                 this.quadrate = new Quadrate(this.points[0], this.points[1]);
+                this.removePoints();
                 this.quadrate.draw(this.canvas);
-                this.countPoint = 0;
             }
+            else if (this.drawEllipse && this.countPoint == 2)
+            {
+                this.ellipse = new Ellipse(this.points[0], this.points[1]);
+                this.removePoints();
+                this.ellipse.draw(this.canvas);
+            }
+        }
+
+        private void removePoints()
+        {
+            this.pen = new Pen(this.backgroundColor, MainForm.SIZE_PEN);
+            Graphics graphics = Graphics.FromImage(this.canvas.Image);
+
+            for (int i = 0; i < this.countPoint; ++i)
+            {
+                Point2D tmpPoint;
+
+                tmpPoint = new Point2D(this.points[i].x + 1, this.points[i].y + 1);
+                graphics.DrawLine(this.pen, this.points[i].x, this.points[i].y, tmpPoint.x, tmpPoint.y);
+
+
+                this.points[i].y += 1;
+                tmpPoint.y -= 1;
+                graphics.DrawLine(this.pen, this.points[i].x, this.points[i].y, tmpPoint.x, tmpPoint.y);
+            }
+            this.countPoint = 0;
+
+            this.pen.Dispose();
+            graphics.Dispose();
+
+            this.canvas.Invalidate();
         }
 
         private void buttonClear_Click(object sender, EventArgs e)
@@ -119,11 +153,18 @@ namespace vectorEditor
             this.drawQuadrate = true;
         }
 
+        private void radioButtonEllipse_CheckedChanged(object sender, EventArgs e)
+        {
+            this.switchOffAll();
+            this.drawEllipse = true;
+        }
+
         private void switchOffAll ()
         {
             this.drawLine = false;
             this.drawTriangle = false;
             this.drawQuadrate = false;
+            this.drawEllipse = false;
         }
     }
 }
