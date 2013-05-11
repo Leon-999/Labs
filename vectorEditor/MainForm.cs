@@ -195,6 +195,10 @@ namespace vectorEditor
                 this.drawQS(this.backgroundColor);
                 this.objects.draw(this.canvas);
                 this.removePoints();
+
+                this.objects.clear(this.canvas);
+                this.objects = this.objects.selectObjectsFromArea(new Point2D(this.xQS, this.yQS), this.widthQS, this.heightQS);
+                this.objects.draw(this.canvas);
             }
         }
 

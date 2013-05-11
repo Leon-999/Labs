@@ -38,5 +38,16 @@ namespace vectorEditor.Object
 
             canvas.Invalidate();
         }
+
+        public override bool inTheArea(Point2D coordinateArea, int widthArea, int heightArea)
+        {
+            bool answer = false;
+
+            if( this.pointInTheArea(this.coordinate, coordinateArea, widthArea, heightArea) &&
+                this.pointInTheArea(this.secondPoint, coordinateArea, widthArea, heightArea))
+                answer = true;
+
+            return answer;
+        }
     }
 }

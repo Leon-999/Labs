@@ -57,6 +57,7 @@ namespace vectorEditor.Object
         public Point2D getCoordinate() { return this.coordinate; }
 
         abstract protected void draw(PictureBox canvas, Color color);
+        abstract public bool inTheArea(Point2D coordinateArea, int widthArea, int heightArea);
 
         protected void randColor()
         {
@@ -67,6 +68,16 @@ namespace vectorEditor.Object
             this.color = Color.FromArgb(red, green, blue);
         }
 
+        protected bool pointInTheArea(Point2D point, Point2D coordinateArea, int widthArea, int heightArea)
+        {
+            bool answer = false;
+
+            if ((point.x > coordinateArea.x && point.x < coordinateArea.x + widthArea) &&
+                   (point.y > coordinateArea.y && point.y < coordinate.x + heightArea))
+                answer = true;
+
+            return answer;
+        }
 
     }
 }
