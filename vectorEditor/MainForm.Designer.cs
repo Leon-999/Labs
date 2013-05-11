@@ -119,7 +119,6 @@
             this.Controls.Add(this.canvas);
             this.Name = "MainForm";
             this.Text = "MainForm";
-            this.Load += new System.EventHandler(this.MainForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.canvas)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

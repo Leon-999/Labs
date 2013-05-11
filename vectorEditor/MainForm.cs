@@ -21,7 +21,7 @@ namespace vectorEditor
         private Pen pen;
         private const float SIZE_PEN = 1;
         private static Color COLOR_PEN = Color.Black;
-        private static Color COLOR_BACKGROUND = Color.White;
+        public static Color COLOR_BACKGROUND = Color.White;
         private int lastX, lastY;
 
         private Line line;
@@ -44,11 +44,7 @@ namespace vectorEditor
             this.backgroundColor = new SolidBrush(MainForm.COLOR_BACKGROUND);
 
             this.clearCanvas();
-        }
-
-        private void MainForm_Load(object sender, EventArgs e)
-        {
-            this.clearCanvas();
+            this.radioButtonLine.Checked = true;
         }
         private void clearCanvas()
         {
@@ -67,11 +63,12 @@ namespace vectorEditor
             point2 = new Point2D(e.X + 1, e.Y + 1);
             graphics.DrawLine(this.pen, point1.x, point1.y, point2.x, point2.y);
 
+            this.points[this.countPoint] = point1;
+
             point1 = new Point2D(e.X, e.Y + 1);
             point2 = new Point2D(e.X + 1, e.Y);
             graphics.DrawLine(this.pen, point1.x, point1.y, point2.x, point2.y);
 
-            this.points[this.countPoint] = point1;
             this.countPoint++;
 
             this.pen.Dispose();
@@ -138,24 +135,28 @@ namespace vectorEditor
         private void radioButtonLine_CheckedChanged(object sender, EventArgs e)
         {
             this.switchOffAll();
+            this.removePoints();
             this.drawLine = true;
         }
 
         private void radioButtonTriangle_CheckedChanged(object sender, EventArgs e)
         {
             this.switchOffAll();
+            this.removePoints();
             this.drawTriangle = true;
         }
 
         private void radioButtonQuadrate_CheckedChanged(object sender, EventArgs e)
         {
             this.switchOffAll();
+            this.removePoints();
             this.drawQuadrate = true;
         }
 
         private void radioButtonEllipse_CheckedChanged(object sender, EventArgs e)
         {
             this.switchOffAll();
+            this.removePoints();
             this.drawEllipse = true;
         }
 
