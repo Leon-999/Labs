@@ -26,9 +26,6 @@ namespace vectorEditor
 
 
         ListObject objects;
-        private Triangle triangle;
-        private Quadrate quadrate;
-        private Ellipse ellipse;
 
         private bool drawLine = false;
         private bool drawTriangle = false;
@@ -79,29 +76,20 @@ namespace vectorEditor
             this.canvas.Invalidate();
 
             if (this.drawLine && this.countPoint == 2)
-            {
-                this.objects.Add(new Line(this.points[0], this.points[1]));
-                this.removePoints();
-                this.objects.getTail().object2d.draw(this.canvas);
-            }
+                this.drawNewObject(new Line(this.points[0], this.points[1]));
             else if (this.drawTriangle && this.countPoint == 3)
-            {
-                this.triangle = new Triangle(this.points[0], this.points[1],this.points[2]);
-                this.removePoints();
-                this.triangle.draw(this.canvas);
-            }
+                this.drawNewObject(new Triangle(this.points[0], this.points[1],this.points[2]));
             else if (this.drawQuadrate && this.countPoint == 2)
-            {
-                this.quadrate = new Quadrate(this.points[0], this.points[1]);
-                this.removePoints();
-                this.quadrate.draw(this.canvas);
-            }
+                this.drawNewObject(new Quadrate(this.points[0], this.points[1]));
             else if (this.drawEllipse && this.countPoint == 2)
-            {
-                this.ellipse = new Ellipse(this.points[0], this.points[1]);
-                this.removePoints();
-                this.ellipse.draw(this.canvas);
-            }
+                this.drawNewObject(new Ellipse(this.points[0], this.points[1]));
+        }
+
+        private void drawNewObject(Object2D newObject)
+        {
+            this.objects.Add(newObject);
+            this.removePoints();
+            this.objects.getTail().object2d.draw(this.canvas);
         }
 
         private void removePoints()
