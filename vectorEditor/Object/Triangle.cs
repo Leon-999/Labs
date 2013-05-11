@@ -10,21 +10,22 @@ namespace vectorEditor.Object
 {
     class Triangle:Object2D
     {
-        private Point2D secondPoint;
-        private Point2D thirdPoint;
+        private PointF[] points;
 
         public Triangle(Point2D firstPoint, Point2D secondPoint, Point2D thirdPoint, Color color) :
             base(firstPoint, color)
         {
-            this.secondPoint = secondPoint;
-            this.thirdPoint = thirdPoint;
+            this.points = new PointF[] {new PointF(this.coordinate.x, this.coordinate.y),
+                                                new PointF(secondPoint.x, secondPoint.y),
+                                                new PointF(thirdPoint.x, thirdPoint.y)};
         }
 
         public Triangle(Point2D firstPoint, Point2D secondPoint, Point2D thirdPoint) :
             base(firstPoint, Color.Black)
         {
-            this.secondPoint = secondPoint;
-            this.thirdPoint = thirdPoint;
+            this.points = new PointF[] {new PointF(this.coordinate.x, this.coordinate.y),
+                                                new PointF(secondPoint.x, secondPoint.y),
+                                                new PointF(thirdPoint.x, thirdPoint.y)};
         }
 
         protected override void draw(PictureBox canvas, bool fill, Color color)
@@ -33,12 +34,8 @@ namespace vectorEditor.Object
 
             Graphics graphics = Graphics.FromImage(canvas.Image);
 
-            PointF[] points = new PointF[] {new PointF(this.coordinate.x, this.coordinate.y),
-                                                new PointF(this.secondPoint.x, this.secondPoint.y),
-                                                new PointF(this.thirdPoint.x, this.thirdPoint.y)};
-
-            graphics.DrawPolygon(this.pen, points);
-            if (fill) graphics.FillPolygon(new SolidBrush(color), points);
+            graphics.DrawPolygon(this.pen, this.points);
+            if (fill) graphics.FillPolygon(new SolidBrush(color), this.points);
 
             this.pen.Dispose();
             graphics.Dispose();
