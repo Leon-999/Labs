@@ -13,16 +13,16 @@ namespace vectorEditor
 {
     public partial class MainForm : Form
     {
-        private Point2D[] points = new Point2D[9];
+        private Point2D[] points = new Point2D[3];
         private int countPoint;
 
         private Brush currentColor;
         private Brush backgroundColor;
         private Pen pen;
+        private Graphics graphics;
         private const float SIZE_PEN = 1;
         private static Color COLOR_PEN = Color.Black;
         public static Color COLOR_BACKGROUND = Color.White;
-        private int lastX, lastY;
 
 
         ListObject objects;
@@ -32,6 +32,10 @@ namespace vectorEditor
         private bool drawTriangle = false;
         private bool drawQuadrate = false;
         private bool drawEllipse = false;
+
+        private bool drawQuadrateSelection = false;
+        private int xQS, yQS;
+        private int widthQS, heightQS;
 
         public MainForm()
         {
@@ -59,26 +63,25 @@ namespace vectorEditor
 
         private void canvas_MouseClick(object sender, MouseEventArgs e)
         {
-
-            // Рисовать так: 
+            this.graphics = Graphics.FromImage(this.canvas.Image);
             this.pen = new Pen(this.currentColor, MainForm.SIZE_PEN);
-            Graphics graphics = Graphics.FromImage(this.canvas.Image);
+
             Point2D point1, point2;
 
             point1 = new Point2D(e.X, e.Y);
             point2 = new Point2D(e.X + 1, e.Y + 1);
-            graphics.DrawLine(this.pen, point1.x, point1.y, point2.x, point2.y);
+            this.graphics.DrawLine(this.pen, point1.x, point1.y, point2.x, point2.y);
 
             this.points[this.countPoint] = point1;
 
             point1 = new Point2D(e.X, e.Y + 1);
             point2 = new Point2D(e.X + 1, e.Y);
-            graphics.DrawLine(this.pen, point1.x, point1.y, point2.x, point2.y);
+            this.graphics.DrawLine(this.pen, point1.x, point1.y, point2.x, point2.y);
 
             this.countPoint++;
 
             this.pen.Dispose();
-            graphics.Dispose();
+            this.graphics.Dispose();
 
             this.canvas.Invalidate();
 
@@ -102,24 +105,24 @@ namespace vectorEditor
         private void removePoints()
         {
             this.pen = new Pen(this.backgroundColor, MainForm.SIZE_PEN);
-            Graphics graphics = Graphics.FromImage(this.canvas.Image);
+            this.graphics = Graphics.FromImage(this.canvas.Image);
 
             for (int i = 0; i < this.countPoint; ++i)
             {
                 Point2D tmpPoint;
 
                 tmpPoint = new Point2D(this.points[i].x + 1, this.points[i].y + 1);
-                graphics.DrawLine(this.pen, this.points[i].x, this.points[i].y, tmpPoint.x, tmpPoint.y);
+                this.graphics.DrawLine(this.pen, this.points[i].x, this.points[i].y, tmpPoint.x, tmpPoint.y);
 
 
                 this.points[i].y += 1;
                 tmpPoint.y -= 1;
-                graphics.DrawLine(this.pen, this.points[i].x, this.points[i].y, tmpPoint.x, tmpPoint.y);
+                this.graphics.DrawLine(this.pen, this.points[i].x, this.points[i].y, tmpPoint.x, tmpPoint.y);
             }
             this.countPoint = 0;
 
             this.pen.Dispose();
-            graphics.Dispose();
+            this.graphics.Dispose();
 
             this.canvas.Invalidate();
         }
@@ -168,6 +171,59 @@ namespace vectorEditor
         private void checkBoxFill_CheckedChanged(object sender, EventArgs e)
         {
             this.fillObject = (this.fillObject) ? false: true;
+        }
+
+        private void canvas_MouseDown(object sender, MouseEventArgs e)
+        {
+            this.drawQuadrateSelection = true;
+            this.xQS = e.X;
+            this.yQS = e.Y;
+        }
+
+        private void canvas_MouseUp(object sender, MouseEventArgs e)
+        {
+            this.drawQuadrateSelection = false;
+            this.drawQS(this.backgroundColor);
+            this.removePoints();
+        }
+
+        private void canvas_MouseMove(object sender, MouseEventArgs e)
+        {
+            if (this.drawQuadrateSelection)
+            {
+                this.drawQS(this.backgroundColor);
+                
+                this.widthQS = e.X - this.xQS;
+                this.heightQS = e.Y - this.yQS;
+
+                this.drawQS(this.currentColor);
+            }
+        }
+
+        private void drawQS(Brush brush)
+        {
+            this.graphics = Graphics.FromImage(this.canvas.Image);
+
+            this.pen = new Pen(brush, MainForm.SIZE_PEN);
+
+            int paintX, paintY;
+
+            if(this.widthQS < 0) 
+                paintX = this.xQS + this.widthQS; 
+            else
+                paintX = this.xQS;
+
+            if (this.heightQS < 0)
+                paintY = this.yQS + this.heightQS;
+            else
+                paintY = this.yQS;
+
+            this.graphics.DrawRectangle(this.pen, paintX, paintY, Math.Abs(this.widthQS), Math.Abs(this.heightQS));
+
+            this.pen.Dispose();
+            this.graphics.Dispose();
+
+            this.canvas.Invalidate();
         }
     }
 }
