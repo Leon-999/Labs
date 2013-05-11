@@ -38,7 +38,6 @@ namespace vectorEditor.Object
     {
         protected Point2D coordinate;
         protected Color color;
-        protected Brush brush;
         protected Pen pen;
 
         protected const float SIZE_PEN = 1;
@@ -49,10 +48,12 @@ namespace vectorEditor.Object
         {
             this.coordinate = coordinate;
             this.color = color;
-            this.brush = new SolidBrush(this.color);
         }
 
-        abstract public void draw(PictureBox canvas);
+        public void draw(PictureBox canvas) { this.draw(canvas, this.color); }
+        public void clear(PictureBox canvas) { this.draw(canvas, MainForm.COLOR_BACKGROUND); }
+
+        abstract protected void draw(PictureBox canvas, Color color);
 
     }
 }

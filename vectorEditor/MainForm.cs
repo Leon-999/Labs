@@ -42,12 +42,17 @@ namespace vectorEditor
             this.backgroundColor = new SolidBrush(MainForm.COLOR_BACKGROUND);
 
             this.objects = new ListObject();
-            this.clearCanvas();
+
+            this.canvas.Image = Properties.Resources.whiteBackground;
             this.radioButtonLine.Checked = true;
         }
         private void clearCanvas()
         {
-            this.canvas.Image = Properties.Resources.whiteBackground;
+            for (ItemList i = this.objects.getHead(); i != null; i = i.next)
+            {
+                i.object2d.clear(this.canvas);
+            }
+            this.objects = new ListObject();
         }
 
         private void canvas_MouseClick(object sender, MouseEventArgs e)

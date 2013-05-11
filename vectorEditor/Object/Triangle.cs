@@ -27,9 +27,9 @@ namespace vectorEditor.Object
             this.thirdPoint = thirdPoint;
         }
 
-        public override void draw(PictureBox canvas) 
+        protected override void draw(PictureBox canvas, Color color)
         {
-            this.pen = new Pen(this.brush, Object2D.SIZE_PEN);
+            this.pen = new Pen(new SolidBrush(color), Object2D.SIZE_PEN);
 
             Graphics graphics = Graphics.FromImage(canvas.Image);
 
