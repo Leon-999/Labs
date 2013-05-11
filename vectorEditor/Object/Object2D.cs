@@ -73,7 +73,7 @@ namespace vectorEditor.Object
             bool answer = false;
 
             if ((point.x > coordinateArea.x && point.x < coordinateArea.x + widthArea) &&
-                   (point.y > coordinateArea.y && point.y < coordinate.x + heightArea))
+                   (point.y > coordinateArea.y && point.y < coordinateArea.y + heightArea))
                 answer = true;
 
             return answer;

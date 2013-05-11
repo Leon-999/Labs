@@ -55,21 +55,5 @@ namespace vectorEditor.Object
             this.listObject.Add(newObject);
         }
 
-        public void drawLatest(System.Windows.Forms.PictureBox canvas)
-        {
-            this.listObject.getTail().object2d.draw(canvas);
-        }
-
-        public Group selectObjectsFromArea(Point2D coordinateArea, int widthArea, int heightArea)
-        {
-            Group newGroup = new Group();
-
-            for (ItemList i = this.listObject.getHead(); i != null; i = i.next)
-                if (i.object2d.inTheArea(coordinateArea, widthArea, heightArea))
-                    newGroup.addObject(i.object2d);
-
-            return newGroup;
-        }
-
     }
 }

@@ -11,6 +11,7 @@ namespace vectorEditor.Object
     class Triangle:Object2D
     {
         private PointF[] points;
+        private const int NUMBER_OF_PEAK = 3;
 
         public Triangle(Point2D firstPoint, Point2D secondPoint, Point2D thirdPoint, bool fill, Color color) :
             base(firstPoint, fill)
@@ -49,7 +50,7 @@ namespace vectorEditor.Object
         {
             bool answer = true;
 
-            for( int i=0; this.points[i] != null; ++i)
+            for( int i=0; i <  Triangle.NUMBER_OF_PEAK; ++i)
                 if (!this.pointInTheArea(new Point2D(this.points[i].X, this.points[i].Y), coordinateArea, widthArea, heightArea))
                 {
                     answer = false;

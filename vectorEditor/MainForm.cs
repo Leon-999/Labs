@@ -25,7 +25,7 @@ namespace vectorEditor
         public static Color COLOR_BACKGROUND = Color.White;
 
 
-        Group objects;
+        ListObject objects;
         private bool fillObject = false;
 
         private bool drawLine = false;
@@ -47,17 +47,17 @@ namespace vectorEditor
             this.currentColor = new SolidBrush(MainForm.COLOR_PEN);
             this.backgroundColor = new SolidBrush(MainForm.COLOR_BACKGROUND);
 
-            this.objects = new Group();
+            this.objects = new ListObject();
 
             this.canvas.Image = Properties.Resources.whiteBackground;
             this.radioButtonLine.Checked = true;
             this.radioButtonPickOut.Checked = this.activationQS;
             this.checkBoxFill.Checked = this.fillObject;
         }
-        private void clearCanvas()
+        private void clearCanvas(PictureBox canvas)
         {
-            this.objects.clear(this.canvas);
-            this.objects = new Group();
+            this.clearObjects(canvas);
+            this.objects = new ListObject();
         }
 
         private void canvas_MouseClick(object sender, MouseEventArgs e)
@@ -96,9 +96,9 @@ namespace vectorEditor
 
         private void drawNewObject(Object2D newObject)
         {
-            this.objects.addObject(newObject);
+            this.objects.Add(newObject);
             this.removePoints();
-            this.objects.drawLatest(this.canvas);
+            this.objects.getTail().object2d.draw(this.canvas);
         }
 
         private void removePoints()
@@ -128,7 +128,7 @@ namespace vectorEditor
 
         private void buttonClear_Click(object sender, EventArgs e)
         {
-            this.clearCanvas();
+            this.clearCanvas(this.canvas);
         }
 
         private void radioButtonLine_CheckedChanged(object sender, EventArgs e)
@@ -177,6 +177,29 @@ namespace vectorEditor
             this.activationQS = this.radioButtonPickOut.Checked;
         }
 
+        private void drawAgain(PictureBox canvas)
+        {
+            this.clearObjects(canvas);
+
+            this.drawObjects(canvas);
+        }
+
+        private void drawObjects(PictureBox canvas)
+        {
+            for (ItemList i = this.objects.getHead(); i != null; i = i.next)
+            {
+                i.object2d.draw(canvas);
+            }
+        }
+
+        private void clearObjects(PictureBox canvas)
+        {
+            for (ItemList i = this.objects.getHead(); i != null; i = i.next)
+            {
+                i.object2d.clear(canvas);
+            }
+        }
+
         private void canvas_MouseDown(object sender, MouseEventArgs e)
         {
             if (this.activationQS)
@@ -184,6 +207,8 @@ namespace vectorEditor
                 this.drawQuadrateSelection = true;
                 this.xQS = e.X;
                 this.yQS = e.Y;
+                this.widthQS = 0;
+                this.heightQS = 0;
             }
         }
 
@@ -193,12 +218,28 @@ namespace vectorEditor
             {
                 this.drawQuadrateSelection = false;
                 this.drawQS(this.backgroundColor);
-                this.objects.draw(this.canvas);
                 this.removePoints();
+                this.drawObjects(this.canvas);
 
-                this.objects.clear(this.canvas);
-                this.objects = this.objects.selectObjectsFromArea(new Point2D(this.xQS, this.yQS), this.widthQS, this.heightQS);
-                this.objects.draw(this.canvas);
+                Group group = new Group();
+                int areaX, areaY;
+
+                if (this.widthQS < 0)
+                    areaX = this.xQS + this.widthQS;
+                else
+                    areaX = this.xQS;
+
+                if (this.heightQS < 0)
+                    areaY = this.yQS + this.heightQS;
+                else
+                    areaY = this.yQS;
+
+                Point2D coordinateArea = new Point2D(areaX, areaY);
+                for (ItemList i = this.objects.getHead(); i != null; i = i.next)
+                    if (i.object2d.inTheArea(coordinateArea, Math.Abs(this.widthQS), Math.Abs(this.heightQS)))
+                        group.addObject(i.object2d);
+
+                group.clear(canvas);
             }
         }
 
@@ -207,7 +248,7 @@ namespace vectorEditor
             if (this.drawQuadrateSelection)
             {
                 this.drawQS(this.backgroundColor);
-                this.objects.draw(canvas);
+                this.drawObjects(canvas);
                 
                 this.widthQS = e.X - this.xQS;
                 this.heightQS = e.Y - this.yQS;
