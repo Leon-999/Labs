@@ -36,6 +36,7 @@
             this.radioButtonQuadrate = new System.Windows.Forms.RadioButton();
             this.radioButtonEllipse = new System.Windows.Forms.RadioButton();
             this.checkBoxFill = new System.Windows.Forms.CheckBox();
+            this.radioButtonPickOut = new System.Windows.Forms.RadioButton();
             ((System.ComponentModel.ISupportInitialize)(this.canvas)).BeginInit();
             this.SuspendLayout();
             // 
@@ -121,11 +122,24 @@
             this.checkBoxFill.UseVisualStyleBackColor = true;
             this.checkBoxFill.CheckedChanged += new System.EventHandler(this.checkBoxFill_CheckedChanged);
             // 
+            // radioButtonPickOut
+            // 
+            this.radioButtonPickOut.AutoSize = true;
+            this.radioButtonPickOut.Location = new System.Drawing.Point(12, 482);
+            this.radioButtonPickOut.Name = "radioButtonPickOut";
+            this.radioButtonPickOut.Size = new System.Drawing.Size(63, 17);
+            this.radioButtonPickOut.TabIndex = 9;
+            this.radioButtonPickOut.TabStop = true;
+            this.radioButtonPickOut.Text = "pick out";
+            this.radioButtonPickOut.UseVisualStyleBackColor = true;
+            this.radioButtonPickOut.CheckedChanged += new System.EventHandler(this.radioButtonPickOut_CheckedChanged);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(568, 517);
+            this.Controls.Add(this.radioButtonPickOut);
             this.Controls.Add(this.checkBoxFill);
             this.Controls.Add(this.radioButtonEllipse);
             this.Controls.Add(this.radioButtonQuadrate);
@@ -151,6 +165,7 @@
         private System.Windows.Forms.RadioButton radioButtonQuadrate;
         private System.Windows.Forms.RadioButton radioButtonEllipse;
         private System.Windows.Forms.CheckBox checkBoxFill;
+        private System.Windows.Forms.RadioButton radioButtonPickOut;
     }
 }
 

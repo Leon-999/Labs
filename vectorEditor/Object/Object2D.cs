@@ -52,6 +52,7 @@ namespace vectorEditor.Object
 
         public void draw(PictureBox canvas, bool fill = true) { this.draw(canvas, fill, this.color); }
         public void clear(PictureBox canvas) { this.draw(canvas,true, MainForm.COLOR_BACKGROUND); }
+        public Point2D getCoordinate() { return this.coordinate; }
 
         abstract protected void draw(PictureBox canvas, bool fill, Color color);
 
@@ -63,6 +64,7 @@ namespace vectorEditor.Object
 
             this.color = Color.FromArgb(red, green, blue);
         }
+
 
     }
 }

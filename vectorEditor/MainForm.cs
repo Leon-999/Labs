@@ -25,7 +25,7 @@ namespace vectorEditor
         public static Color COLOR_BACKGROUND = Color.White;
 
 
-        ListObject objects;
+        Group objects;
         private bool fillObject = false;
 
         private bool drawLine = false;
@@ -34,6 +34,7 @@ namespace vectorEditor
         private bool drawEllipse = false;
 
         private bool drawQuadrateSelection = false;
+        private bool activationQS = false;
         private int xQS, yQS;
         private int widthQS, heightQS;
 
@@ -46,19 +47,17 @@ namespace vectorEditor
             this.currentColor = new SolidBrush(MainForm.COLOR_PEN);
             this.backgroundColor = new SolidBrush(MainForm.COLOR_BACKGROUND);
 
-            this.objects = new ListObject();
+            this.objects = new Group();
 
             this.canvas.Image = Properties.Resources.whiteBackground;
             this.radioButtonLine.Checked = true;
+            this.radioButtonPickOut.Checked = this.activationQS;
             this.checkBoxFill.Checked = this.fillObject;
         }
         private void clearCanvas()
         {
-            for (ItemList i = this.objects.getHead(); i != null; i = i.next)
-            {
-                i.object2d.clear(this.canvas);
-            }
-            this.objects = new ListObject();
+            this.objects.clear(this.canvas);
+            this.objects = new Group();
         }
 
         private void canvas_MouseClick(object sender, MouseEventArgs e)
@@ -97,9 +96,9 @@ namespace vectorEditor
 
         private void drawNewObject(Object2D newObject)
         {
-            this.objects.Add(newObject);
+            this.objects.addObject(newObject);
             this.removePoints();
-            this.objects.getTail().object2d.draw(this.canvas, this.fillObject);
+            this.objects.drawLatest(this.canvas, this.fillObject);
         }
 
         private void removePoints()
@@ -170,21 +169,32 @@ namespace vectorEditor
 
         private void checkBoxFill_CheckedChanged(object sender, EventArgs e)
         {
-            this.fillObject = (this.fillObject) ? false: true;
+            this.fillObject = this.checkBoxFill.Checked;
+        }
+
+        private void radioButtonPickOut_CheckedChanged(object sender, EventArgs e)
+        {
+            this.activationQS = this.radioButtonPickOut.Checked;
         }
 
         private void canvas_MouseDown(object sender, MouseEventArgs e)
         {
-            this.drawQuadrateSelection = true;
-            this.xQS = e.X;
-            this.yQS = e.Y;
+            if (this.activationQS)
+            {
+                this.drawQuadrateSelection = true;
+                this.xQS = e.X;
+                this.yQS = e.Y;
+            }
         }
 
         private void canvas_MouseUp(object sender, MouseEventArgs e)
         {
-            this.drawQuadrateSelection = false;
-            this.drawQS(this.backgroundColor);
-            this.removePoints();
+            if (this.activationQS)
+            {
+                this.drawQuadrateSelection = false;
+                this.drawQS(this.backgroundColor);
+                this.removePoints();
+            }
         }
 
         private void canvas_MouseMove(object sender, MouseEventArgs e)
@@ -192,6 +202,7 @@ namespace vectorEditor
             if (this.drawQuadrateSelection)
             {
                 this.drawQS(this.backgroundColor);
+                this.objects.draw(canvas);
                 
                 this.widthQS = e.X - this.xQS;
                 this.heightQS = e.Y - this.yQS;
