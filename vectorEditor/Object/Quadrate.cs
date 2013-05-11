@@ -12,15 +12,17 @@ namespace vectorEditor.Object
         private Point2D secondPoint;
 
         public Quadrate(Point2D firstPoint, Point2D secondPoint, Color color) :
-            base(firstPoint, color)
+            base(firstPoint)
         {
             this.secondPoint = secondPoint;
+            this.color = color;
         }
 
         public Quadrate(Point2D firstPoint, Point2D secondPoint) :
-            base(firstPoint, Color.Black)
+            base(firstPoint)
         {
             this.secondPoint = secondPoint;
+            this.randColor();
 
             float tmp;
             if (this.coordinate.x > this.secondPoint.x)

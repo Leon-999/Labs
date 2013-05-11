@@ -13,19 +13,21 @@ namespace vectorEditor.Object
         private PointF[] points;
 
         public Triangle(Point2D firstPoint, Point2D secondPoint, Point2D thirdPoint, Color color) :
-            base(firstPoint, color)
+            base(firstPoint)
         {
             this.points = new PointF[] {new PointF(this.coordinate.x, this.coordinate.y),
                                                 new PointF(secondPoint.x, secondPoint.y),
                                                 new PointF(thirdPoint.x, thirdPoint.y)};
+            this.color = color;
         }
 
         public Triangle(Point2D firstPoint, Point2D secondPoint, Point2D thirdPoint) :
-            base(firstPoint, Color.Black)
+            base(firstPoint)
         {
             this.points = new PointF[] {new PointF(this.coordinate.x, this.coordinate.y),
                                                 new PointF(secondPoint.x, secondPoint.y),
                                                 new PointF(thirdPoint.x, thirdPoint.y)};
+            this.randColor();
         }
 
         protected override void draw(PictureBox canvas, bool fill, Color color)

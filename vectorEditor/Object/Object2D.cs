@@ -41,19 +41,28 @@ namespace vectorEditor.Object
         protected Pen pen;
 
         protected const float SIZE_PEN = 1;
+        protected static Random randomizer = new Random();
 
         protected bool visible;
 
-        protected Object2D(Point2D coordinate, Color color)
+        protected Object2D(Point2D coordinate)
         {
             this.coordinate = coordinate;
-            this.color = color;
         }
 
         public void draw(PictureBox canvas, bool fill = true) { this.draw(canvas, fill, this.color); }
         public void clear(PictureBox canvas) { this.draw(canvas,true, MainForm.COLOR_BACKGROUND); }
 
         abstract protected void draw(PictureBox canvas, bool fill, Color color);
+
+        protected void randColor()
+        {
+            int red = Object2D.randomizer.Next() % 255;
+            int green = Object2D.randomizer.Next() % 255;
+            int blue = Object2D.randomizer.Next() % 255;
+
+            this.color = Color.FromArgb(red, green, blue);
+        }
 
     }
 }
