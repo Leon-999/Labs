@@ -24,7 +24,8 @@ namespace vectorEditor
         public static Color COLOR_BACKGROUND = Color.White;
         private int lastX, lastY;
 
-        private Line line;
+
+        ListObject objects;
         private Triangle triangle;
         private Quadrate quadrate;
         private Ellipse ellipse;
@@ -43,6 +44,7 @@ namespace vectorEditor
             this.currentColor = new SolidBrush(MainForm.COLOR_PEN);
             this.backgroundColor = new SolidBrush(MainForm.COLOR_BACKGROUND);
 
+            this.objects = new ListObject();
             this.clearCanvas();
             this.radioButtonLine.Checked = true;
         }
@@ -78,9 +80,9 @@ namespace vectorEditor
 
             if (this.drawLine && this.countPoint == 2)
             {
-                this.line = new Line(this.points[0], this.points[1]);
+                this.objects.Add(new Line(this.points[0], this.points[1]));
                 this.removePoints();
-                this.line.draw(this.canvas);
+                this.objects.getTail().object2d.draw(this.canvas);
             }
             else if (this.drawTriangle && this.countPoint == 3)
             {
