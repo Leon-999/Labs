@@ -12,8 +12,8 @@ namespace vectorEditor.Object
     {
         private PointF[] points;
 
-        public Triangle(Point2D firstPoint, Point2D secondPoint, Point2D thirdPoint, Color color) :
-            base(firstPoint)
+        public Triangle(Point2D firstPoint, Point2D secondPoint, Point2D thirdPoint, bool fill, Color color) :
+            base(firstPoint, fill)
         {
             this.points = new PointF[] {new PointF(this.coordinate.x, this.coordinate.y),
                                                 new PointF(secondPoint.x, secondPoint.y),
@@ -21,8 +21,8 @@ namespace vectorEditor.Object
             this.color = color;
         }
 
-        public Triangle(Point2D firstPoint, Point2D secondPoint, Point2D thirdPoint) :
-            base(firstPoint)
+        public Triangle(Point2D firstPoint, Point2D secondPoint, Point2D thirdPoint, bool fill) :
+            base(firstPoint, fill)
         {
             this.points = new PointF[] {new PointF(this.coordinate.x, this.coordinate.y),
                                                 new PointF(secondPoint.x, secondPoint.y),
@@ -30,14 +30,14 @@ namespace vectorEditor.Object
             this.randColor();
         }
 
-        protected override void draw(PictureBox canvas, bool fill, Color color)
+        protected override void draw(PictureBox canvas, Color color)
         {
             this.pen = new Pen(new SolidBrush(color), Object2D.SIZE_PEN);
 
             Graphics graphics = Graphics.FromImage(canvas.Image);
 
             graphics.DrawPolygon(this.pen, this.points);
-            if (fill) graphics.FillPolygon(new SolidBrush(color), this.points);
+            if (this.fill) graphics.FillPolygon(new SolidBrush(color), this.points);
 
             this.pen.Dispose();
             graphics.Dispose();

@@ -87,18 +87,18 @@ namespace vectorEditor
             if (this.drawLine && this.countPoint == 2)
                 this.drawNewObject(new Line(this.points[0], this.points[1]));
             else if (this.drawTriangle && this.countPoint == 3)
-                this.drawNewObject(new Triangle(this.points[0], this.points[1],this.points[2]));
+                this.drawNewObject(new Triangle(this.points[0], this.points[1],this.points[2], this.fillObject));
             else if (this.drawQuadrate && this.countPoint == 2)
-                this.drawNewObject(new Quadrate(this.points[0], this.points[1]));
+                this.drawNewObject(new Quadrate(this.points[0], this.points[1], this.fillObject));
             else if (this.drawEllipse && this.countPoint == 2)
-                this.drawNewObject(new Ellipse(this.points[0], this.points[1]));
+                this.drawNewObject(new Ellipse(this.points[0], this.points[1], this.fillObject));
         }
 
         private void drawNewObject(Object2D newObject)
         {
             this.objects.addObject(newObject);
             this.removePoints();
-            this.objects.drawLatest(this.canvas, this.fillObject);
+            this.objects.drawLatest(this.canvas);
         }
 
         private void removePoints()
@@ -193,6 +193,7 @@ namespace vectorEditor
             {
                 this.drawQuadrateSelection = false;
                 this.drawQS(this.backgroundColor);
+                this.objects.draw(this.canvas);
                 this.removePoints();
             }
         }

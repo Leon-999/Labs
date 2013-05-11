@@ -12,20 +12,20 @@ namespace vectorEditor.Object
         private Point2D secondPoint;
 
         public Line(Point2D firstPoint, Point2D secondPoint, Color color) :
-            base(firstPoint)
+            base(firstPoint, false)
         {
             this.secondPoint = secondPoint;
             this.color = color;
         }
 
         public Line(Point2D firstPoint, Point2D secondPoint) :
-            base(firstPoint)
+            base(firstPoint, false)
         {
             this.secondPoint = secondPoint;
             this.randColor();
         }
 
-        protected override void draw(PictureBox canvas,bool fill, Color color)
+        protected override void draw(PictureBox canvas, Color color)
         {
             this.pen = new Pen(new SolidBrush(color), Object2D.SIZE_PEN);
 

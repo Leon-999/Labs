@@ -10,24 +10,24 @@ namespace vectorEditor.Object
         ListObject listObject;
 
         public Group(ListObject newListObject) :
-            base(newListObject.getHead().object2d.getCoordinate())
+            base(newListObject.getHead().object2d.getCoordinate(), false)
         {
             this.listObject = newListObject;
         }
 
         public Group() :
-            base(new Point2D(0, 0))
+            base(new Point2D(0, 0), false)
         {
             this.listObject = new ListObject();
         }
 
 
-        protected override void draw(System.Windows.Forms.PictureBox canvas, bool fill, System.Drawing.Color color)
+        protected override void draw(System.Windows.Forms.PictureBox canvas, System.Drawing.Color color)
         {
             if (color != MainForm.COLOR_BACKGROUND)
                 for (ItemList i = this.listObject.getHead(); i != null; i = i.next)
                 {
-                    i.object2d.draw(canvas, fill);
+                    i.object2d.draw(canvas);
                 }
             else
                 for (ItemList i = this.listObject.getHead(); i != null; i = i.next)
@@ -41,9 +41,9 @@ namespace vectorEditor.Object
             this.listObject.Add(newObject);
         }
 
-        public void drawLatest(System.Windows.Forms.PictureBox canvas, bool fill)
+        public void drawLatest(System.Windows.Forms.PictureBox canvas)
         {
-            this.listObject.getTail().object2d.draw(canvas, fill);
+            this.listObject.getTail().object2d.draw(canvas);
         }
 
     }

@@ -38,6 +38,7 @@ namespace vectorEditor.Object
     {
         protected Point2D coordinate;
         protected Color color;
+        protected bool fill;
         protected Pen pen;
 
         protected const float SIZE_PEN = 1;
@@ -45,16 +46,17 @@ namespace vectorEditor.Object
 
         protected bool visible;
 
-        protected Object2D(Point2D coordinate)
+        protected Object2D(Point2D coordinate, bool fill)
         {
             this.coordinate = coordinate;
+            this.fill = fill;
         }
 
-        public void draw(PictureBox canvas, bool fill = true) { this.draw(canvas, fill, this.color); }
-        public void clear(PictureBox canvas) { this.draw(canvas,true, MainForm.COLOR_BACKGROUND); }
+        public void draw(PictureBox canvas) { this.draw(canvas, this.color); }
+        public void clear(PictureBox canvas) { this.draw(canvas, MainForm.COLOR_BACKGROUND); }
         public Point2D getCoordinate() { return this.coordinate; }
 
-        abstract protected void draw(PictureBox canvas, bool fill, Color color);
+        abstract protected void draw(PictureBox canvas, Color color);
 
         protected void randColor()
         {
