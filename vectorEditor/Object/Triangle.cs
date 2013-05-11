@@ -13,8 +13,8 @@ namespace vectorEditor.Object
         private PointF[] points;
         private const int NUMBER_OF_PEAK = 3;
 
-        public Triangle(Point2D firstPoint, Point2D secondPoint, Point2D thirdPoint, bool fill, Color color) :
-            base(firstPoint, fill)
+        public Triangle(Point2D firstPoint, Point2D secondPoint, Point2D thirdPoint, bool fill, PictureBox canvas, Color color) :
+            base(firstPoint, fill, canvas)
         {
             this.points = new PointF[] {new PointF(this.coordinate.x, this.coordinate.y),
                                                 new PointF(secondPoint.x, secondPoint.y),
@@ -22,8 +22,8 @@ namespace vectorEditor.Object
             this.color = color;
         }
 
-        public Triangle(Point2D firstPoint, Point2D secondPoint, Point2D thirdPoint, bool fill) :
-            base(firstPoint, fill)
+        public Triangle(Point2D firstPoint, Point2D secondPoint, Point2D thirdPoint, bool fill, PictureBox canvas) :
+            base(firstPoint, fill, canvas)
         {
             this.points = new PointF[] {new PointF(this.coordinate.x, this.coordinate.y),
                                                 new PointF(secondPoint.x, secondPoint.y),
@@ -31,11 +31,11 @@ namespace vectorEditor.Object
             this.randColor();
         }
 
-        protected override void draw(PictureBox canvas, Color color)
+        protected override void draw(Color color)
         {
-            this.pen = new Pen(new SolidBrush(color), Object2D.SIZE_PEN);
 
-            Graphics graphics = Graphics.FromImage(canvas.Image);
+            this.pen = new Pen(new SolidBrush(color), Object2D.SIZE_PEN);
+            Graphics graphics = Graphics.FromImage(this.canvas.Image);
 
             graphics.DrawPolygon(this.pen, this.points);
             if (this.fill) graphics.FillPolygon(new SolidBrush(color), this.points);

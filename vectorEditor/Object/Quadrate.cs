@@ -11,15 +11,15 @@ namespace vectorEditor.Object
     {
         private Point2D secondPoint;
 
-        public Quadrate(Point2D firstPoint, Point2D secondPoint, bool fill, Color color) :
-            base(firstPoint, fill)
+        public Quadrate(Point2D firstPoint, Point2D secondPoint, bool fill, PictureBox canvas, Color color) :
+            base(firstPoint, fill, canvas)
         {
             this.secondPoint = secondPoint;
             this.color = color;
         }
 
-        public Quadrate(Point2D firstPoint, Point2D secondPoint, bool fill) :
-            base(firstPoint, fill)
+        public Quadrate(Point2D firstPoint, Point2D secondPoint, bool fill, PictureBox canvas) :
+            base(firstPoint, fill, canvas)
         {
             this.secondPoint = secondPoint;
             this.randColor();
@@ -40,11 +40,11 @@ namespace vectorEditor.Object
             
         }
 
-        protected override void draw(PictureBox canvas, Color color)
+        protected override void draw(Color color)
         {
             this.pen = new Pen(new SolidBrush(color), Object2D.SIZE_PEN);
 
-            Graphics graphics = Graphics.FromImage(canvas.Image);
+            Graphics graphics = Graphics.FromImage(this.canvas.Image);
 
             graphics.DrawRectangle(this.pen, this.coordinate.x, this.coordinate.y, Math.Abs(this.secondPoint.x - this.coordinate.x), Math.Abs(this.secondPoint.y - this.coordinate.y));
             if (this.fill) graphics.FillRectangle(new SolidBrush(color), this.coordinate.x, this.coordinate.y, Math.Abs(this.secondPoint.x - this.coordinate.x), Math.Abs(this.secondPoint.y - this.coordinate.y));

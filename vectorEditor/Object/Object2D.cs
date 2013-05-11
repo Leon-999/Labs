@@ -40,23 +40,25 @@ namespace vectorEditor.Object
         protected Color color;
         protected bool fill;
         protected Pen pen;
+        protected PictureBox canvas;
 
         protected const float SIZE_PEN = 1;
         protected static Random randomizer = new Random();
 
         protected bool visible;
 
-        protected Object2D(Point2D coordinate, bool fill)
+        protected Object2D(Point2D coordinate, bool fill, PictureBox canvas)
         {
             this.coordinate = coordinate;
             this.fill = fill;
+            this.canvas = canvas;
         }
 
-        public void draw(PictureBox canvas) { this.draw(canvas, this.color); }
-        public void clear(PictureBox canvas) { this.draw(canvas, MainForm.COLOR_BACKGROUND); }
+        public void draw() { this.draw(this.color); }
+        public void clear() { this.draw(MainForm.COLOR_BACKGROUND); }
         public Point2D getCoordinate() { return this.coordinate; }
 
-        abstract protected void draw(PictureBox canvas, Color color);
+        abstract protected void draw(Color color);
         abstract public bool inTheArea(Point2D coordinateArea, int widthArea, int heightArea);
 
         protected void randColor()

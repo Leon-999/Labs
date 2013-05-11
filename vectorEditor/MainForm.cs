@@ -56,7 +56,7 @@ namespace vectorEditor
         }
         private void clearCanvas(PictureBox canvas)
         {
-            this.clearObjects(canvas);
+            this.clearObjects();
             this.objects = new ListObject();
         }
 
@@ -85,20 +85,20 @@ namespace vectorEditor
             this.canvas.Invalidate();
 
             if (this.drawLine && this.countPoint == 2)
-                this.drawNewObject(new Line(this.points[0], this.points[1]));
+                this.drawNewObject(new Line(this.points[0], this.points[1], this.canvas));
             else if (this.drawTriangle && this.countPoint == 3)
-                this.drawNewObject(new Triangle(this.points[0], this.points[1],this.points[2], this.fillObject));
+                this.drawNewObject(new Triangle(this.points[0], this.points[1], this.points[2], this.fillObject, this.canvas));
             else if (this.drawQuadrate && this.countPoint == 2)
-                this.drawNewObject(new Quadrate(this.points[0], this.points[1], this.fillObject));
+                this.drawNewObject(new Quadrate(this.points[0], this.points[1], this.fillObject, this.canvas));
             else if (this.drawEllipse && this.countPoint == 2)
-                this.drawNewObject(new Ellipse(this.points[0], this.points[1], this.fillObject));
+                this.drawNewObject(new Ellipse(this.points[0], this.points[1], this.fillObject, this.canvas));
         }
 
         private void drawNewObject(Object2D newObject)
         {
             this.objects.Add(newObject);
             this.removePoints();
-            this.objects.getTail().object2d.draw(this.canvas);
+            this.objects.getTail().object2d.draw();
         }
 
         private void removePoints()
@@ -177,26 +177,26 @@ namespace vectorEditor
             this.activationQS = this.radioButtonPickOut.Checked;
         }
 
-        private void drawAgain(PictureBox canvas)
+        private void drawAgain()
         {
-            this.clearObjects(canvas);
+            this.clearObjects();
 
-            this.drawObjects(canvas);
+            this.drawObjects();
         }
 
-        private void drawObjects(PictureBox canvas)
+        private void drawObjects()
         {
             for (ItemList i = this.objects.getHead(); i != null; i = i.next)
             {
-                i.object2d.draw(canvas);
+                i.object2d.draw();
             }
         }
 
-        private void clearObjects(PictureBox canvas)
+        private void clearObjects()
         {
             for (ItemList i = this.objects.getHead(); i != null; i = i.next)
             {
-                i.object2d.clear(canvas);
+                i.object2d.clear();
             }
         }
 
@@ -219,9 +219,9 @@ namespace vectorEditor
                 this.drawQuadrateSelection = false;
                 this.drawQS(this.backgroundColor);
                 this.removePoints();
-                this.drawObjects(this.canvas);
+                this.drawObjects();
 
-                Group group = new Group();
+                Group group = new Group(this.canvas);
                 int areaX, areaY;
 
                 if (this.widthQS < 0)
@@ -239,7 +239,7 @@ namespace vectorEditor
                     if (i.object2d.inTheArea(coordinateArea, Math.Abs(this.widthQS), Math.Abs(this.heightQS)))
                         group.addObject(i.object2d);
 
-                group.clear(canvas);
+                group.clear();
             }
         }
 
@@ -248,7 +248,7 @@ namespace vectorEditor
             if (this.drawQuadrateSelection)
             {
                 this.drawQS(this.backgroundColor);
-                this.drawObjects(canvas);
+                this.drawObjects();
                 
                 this.widthQS = e.X - this.xQS;
                 this.heightQS = e.Y - this.yQS;
