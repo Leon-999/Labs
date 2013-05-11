@@ -50,10 +50,10 @@ namespace vectorEditor.Object
             this.color = color;
         }
 
-        public void draw(PictureBox canvas) { this.draw(canvas, this.color); }
-        public void clear(PictureBox canvas) { this.draw(canvas, MainForm.COLOR_BACKGROUND); }
+        public void draw(PictureBox canvas, bool fill = true) { this.draw(canvas, fill, this.color); }
+        public void clear(PictureBox canvas) { this.draw(canvas,true, MainForm.COLOR_BACKGROUND); }
 
-        abstract protected void draw(PictureBox canvas, Color color);
+        abstract protected void draw(PictureBox canvas, bool fill, Color color);
 
     }
 }

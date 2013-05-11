@@ -35,6 +35,7 @@
             this.radioButtonTriangle = new System.Windows.Forms.RadioButton();
             this.radioButtonQuadrate = new System.Windows.Forms.RadioButton();
             this.radioButtonEllipse = new System.Windows.Forms.RadioButton();
+            this.checkBoxFill = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.canvas)).BeginInit();
             this.SuspendLayout();
             // 
@@ -106,11 +107,23 @@
             this.radioButtonEllipse.UseVisualStyleBackColor = true;
             this.radioButtonEllipse.CheckedChanged += new System.EventHandler(this.radioButtonEllipse_CheckedChanged);
             // 
+            // checkBoxFill
+            // 
+            this.checkBoxFill.AutoSize = true;
+            this.checkBoxFill.Location = new System.Drawing.Point(12, 449);
+            this.checkBoxFill.Name = "checkBoxFill";
+            this.checkBoxFill.Size = new System.Drawing.Size(35, 17);
+            this.checkBoxFill.TabIndex = 8;
+            this.checkBoxFill.Text = "fill";
+            this.checkBoxFill.UseVisualStyleBackColor = true;
+            this.checkBoxFill.CheckedChanged += new System.EventHandler(this.checkBoxFill_CheckedChanged);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(568, 517);
+            this.Controls.Add(this.checkBoxFill);
             this.Controls.Add(this.radioButtonEllipse);
             this.Controls.Add(this.radioButtonQuadrate);
             this.Controls.Add(this.radioButtonTriangle);
@@ -134,6 +147,7 @@
         private System.Windows.Forms.RadioButton radioButtonTriangle;
         private System.Windows.Forms.RadioButton radioButtonQuadrate;
         private System.Windows.Forms.RadioButton radioButtonEllipse;
+        private System.Windows.Forms.CheckBox checkBoxFill;
     }
 }
 

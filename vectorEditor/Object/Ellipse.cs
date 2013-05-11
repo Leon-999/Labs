@@ -38,13 +38,14 @@ namespace vectorEditor.Object
             
         }
 
-        protected override void draw(PictureBox canvas, Color color)
+        protected override void draw(PictureBox canvas, bool fill, Color color)
         {
             this.pen = new Pen(new SolidBrush(color), Object2D.SIZE_PEN);
 
             Graphics graphics = Graphics.FromImage(canvas.Image);
 
             graphics.DrawEllipse(this.pen, this.coordinate.x, this.coordinate.y, Math.Abs(this.secondPoint.x - this.coordinate.x), Math.Abs(this.secondPoint.y - this.coordinate.y));
+            if (fill) graphics.FillEllipse(new SolidBrush(color), this.coordinate.x, this.coordinate.y, Math.Abs(this.secondPoint.x - this.coordinate.x), Math.Abs(this.secondPoint.y - this.coordinate.y));
 
             this.pen.Dispose();
             graphics.Dispose();

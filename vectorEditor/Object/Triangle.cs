@@ -27,15 +27,18 @@ namespace vectorEditor.Object
             this.thirdPoint = thirdPoint;
         }
 
-        protected override void draw(PictureBox canvas, Color color)
+        protected override void draw(PictureBox canvas, bool fill, Color color)
         {
             this.pen = new Pen(new SolidBrush(color), Object2D.SIZE_PEN);
 
             Graphics graphics = Graphics.FromImage(canvas.Image);
 
-            graphics.DrawLine(this.pen, this.coordinate.x, this.coordinate.y, this.secondPoint.x, this.secondPoint.y);
-            graphics.DrawLine(this.pen, this.secondPoint.x, this.secondPoint.y, this.thirdPoint.x, this.thirdPoint.y);
-            graphics.DrawLine(this.pen, this.thirdPoint.x, this.thirdPoint.y, this.coordinate.x, this.coordinate.y);
+            PointF[] points = new PointF[] {new PointF(this.coordinate.x, this.coordinate.y),
+                                                new PointF(this.secondPoint.x, this.secondPoint.y),
+                                                new PointF(this.thirdPoint.x, this.thirdPoint.y)};
+
+            graphics.DrawPolygon(this.pen, points);
+            if (fill) graphics.FillPolygon(new SolidBrush(color), points);
 
             this.pen.Dispose();
             graphics.Dispose();

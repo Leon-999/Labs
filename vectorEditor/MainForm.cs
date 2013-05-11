@@ -26,6 +26,7 @@ namespace vectorEditor
 
 
         ListObject objects;
+        private bool fillObject = false;
 
         private bool drawLine = false;
         private bool drawTriangle = false;
@@ -45,6 +46,7 @@ namespace vectorEditor
 
             this.canvas.Image = Properties.Resources.whiteBackground;
             this.radioButtonLine.Checked = true;
+            this.checkBoxFill.Checked = this.fillObject;
         }
         private void clearCanvas()
         {
@@ -94,7 +96,7 @@ namespace vectorEditor
         {
             this.objects.Add(newObject);
             this.removePoints();
-            this.objects.getTail().object2d.draw(this.canvas);
+            this.objects.getTail().object2d.draw(this.canvas, this.fillObject);
         }
 
         private void removePoints()
@@ -161,6 +163,11 @@ namespace vectorEditor
             this.drawTriangle = false;
             this.drawQuadrate = false;
             this.drawEllipse = false;
+        }
+
+        private void checkBoxFill_CheckedChanged(object sender, EventArgs e)
+        {
+            this.fillObject = (this.fillObject) ? false: true;
         }
     }
 }

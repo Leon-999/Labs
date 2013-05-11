@@ -24,7 +24,7 @@ namespace vectorEditor.Object
             
         }
 
-        protected override void draw(PictureBox canvas, Color color)
+        protected override void draw(PictureBox canvas,bool fill, Color color)
         {
             this.pen = new Pen(new SolidBrush(color), Object2D.SIZE_PEN);
 
