@@ -98,7 +98,7 @@ namespace vectorEditor
         {
             this.objects.Add(newObject);
             this.removePoints();
-            this.objects.getTail().object2d.draw();
+            this.drawObjects();
         }
 
         private void removePoints()
@@ -135,6 +135,7 @@ namespace vectorEditor
         {
             this.switchOffAll();
             this.removePoints();
+            this.drawObjects();
             this.drawLine = true;
         }
 
@@ -142,6 +143,7 @@ namespace vectorEditor
         {
             this.switchOffAll();
             this.removePoints();
+            this.drawObjects();
             this.drawTriangle = true;
         }
 
@@ -149,6 +151,7 @@ namespace vectorEditor
         {
             this.switchOffAll();
             this.removePoints();
+            this.drawObjects();
             this.drawQuadrate = true;
         }
 
@@ -156,6 +159,7 @@ namespace vectorEditor
         {
             this.switchOffAll();
             this.removePoints();
+            this.drawObjects();
             this.drawEllipse = true;
         }
 
