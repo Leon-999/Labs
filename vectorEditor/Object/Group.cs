@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using System.Drawing;
 
 namespace vectorEditor.Object
 {
@@ -49,6 +50,20 @@ namespace vectorEditor.Object
                 }
 
             return answer;
+        }
+
+        public void pickOutGroup()
+        {
+            Color keeperColor;
+            this.randColor();
+
+            for (ItemList i = this.listObject.getHead(); i != null; i = i.next)
+            {
+                keeperColor = i.object2d.getColor();
+                i.object2d.setColor(this.color);
+                i.object2d.draw();
+                i.object2d.setColor(keeperColor);
+            }
         }
 
         public void addObject(Object2D newObject)

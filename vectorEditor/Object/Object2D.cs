@@ -56,7 +56,9 @@ namespace vectorEditor.Object
 
         public void draw() { this.draw(this.color); }
         public void clear() { this.draw(MainForm.COLOR_BACKGROUND); }
-        public Point2D getCoordinate() { return this.coordinate; }
+        internal Point2D getCoordinate() { return this.coordinate; }
+        internal Color getColor() { return this.color; }
+        internal void setColor(Color color) { this.color = color; }
 
         abstract protected void draw(Color color);
         abstract public bool inTheArea(Point2D coordinateArea, int widthArea, int heightArea);

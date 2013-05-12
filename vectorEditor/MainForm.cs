@@ -243,7 +243,7 @@ namespace vectorEditor
                     if (i.object2d.inTheArea(coordinateArea, Math.Abs(this.widthQS), Math.Abs(this.heightQS)))
                         group.addObject(i.object2d);
 
-                group.clear();
+                group.pickOutGroup();
             }
         }
 
