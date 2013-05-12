@@ -1,0 +1,115 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="vectorEditor.ItemList">
+    <Position X="12" Y="0.5" Width="1.5" />
+    <AssociationLine Name="next" Type="vectorEditor.ItemList" ManuallyRouted="true">
+      <Path>
+        <Point X="12.53" Y="1.863" />
+        <Point X="12.53" Y="2.152" />
+        <Point X="12.981" Y="2.152" />
+        <Point X="12.981" Y="1.863" />
+      </Path>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>AAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAA=</HashCode>
+      <FileName>ListObject.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="next" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="vectorEditor.ListObject">
+    <Position X="14.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ggIAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgA=</HashCode>
+      <FileName>ListObject.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="head" />
+      <Field Name="tail" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="vectorEditor.MainForm">
+    <Position X="9.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAgGAASRAKAAhBBhYI2AQABCgZQgQggCAEAIgEEkAFg=</HashCode>
+      <FileName>MainForm.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="vectorEditor.Program">
+    <Position X="12" Y="4.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAA=</HashCode>
+      <FileName>Program.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="vectorEditor.Object.Ellipse">
+    <Position X="3" Y="3" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAIBAAAAAAAAAAAAAAAAAAAACAA=</HashCode>
+      <FileName>Object\Ellipse.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="vectorEditor.Object.Group">
+    <Position X="3" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QAAAAAAAAAAAAACAAAIEAAAAAAAAAAAAAAAAAAAACAA=</HashCode>
+      <FileName>Object\Group.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="vectorEditor.Object.Line">
+    <Position X="5" Y="5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAIBAAAAAAAAAAAAAAAAAAAACAA=</HashCode>
+      <FileName>Object\Line.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="vectorEditor.Object.Quadrate">
+    <Position X="7" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAIBAAAAAAAAAAAAAAAAAAAACAA=</HashCode>
+      <FileName>Object\Quadrate.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="vectorEditor.Object.Triangle">
+    <Position X="7" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAACAAAAAAAAAAAIAAAAAAAAAAAAAAAAIAAAACAA=</HashCode>
+      <FileName>Object\Triangle.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="vectorEditor.Properties.Resources" Collapsed="true">
+    <Position X="13.75" Y="4.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAEBEAAAAQAAAAAAAAAAAAAAAIA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="vectorEditor.Properties.Settings" Collapsed="true">
+    <Position X="15.5" Y="4.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAIAAAAAABAAAAAAAAAAAAAAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="vectorEditor.Object.Object2D">
+    <Position X="5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>iEAAAAAAAACAAAAAAA4AAAACAAAAAACCAAgAiAAICAA=</HashCode>
+      <FileName>Object\Object2D.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Struct Name="vectorEditor.Object.Point2D" Collapsed="true">
+    <Position X="12" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABgAAAAAAA=</HashCode>
+      <FileName>Object\Object2D.cs</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Struct Name="vectorEditor.Object.Point3D" Collapsed="true">
+    <Position X="13.75" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABgAQAAAAA=</HashCode>
+      <FileName>Object\Object2D.cs</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Font Name="Tahoma" Size="8.25" />
+</ClassDiagram>
