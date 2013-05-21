@@ -39,8 +39,15 @@
             this.textBoxRight4 = new System.Windows.Forms.TextBox();
             this.textBoxLeft4 = new System.Windows.Forms.TextBox();
             this.convertLeftRight = new System.Windows.Forms.Button();
-            this.convertRightLeft = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.labelLeft1 = new System.Windows.Forms.Label();
+            this.labelLeft2 = new System.Windows.Forms.Label();
+            this.labelLeft3 = new System.Windows.Forms.Label();
+            this.labelLeft4 = new System.Windows.Forms.Label();
+            this.labelRight4 = new System.Windows.Forms.Label();
+            this.labelRight3 = new System.Windows.Forms.Label();
+            this.labelRight2 = new System.Windows.Forms.Label();
+            this.labelRight1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -58,6 +65,7 @@
             this.comboBoxLeft.Size = new System.Drawing.Size(181, 21);
             this.comboBoxLeft.TabIndex = 0;
             this.comboBoxLeft.Text = "XYZ";
+            this.comboBoxLeft.SelectedIndexChanged += new System.EventHandler(this.comboBoxLeft_SelectedIndexChanged);
             // 
             // comboBoxRight
             // 
@@ -73,6 +81,7 @@
             this.comboBoxRight.Size = new System.Drawing.Size(181, 21);
             this.comboBoxRight.TabIndex = 2;
             this.comboBoxRight.Text = "RGB";
+            this.comboBoxRight.SelectedIndexChanged += new System.EventHandler(this.comboBoxRight_SelectedIndexChanged);
             // 
             // textBoxLeft1
             // 
@@ -138,15 +147,7 @@
             this.convertLeftRight.TabIndex = 12;
             this.convertLeftRight.Text = "=>";
             this.convertLeftRight.UseVisualStyleBackColor = true;
-            // 
-            // convertRightLeft
-            // 
-            this.convertRightLeft.Location = new System.Drawing.Point(180, 128);
-            this.convertRightLeft.Name = "convertRightLeft";
-            this.convertRightLeft.Size = new System.Drawing.Size(75, 23);
-            this.convertRightLeft.TabIndex = 13;
-            this.convertRightLeft.Text = "<=";
-            this.convertRightLeft.UseVisualStyleBackColor = true;
+            this.convertLeftRight.Click += new System.EventHandler(this.convertLeftRight_Click);
             // 
             // pictureBox1
             // 
@@ -156,13 +157,92 @@
             this.pictureBox1.TabIndex = 14;
             this.pictureBox1.TabStop = false;
             // 
+            // labelLeft1
+            // 
+            this.labelLeft1.AutoSize = true;
+            this.labelLeft1.Location = new System.Drawing.Point(12, 85);
+            this.labelLeft1.Name = "labelLeft1";
+            this.labelLeft1.Size = new System.Drawing.Size(35, 13);
+            this.labelLeft1.TabIndex = 15;
+            this.labelLeft1.Text = "label1";
+            // 
+            // labelLeft2
+            // 
+            this.labelLeft2.AutoSize = true;
+            this.labelLeft2.Location = new System.Drawing.Point(12, 133);
+            this.labelLeft2.Name = "labelLeft2";
+            this.labelLeft2.Size = new System.Drawing.Size(35, 13);
+            this.labelLeft2.TabIndex = 16;
+            this.labelLeft2.Text = "label1";
+            // 
+            // labelLeft3
+            // 
+            this.labelLeft3.AutoSize = true;
+            this.labelLeft3.Location = new System.Drawing.Point(12, 179);
+            this.labelLeft3.Name = "labelLeft3";
+            this.labelLeft3.Size = new System.Drawing.Size(35, 13);
+            this.labelLeft3.TabIndex = 17;
+            this.labelLeft3.Text = "label1";
+            // 
+            // labelLeft4
+            // 
+            this.labelLeft4.AutoSize = true;
+            this.labelLeft4.Location = new System.Drawing.Point(12, 228);
+            this.labelLeft4.Name = "labelLeft4";
+            this.labelLeft4.Size = new System.Drawing.Size(35, 13);
+            this.labelLeft4.TabIndex = 18;
+            this.labelLeft4.Text = "label1";
+            // 
+            // labelRight4
+            // 
+            this.labelRight4.AutoSize = true;
+            this.labelRight4.Location = new System.Drawing.Point(382, 226);
+            this.labelRight4.Name = "labelRight4";
+            this.labelRight4.Size = new System.Drawing.Size(35, 13);
+            this.labelRight4.TabIndex = 22;
+            this.labelRight4.Text = "label1";
+            // 
+            // labelRight3
+            // 
+            this.labelRight3.AutoSize = true;
+            this.labelRight3.Location = new System.Drawing.Point(382, 177);
+            this.labelRight3.Name = "labelRight3";
+            this.labelRight3.Size = new System.Drawing.Size(35, 13);
+            this.labelRight3.TabIndex = 21;
+            this.labelRight3.Text = "label1";
+            // 
+            // labelRight2
+            // 
+            this.labelRight2.AutoSize = true;
+            this.labelRight2.Location = new System.Drawing.Point(382, 131);
+            this.labelRight2.Name = "labelRight2";
+            this.labelRight2.Size = new System.Drawing.Size(35, 13);
+            this.labelRight2.TabIndex = 20;
+            this.labelRight2.Text = "label1";
+            // 
+            // labelRight1
+            // 
+            this.labelRight1.AutoSize = true;
+            this.labelRight1.Location = new System.Drawing.Point(382, 83);
+            this.labelRight1.Name = "labelRight1";
+            this.labelRight1.Size = new System.Drawing.Size(35, 13);
+            this.labelRight1.TabIndex = 19;
+            this.labelRight1.Text = "label1";
+            // 
             // mainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(429, 303);
+            this.Controls.Add(this.labelRight4);
+            this.Controls.Add(this.labelRight3);
+            this.Controls.Add(this.labelRight2);
+            this.Controls.Add(this.labelRight1);
+            this.Controls.Add(this.labelLeft4);
+            this.Controls.Add(this.labelLeft3);
+            this.Controls.Add(this.labelLeft2);
+            this.Controls.Add(this.labelLeft1);
             this.Controls.Add(this.pictureBox1);
-            this.Controls.Add(this.convertRightLeft);
             this.Controls.Add(this.convertLeftRight);
             this.Controls.Add(this.textBoxLeft4);
             this.Controls.Add(this.textBoxRight4);
@@ -195,8 +275,15 @@
         private System.Windows.Forms.TextBox textBoxRight4;
         private System.Windows.Forms.TextBox textBoxLeft4;
         private System.Windows.Forms.Button convertLeftRight;
-        private System.Windows.Forms.Button convertRightLeft;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Label labelLeft1;
+        private System.Windows.Forms.Label labelLeft2;
+        private System.Windows.Forms.Label labelLeft3;
+        private System.Windows.Forms.Label labelLeft4;
+        private System.Windows.Forms.Label labelRight4;
+        private System.Windows.Forms.Label labelRight3;
+        private System.Windows.Forms.Label labelRight2;
+        private System.Windows.Forms.Label labelRight1;
     }
 }
 

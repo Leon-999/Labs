@@ -31,9 +31,39 @@ namespace converterСolor.colorModel
 
             double max = Math.Max(r, Math.Max(g, b));
             double min = Math.Min(r, Math.Min(g, b));
-            this.V = (double)max;
+
+            this.V = max;
+
+            double delta = max - min;
+
+            if (max != 0)
+                this.S = delta / max;
+            else
+            {
+                this.S = 0;
+                this.H = -1;
+            }
+
+            if (max == min)
+            {
+                this.H = 0;
+            }
+            else if (r == max)
+                this.H = (g - b) / delta;		// between yellow & magenta
+            else if (g == max)
+                this.H = 2 + (b - r) / delta;	// between cyan & yellow
+            else
+                this.H = 4 + (r - g) / delta;	// between magenta & cyan
+            this.H *= 60;				// degrees
+            if (this.H < 0) this.H += 360;
+            /*
             this.S = (max == 0) ? 0.0 : (1.0 - (min / max));
-            if (max == r && g >= b)
+
+            if (max == min)
+            {
+                this.H = 0;
+            }
+            else if (max == r && g >= b)
             {
                 this.H = 60 * (g - b) / (max - min);
             }
@@ -48,7 +78,37 @@ namespace converterСolor.colorModel
             else if (max == b)
             {
                 this.H = 60 * (r - g) / (max - min) + 240;
-            }
+            }*/
+        }
+
+        public HSV(HSL hsl)
+        {
+            RGB tmpRgb = new RGB(hsl);
+            HSV tmpHsv = new HSV(tmpRgb);
+
+            this.H = tmpHsv.H;
+            this.S = tmpHsv.S;
+            this.V = tmpHsv.V;
+        }
+
+        public HSV(XYZ xyz)
+        {
+            RGB tmpRgb = new RGB(xyz);
+            HSV tmpHsv = new HSV(tmpRgb);
+
+            this.H = tmpHsv.H;
+            this.S = tmpHsv.S;
+            this.V = tmpHsv.V;
+        }
+
+        public HSV(CMYK cmyk)
+        {
+            RGB tmpRgb = new RGB(cmyk);
+            HSV tmpHsv = new HSV(tmpRgb);
+
+            this.H = tmpHsv.H;
+            this.S = tmpHsv.S;
+            this.V = tmpHsv.V;
         }
 
         public double H
@@ -59,7 +119,10 @@ namespace converterСolor.colorModel
             }
             set
             {
-                h = (value > 360) ? 360 : ((value < 0) ? 0 : value);
+                if (H == -1)
+                    h = H;
+                else
+                    h = (value > 360) ? 360 : ((value < 0) ? 0 : value);
             }
         }
 
@@ -85,59 +148,6 @@ namespace converterСolor.colorModel
             {
                 v = (value > 1) ? 1 : ((value < 0) ? 0 : value);
             }
-        }
-
-        public static implicit operator RGB(HSV O)
-        {
-            RGB N = new RGB(0, 0, 0);
-            if (O.S == 0)
-            {
-                N.R = N.G = N.B = (int)O.V;
-            }
-            else
-            {
-                double h = 1.0 * O.H / 60.0;
-                int Hi = (int)(Math.Floor(h));
-                double f = h - Hi;
-                double p = 1.0 * O.V * (1.0 - O.S);
-                double q = 1.0 * O.V * (1.0 - (O.S * f));
-                double t = 1.0 * O.V * (1.0 - (O.S * (1 - f)));
-
-                switch (Hi)
-                {
-                    case 0:
-                        N.R = (int)O.V;
-                        N.G = (int)t;
-                        N.B = (int)p;
-                        break;
-                    case 1:
-                        N.R = (int)q;
-                        N.G = (int)O.V;
-                        N.B = (int)p;
-                        break;
-                    case 2:
-                        N.R = (int)p;
-                        N.G = (int)O.V;
-                        N.B = (int)t;
-                        break;
-                    case 3:
-                        N.R = (int)p;
-                        N.G = (int)q;
-                        N.B = (int)O.V;
-                        break;
-                    case 4:
-                        N.R = (int)t;
-                        N.G = (int)p;
-                        N.B = (int)O.V;
-                        break;
-                    case 5:
-                        N.R = (int)O.V;
-                        N.G = (int)p;
-                        N.B = (int)q;
-                        break;
-                }
-            }
-            return N;
         }
     }
 }

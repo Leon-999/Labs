@@ -46,8 +46,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="colorModel\BaseColorModel.cs" />
+    <Compile Include="colorModel\CMYK.cs" />
+    <Compile Include="colorModel\HSL.cs" />
     <Compile Include="colorModel\HSV.cs" />
     <Compile Include="colorModel\RGB.cs" />
+    <Compile Include="colorModel\XYZ.cs" />
     <Compile Include="mainForm.cs">
       <SubType>Form</SubType>
     </Compile>

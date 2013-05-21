@@ -16,62 +16,131 @@ namespace converterСolor.colorModel
             b = (B > 255) ? 255 : ((B < 0) ? 0 : B);
         }
 
-        public RGB(RGB C)
+        public RGB(RGB rgb)
         {
-            R = C.R;
-            G = C.G;
-            B = C.B;
+            R = rgb.R;
+            G = rgb.G;
+            B = rgb.B;
         }
 
         public RGB(HSV hsv)
         {
+            int i;
+            double f, p, q, t, h;
             if (hsv.S == 0)
             {
-                this.R = this.G = this.B = (int)hsv.V;
+                // achromatic (grey)
+                this.R = this.G = this.B = (int)(255 * hsv.V);
+            }
+            h = hsv.H/60;			// sector 0 to 5
+            i = (int)(Math.Floor(h));
+            f = h - i;			// factorial part of h
+            p = hsv.V * (1 - hsv.S);
+            q = hsv.V * (1 - hsv.S * f);
+            t = hsv.V * (1 - hsv.S * (1 - f));
+            switch (i)
+            {
+                case 0:
+                    this.R = (int)(255 * hsv.V);
+                    this.G = (int)(255 * t);
+                    this.B = (int)(255 * p);
+                    break;
+                case 1:
+                    this.R = (int)(255 * q);
+                    this.G = (int)(255 * hsv.V);
+                    this.B = (int)(255 * p);
+                    break;
+                case 2:
+                    this.R = (int)(255 * p);
+                    this.G = (int)(255 * hsv.V);
+                    this.B = (int)(255 * t);
+                    break;
+                case 3:
+                    this.R = (int)(255 * p);
+                    this.G = (int)(255 * q);
+                    this.B = (int)(255 * hsv.V);
+                    break;
+                case 4:
+                    this.R = (int)(255 * t);
+                    this.G = (int)(255 * p);
+                    this.B = (int)(255 * hsv.V);
+                    break;
+                default:		// case 5:
+                    this.R = (int)(255 * hsv.V);
+                    this.G = (int)(255 * p);
+                    this.B = (int)(255 * q);
+                    break;
+            }
+        }
+
+        public RGB(HSL hsl)
+        {
+            if (hsl.S == 0)
+            {
+                this.R = (int)((double)hsl.L * 255.0);
+                this.G = (int)((double)hsl.L * 255.0);
+                this.B = (int)((double)hsl.L * 255.0);
             }
             else
             {
-                double h = hsv.H / 60.0;
-                int Hi = (int)(Math.Floor(h));
-                double Vmin = hsv.V * (1.0 - hsv.S);
-                double a = (hsv.V - Vmin) * ((hsv.H % 60) / 60);
-                double Vdec = hsv.V - a;
-                double Vinc = Vmin + a;
+                double q = (hsl.L < 0.5) ? (hsl.L * (1.0 + hsl.S)) : (hsl.L + hsl.S - (hsl.L * hsl.S));
+                double p = (2.0 * hsl.L) - q;
 
-                switch (Hi)
+                double Hk = hsl.H / 360.0;
+                double[] T = new double[3];
+                T[0] = Hk + (1.0 / 3.0);
+                T[1] = Hk;
+                T[2] = Hk - (1.0 / 3.0);
+
+                for (int i = 0; i < 3; i++)
                 {
-                    case 0:
-                        this.R = (int)hsv.V;
-                        this.G = (int)Vinc;
-                        this.B = (int)Vmin;
-                        break;
-                    case 1:
-                        this.R = (int)Vdec;
-                        this.G = (int)hsv.V;
-                        this.B = (int)Vmin;
-                        break;
-                    case 2:
-                        this.R = (int)Vmin;
-                        this.G = (int)hsv.V;
-                        this.B = (int)Vinc;
-                        break;
-                    case 3:
-                        this.R = (int)Vmin;
-                        this.G = (int)Vdec;
-                        this.B = (int)hsv.V;
-                        break;
-                    case 4:
-                        this.R = (int)Vinc;
-                        this.G = (int)Vmin;
-                        this.B = (int)hsv.V;
-                        break;
-                    case 5:
-                        this.R = (int)hsv.V;
-                        this.G = (int)Vmin;
-                        this.B = (int)Vdec;
-                        break;
+                    if (T[i] < 0) T[i] += 1.0;
+                    if (T[i] > 1) T[i] -= 1.0;
+
+                    if ((T[i] * 6) < 1)
+                    {
+                        T[i] = p + ((q - p) * 6.0 * T[i]);
+                    }
+                    else if ((T[i] * 2.0) < 1)
+                    {
+                        T[i] = q;
+                    }
+                    else if ((T[i] * 3.0) < 2)
+                    {
+                        T[i] = p + (q - p) * ((2.0 / 3.0) - T[i]) * 6.0;
+                    }
+                    else T[i] = p;
                 }
+                this.R = (int)((double)T[0] * 255.0);
+                this.G = (int)((double)T[1] * 255.0);
+                this.B = (int)((double)T[2] * 255.0);
             }
+        }
+
+        public RGB(XYZ xyz)
+        {
+            double[] Clinear = new double[3];
+            Clinear[0] = xyz.X * 3.2410 - xyz.Y * 1.5374 - xyz.Z * 0.4986;
+            Clinear[1] = -xyz.X * 0.9692 + xyz.Y * 1.8760 - xyz.Z * 0.0416;
+            Clinear[2] = xyz.X * 0.0556 - xyz.Y * 0.2040 + xyz.Z * 1.0570;
+            for (int i = 0; i < 3; i++)
+            {
+                Clinear[i] = (Clinear[i] <= 0.0031308) ? 12.92 * Clinear[i] : (
+                    1 + 0.055) * Math.Pow(Clinear[i], (1.0 / 2.4)) - 0.055;
+            }
+            this.R = (int)((double)Clinear[0] * 255.0);
+            this.G = (int)((double)Clinear[1] * 255.0);
+            this.B = (int)((double)Clinear[2] * 255.0);
+        }
+
+        public RGB(CMYK cmyk)
+        {
+            double c = (double)(cmyk.C * (1 - cmyk.K) + cmyk.K);
+            double m = (double)(cmyk.M * (1 - cmyk.K) + cmyk.K);
+            double y = (double)(cmyk.Y * (1 - cmyk.K) + cmyk.K);
+            this.R = Convert.ToInt32((1 - c) * 255.0);
+            this.G = Convert.ToInt32((1 - m) * 255.0);
+            this.B = Convert.ToInt32((1 - y) * 255.0);
         }
 
         public int R
