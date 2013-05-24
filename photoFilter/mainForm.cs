@@ -18,6 +18,8 @@ namespace photoFilter
         private Bitmap sourceImage;
         private Bitmap workImage;
 
+        private ManagerFilters filter;
+
         private int canvasWidth, canvasHeight;
 
         public mainForm()
@@ -26,6 +28,8 @@ namespace photoFilter
 
             this.openFileDialog = new OpenFileDialog();
             this.saveFileDialog = new SaveFileDialog();
+
+            this.filter = new ManagerFilters(this.progressBar);
 
             this.canvasWidth = this.canvas.Width;
             this.canvasHeight = this.canvas.Height;
@@ -116,13 +120,13 @@ namespace photoFilter
 
         private void radioButtonGray_CheckedChanged(object sender, EventArgs e)
         {
-            this.workImage = Gray.employ(this.sourceImage);
+            this.workImage = this.filter.gray(this.sourceImage);
             this.refreshCanvas();
         }
 
         private void radioButtonBlackAndWhite_CheckedChanged(object sender, EventArgs e)
         {
-            this.workImage = BlackAndWhite.employ(this.sourceImage);
+            this.workImage = this.filter.blackAndWhite(this.sourceImage);
             this.refreshCanvas();
         }
 
@@ -133,7 +137,7 @@ namespace photoFilter
             {
                 dX = Convert.ToInt32(this.textBoxShiftX.Text);
                 dY = Convert.ToInt32(this.textBoxShiftY.Text);
-                this.workImage = Shift.employ(this.sourceImage, dX, dY);
+                this.workImage = this.filter.shift(this.sourceImage, dX, dY);
                 this.refreshCanvas();
             }
             catch
