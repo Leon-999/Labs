@@ -6,11 +6,11 @@ using System.Drawing;
 
 namespace photoFilter.filters
 {
-    class BlackAndWhite
+    internal class BlackAndWhite
     {
         private const int MONOCHROME_BORDER = 130;
 
-        public static Bitmap employ(Bitmap sourceImage)
+        internal static Bitmap employ(Bitmap sourceImage)
         {
             Bitmap returned = new Bitmap(1, 1);
 

@@ -6,9 +6,9 @@ using System.Drawing;
 
 namespace photoFilter.filters
 {
-    class Gray
+    internal class Gray
     {
-        public static Bitmap employ(Bitmap sourceImage)
+        internal static Bitmap employ(Bitmap sourceImage)
         {
             Bitmap returned = new Bitmap(1,1);
 

@@ -43,6 +43,7 @@
             this.textBoxShiftY = new System.Windows.Forms.TextBox();
             this.labelShiftX = new System.Windows.Forms.Label();
             this.labelShiftY = new System.Windows.Forms.Label();
+            this.progressBar1 = new System.Windows.Forms.ProgressBar();
             ((System.ComponentModel.ISupportInitialize)(this.canvas)).BeginInit();
             this.menuStrip.SuspendLayout();
             this.SuspendLayout();
@@ -73,27 +74,27 @@
             this.saveAsToolStripMenu,
             this.exitToolStripMenu});
             this.fileToolStripMenu.Name = "fileToolStripMenu";
-            this.fileToolStripMenu.Size = new System.Drawing.Size(35, 20);
+            this.fileToolStripMenu.Size = new System.Drawing.Size(37, 20);
             this.fileToolStripMenu.Text = "File";
             // 
             // openToolStripMenu
             // 
             this.openToolStripMenu.Name = "openToolStripMenu";
-            this.openToolStripMenu.Size = new System.Drawing.Size(112, 22);
+            this.openToolStripMenu.Size = new System.Drawing.Size(120, 22);
             this.openToolStripMenu.Text = "Open";
             this.openToolStripMenu.Click += new System.EventHandler(this.openToolStripMenu_Click);
             // 
             // saveAsToolStripMenu
             // 
             this.saveAsToolStripMenu.Name = "saveAsToolStripMenu";
-            this.saveAsToolStripMenu.Size = new System.Drawing.Size(112, 22);
+            this.saveAsToolStripMenu.Size = new System.Drawing.Size(120, 22);
             this.saveAsToolStripMenu.Text = "Save as";
             this.saveAsToolStripMenu.Click += new System.EventHandler(this.saveAsToolStripMenu_Click);
             // 
             // exitToolStripMenu
             // 
             this.exitToolStripMenu.Name = "exitToolStripMenu";
-            this.exitToolStripMenu.Size = new System.Drawing.Size(112, 22);
+            this.exitToolStripMenu.Size = new System.Drawing.Size(120, 22);
             this.exitToolStripMenu.Text = "Exit";
             this.exitToolStripMenu.Click += new System.EventHandler(this.exitToolStripMenu_Click);
             // 
@@ -188,11 +189,19 @@
             this.labelShiftY.TabIndex = 11;
             this.labelShiftY.Text = "dY";
             // 
+            // progressBar1
+            // 
+            this.progressBar1.Location = new System.Drawing.Point(303, 3);
+            this.progressBar1.Name = "progressBar1";
+            this.progressBar1.Size = new System.Drawing.Size(244, 16);
+            this.progressBar1.TabIndex = 12;
+            // 
             // mainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(743, 493);
+            this.Controls.Add(this.progressBar1);
             this.Controls.Add(this.labelShiftY);
             this.Controls.Add(this.labelShiftX);
             this.Controls.Add(this.textBoxShiftY);
@@ -232,6 +241,7 @@
         private System.Windows.Forms.TextBox textBoxShiftY;
         private System.Windows.Forms.Label labelShiftX;
         private System.Windows.Forms.Label labelShiftY;
+        private System.Windows.Forms.ProgressBar progressBar1;
     }
 }
 

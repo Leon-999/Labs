@@ -6,9 +6,9 @@ using System.Drawing;
 
 namespace photoFilter.filters
 {
-    class Shift
+    internal class Shift
     {
-        public static Bitmap employ(Bitmap sourceImage, int dX, int dY)
+        internal static Bitmap employ(Bitmap sourceImage, int dX, int dY)
         {
             Bitmap returned = new Bitmap(1, 1);
 
