@@ -112,25 +112,25 @@ namespace photoFilter
             }
         }
 
-        private void radioSourseFile_CheckedChanged(object sender, EventArgs e)
+        private void buttonSourceFile_Click(object sender, EventArgs e)
         {
             this.workImage = this.sourceImage;
             this.refreshCanvas();
         }
 
-        private void radioButtonGray_CheckedChanged(object sender, EventArgs e)
+        private void buttonGray_Click(object sender, EventArgs e)
         {
             this.workImage = this.filter.gray(this.sourceImage);
             this.refreshCanvas();
         }
 
-        private void radioButtonBlackAndWhite_CheckedChanged(object sender, EventArgs e)
+        private void buttonBlackAndWhite_Click(object sender, EventArgs e)
         {
             this.workImage = this.filter.blackAndWhite(this.sourceImage);
             this.refreshCanvas();
         }
 
-        private void radioButtonShift_CheckedChanged(object sender, EventArgs e)
+        private void buttonShift_Click(object sender, EventArgs e)
         {
             int dX, dY;
             try

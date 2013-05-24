@@ -34,16 +34,16 @@
             this.openToolStripMenu = new System.Windows.Forms.ToolStripMenuItem();
             this.saveAsToolStripMenu = new System.Windows.Forms.ToolStripMenuItem();
             this.exitToolStripMenu = new System.Windows.Forms.ToolStripMenuItem();
-            this.radioSourseFile = new System.Windows.Forms.RadioButton();
             this.label1 = new System.Windows.Forms.Label();
-            this.radioButtonGray = new System.Windows.Forms.RadioButton();
-            this.radioButtonBlackAndWhite = new System.Windows.Forms.RadioButton();
-            this.radioButtonShift = new System.Windows.Forms.RadioButton();
             this.textBoxShiftX = new System.Windows.Forms.TextBox();
             this.textBoxShiftY = new System.Windows.Forms.TextBox();
             this.labelShiftX = new System.Windows.Forms.Label();
             this.labelShiftY = new System.Windows.Forms.Label();
             this.progressBar = new System.Windows.Forms.ProgressBar();
+            this.buttonSourceFile = new System.Windows.Forms.Button();
+            this.buttonGray = new System.Windows.Forms.Button();
+            this.buttonBlackAndWhite = new System.Windows.Forms.Button();
+            this.buttonShift = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.canvas)).BeginInit();
             this.menuStrip.SuspendLayout();
             this.SuspendLayout();
@@ -80,35 +80,23 @@
             // openToolStripMenu
             // 
             this.openToolStripMenu.Name = "openToolStripMenu";
-            this.openToolStripMenu.Size = new System.Drawing.Size(112, 22);
+            this.openToolStripMenu.Size = new System.Drawing.Size(152, 22);
             this.openToolStripMenu.Text = "Open";
             this.openToolStripMenu.Click += new System.EventHandler(this.openToolStripMenu_Click);
             // 
             // saveAsToolStripMenu
             // 
             this.saveAsToolStripMenu.Name = "saveAsToolStripMenu";
-            this.saveAsToolStripMenu.Size = new System.Drawing.Size(112, 22);
+            this.saveAsToolStripMenu.Size = new System.Drawing.Size(152, 22);
             this.saveAsToolStripMenu.Text = "Save as";
             this.saveAsToolStripMenu.Click += new System.EventHandler(this.saveAsToolStripMenu_Click);
             // 
             // exitToolStripMenu
             // 
             this.exitToolStripMenu.Name = "exitToolStripMenu";
-            this.exitToolStripMenu.Size = new System.Drawing.Size(112, 22);
+            this.exitToolStripMenu.Size = new System.Drawing.Size(152, 22);
             this.exitToolStripMenu.Text = "Exit";
             this.exitToolStripMenu.Click += new System.EventHandler(this.exitToolStripMenu_Click);
-            // 
-            // radioSourseFile
-            // 
-            this.radioSourseFile.AutoSize = true;
-            this.radioSourseFile.Location = new System.Drawing.Point(606, 27);
-            this.radioSourseFile.Name = "radioSourseFile";
-            this.radioSourseFile.Size = new System.Drawing.Size(87, 17);
-            this.radioSourseFile.TabIndex = 3;
-            this.radioSourseFile.TabStop = true;
-            this.radioSourseFile.Text = "sourse image";
-            this.radioSourseFile.UseVisualStyleBackColor = true;
-            this.radioSourseFile.CheckedChanged += new System.EventHandler(this.radioSourseFile_CheckedChanged);
             // 
             // label1
             // 
@@ -119,45 +107,9 @@
             this.label1.TabIndex = 4;
             this.label1.Text = "What display?";
             // 
-            // radioButtonGray
-            // 
-            this.radioButtonGray.AutoSize = true;
-            this.radioButtonGray.Location = new System.Drawing.Point(606, 50);
-            this.radioButtonGray.Name = "radioButtonGray";
-            this.radioButtonGray.Size = new System.Drawing.Size(45, 17);
-            this.radioButtonGray.TabIndex = 5;
-            this.radioButtonGray.TabStop = true;
-            this.radioButtonGray.Text = "gray";
-            this.radioButtonGray.UseVisualStyleBackColor = true;
-            this.radioButtonGray.CheckedChanged += new System.EventHandler(this.radioButtonGray_CheckedChanged);
-            // 
-            // radioButtonBlackAndWhite
-            // 
-            this.radioButtonBlackAndWhite.AutoSize = true;
-            this.radioButtonBlackAndWhite.Location = new System.Drawing.Point(606, 73);
-            this.radioButtonBlackAndWhite.Name = "radioButtonBlackAndWhite";
-            this.radioButtonBlackAndWhite.Size = new System.Drawing.Size(79, 17);
-            this.radioButtonBlackAndWhite.TabIndex = 6;
-            this.radioButtonBlackAndWhite.TabStop = true;
-            this.radioButtonBlackAndWhite.Text = "black-white";
-            this.radioButtonBlackAndWhite.UseVisualStyleBackColor = true;
-            this.radioButtonBlackAndWhite.CheckedChanged += new System.EventHandler(this.radioButtonBlackAndWhite_CheckedChanged);
-            // 
-            // radioButtonShift
-            // 
-            this.radioButtonShift.AutoSize = true;
-            this.radioButtonShift.Location = new System.Drawing.Point(606, 96);
-            this.radioButtonShift.Name = "radioButtonShift";
-            this.radioButtonShift.Size = new System.Drawing.Size(44, 17);
-            this.radioButtonShift.TabIndex = 7;
-            this.radioButtonShift.TabStop = true;
-            this.radioButtonShift.Text = "shift";
-            this.radioButtonShift.UseVisualStyleBackColor = true;
-            this.radioButtonShift.CheckedChanged += new System.EventHandler(this.radioButtonShift_CheckedChanged);
-            // 
             // textBoxShiftX
             // 
-            this.textBoxShiftX.Location = new System.Drawing.Point(625, 119);
+            this.textBoxShiftX.Location = new System.Drawing.Point(625, 134);
             this.textBoxShiftX.Name = "textBoxShiftX";
             this.textBoxShiftX.Size = new System.Drawing.Size(43, 20);
             this.textBoxShiftX.TabIndex = 8;
@@ -165,7 +117,7 @@
             // 
             // textBoxShiftY
             // 
-            this.textBoxShiftY.Location = new System.Drawing.Point(696, 119);
+            this.textBoxShiftY.Location = new System.Drawing.Point(696, 134);
             this.textBoxShiftY.Name = "textBoxShiftY";
             this.textBoxShiftY.Size = new System.Drawing.Size(43, 20);
             this.textBoxShiftY.TabIndex = 9;
@@ -174,7 +126,7 @@
             // labelShiftX
             // 
             this.labelShiftX.AutoSize = true;
-            this.labelShiftX.Location = new System.Drawing.Point(599, 122);
+            this.labelShiftX.Location = new System.Drawing.Point(599, 137);
             this.labelShiftX.Name = "labelShiftX";
             this.labelShiftX.Size = new System.Drawing.Size(20, 13);
             this.labelShiftX.TabIndex = 10;
@@ -183,7 +135,7 @@
             // labelShiftY
             // 
             this.labelShiftY.AutoSize = true;
-            this.labelShiftY.Location = new System.Drawing.Point(673, 122);
+            this.labelShiftY.Location = new System.Drawing.Point(673, 137);
             this.labelShiftY.Name = "labelShiftY";
             this.labelShiftY.Size = new System.Drawing.Size(20, 13);
             this.labelShiftY.TabIndex = 11;
@@ -197,21 +149,61 @@
             this.progressBar.TabIndex = 12;
             this.progressBar.Visible = false;
             // 
+            // buttonSourceFile
+            // 
+            this.buttonSourceFile.Location = new System.Drawing.Point(606, 27);
+            this.buttonSourceFile.Name = "buttonSourceFile";
+            this.buttonSourceFile.Size = new System.Drawing.Size(87, 21);
+            this.buttonSourceFile.TabIndex = 14;
+            this.buttonSourceFile.Text = "source image";
+            this.buttonSourceFile.UseVisualStyleBackColor = true;
+            this.buttonSourceFile.Click += new System.EventHandler(this.buttonSourceFile_Click);
+            // 
+            // buttonGray
+            // 
+            this.buttonGray.Location = new System.Drawing.Point(606, 54);
+            this.buttonGray.Name = "buttonGray";
+            this.buttonGray.Size = new System.Drawing.Size(87, 21);
+            this.buttonGray.TabIndex = 15;
+            this.buttonGray.Text = "gray";
+            this.buttonGray.UseVisualStyleBackColor = true;
+            this.buttonGray.Click += new System.EventHandler(this.buttonGray_Click);
+            // 
+            // buttonBlackAndWhite
+            // 
+            this.buttonBlackAndWhite.Location = new System.Drawing.Point(606, 81);
+            this.buttonBlackAndWhite.Name = "buttonBlackAndWhite";
+            this.buttonBlackAndWhite.Size = new System.Drawing.Size(87, 21);
+            this.buttonBlackAndWhite.TabIndex = 16;
+            this.buttonBlackAndWhite.Text = "black-white";
+            this.buttonBlackAndWhite.UseVisualStyleBackColor = true;
+            this.buttonBlackAndWhite.Click += new System.EventHandler(this.buttonBlackAndWhite_Click);
+            // 
+            // buttonShift
+            // 
+            this.buttonShift.Location = new System.Drawing.Point(606, 107);
+            this.buttonShift.Name = "buttonShift";
+            this.buttonShift.Size = new System.Drawing.Size(87, 21);
+            this.buttonShift.TabIndex = 17;
+            this.buttonShift.Text = "shift";
+            this.buttonShift.UseVisualStyleBackColor = true;
+            this.buttonShift.Click += new System.EventHandler(this.buttonShift_Click);
+            // 
             // mainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(743, 493);
+            this.Controls.Add(this.buttonShift);
+            this.Controls.Add(this.buttonBlackAndWhite);
+            this.Controls.Add(this.buttonGray);
+            this.Controls.Add(this.buttonSourceFile);
             this.Controls.Add(this.progressBar);
             this.Controls.Add(this.labelShiftY);
             this.Controls.Add(this.labelShiftX);
             this.Controls.Add(this.textBoxShiftY);
             this.Controls.Add(this.textBoxShiftX);
-            this.Controls.Add(this.radioButtonShift);
-            this.Controls.Add(this.radioButtonBlackAndWhite);
-            this.Controls.Add(this.radioButtonGray);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.radioSourseFile);
             this.Controls.Add(this.canvas);
             this.Controls.Add(this.menuStrip);
             this.MainMenuStrip = this.menuStrip;
@@ -233,16 +225,16 @@
         private System.Windows.Forms.ToolStripMenuItem openToolStripMenu;
         private System.Windows.Forms.ToolStripMenuItem saveAsToolStripMenu;
         private System.Windows.Forms.ToolStripMenuItem exitToolStripMenu;
-        private System.Windows.Forms.RadioButton radioSourseFile;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.RadioButton radioButtonGray;
-        private System.Windows.Forms.RadioButton radioButtonBlackAndWhite;
-        private System.Windows.Forms.RadioButton radioButtonShift;
         private System.Windows.Forms.TextBox textBoxShiftX;
         private System.Windows.Forms.TextBox textBoxShiftY;
         private System.Windows.Forms.Label labelShiftX;
         private System.Windows.Forms.Label labelShiftY;
         private System.Windows.Forms.ProgressBar progressBar;
+        private System.Windows.Forms.Button buttonSourceFile;
+        private System.Windows.Forms.Button buttonGray;
+        private System.Windows.Forms.Button buttonBlackAndWhite;
+        private System.Windows.Forms.Button buttonShift;
     }
 }
 

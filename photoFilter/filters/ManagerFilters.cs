@@ -59,9 +59,13 @@ namespace photoFilter.filters
             if (ManagerFilters.progressBar != null && ManagerFilters.progressBarActive)
             {
                 ManagerFilters.progressBar.Value++;
-                ManagerFilters.numberOfParts--;
-                if (ManagerFilters.numberOfParts == 0) ManagerFilters.progressBar.Visible = false;
             }
+        }
+
+        internal static void completeWork()
+        {
+            if (ManagerFilters.progressBar != null) ManagerFilters.progressBar.Visible = false;
+            ManagerFilters.progressBarActive = false;
         }
 
     }

@@ -41,6 +41,8 @@ namespace photoFilter.filters
 
             }
 
+            ManagerFilters.completeWork();
+
             return returned;
         }
     }
