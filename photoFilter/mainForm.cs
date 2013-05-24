@@ -6,6 +6,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using photoFilter.filters;
 
 namespace photoFilter
 {
@@ -91,7 +92,7 @@ namespace photoFilter
         {
             if (workImage != null)
             {
-                canvas.Image = workImage;
+                canvas.Image = this.workImage;
                 canvas.Refresh();
             }
         }
@@ -102,7 +103,7 @@ namespace photoFilter
             {
                 if (saveFileDialog.ShowDialog() == DialogResult.OK)
                 {
-                    workImage.Save(saveFileDialog.FileName);
+                    workImage.Save(saveFileDialog.FileName + ".bmp");
                 }
             }
         }
@@ -113,7 +114,34 @@ namespace photoFilter
             this.refreshCanvas();
         }
 
+        private void radioButtonGray_CheckedChanged(object sender, EventArgs e)
+        {
+            this.workImage = Gray.employ(this.sourceImage);
+            this.refreshCanvas();
+        }
 
+        private void radioButtonBlackAndWhite_CheckedChanged(object sender, EventArgs e)
+        {
+            this.workImage = BlackAndWhite.employ(this.sourceImage);
+            this.refreshCanvas();
+        }
+
+        private void radioButtonShift_CheckedChanged(object sender, EventArgs e)
+        {
+            int dX, dY;
+            try
+            {
+                dX = Convert.ToInt32(this.textBoxShiftX.Text);
+                dY = Convert.ToInt32(this.textBoxShiftY.Text);
+                this.workImage = Shift.employ(this.sourceImage, dX, dY);
+                this.refreshCanvas();
+            }
+            catch
+            {
+                MessageBox.Show("Смещение введено не верно");
+            }
+
+        }
         
     }
 }
