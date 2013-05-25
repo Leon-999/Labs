@@ -61,6 +61,12 @@ namespace photoFilter.filters
             return VerticalWaves.employ(sourceImage);
         }
 
+        public Bitmap glass(Bitmap sourceImage)
+        {
+            this.countParts(sourceImage);
+            return Glass.employ(sourceImage);
+        }
+
         private void countParts(Bitmap sourceImage)
         {
             if (ManagerFilters.progressBar != null && sourceImage != null)

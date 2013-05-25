@@ -49,6 +49,7 @@
             this.textBoxRotateAngle = new System.Windows.Forms.TextBox();
             this.buttonHorizontalWaves = new System.Windows.Forms.Button();
             this.buttonVerticalWaves = new System.Windows.Forms.Button();
+            this.buttonGlass = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.canvas)).BeginInit();
             this.menuStrip.SuspendLayout();
             this.SuspendLayout();
@@ -241,11 +242,22 @@
             this.buttonVerticalWaves.UseVisualStyleBackColor = true;
             this.buttonVerticalWaves.Click += new System.EventHandler(this.buttonVerticalWaves_Click);
             // 
+            // buttonGlass
+            // 
+            this.buttonGlass.Location = new System.Drawing.Point(606, 270);
+            this.buttonGlass.Name = "buttonGlass";
+            this.buttonGlass.Size = new System.Drawing.Size(97, 21);
+            this.buttonGlass.TabIndex = 23;
+            this.buttonGlass.Text = "glass";
+            this.buttonGlass.UseVisualStyleBackColor = true;
+            this.buttonGlass.Click += new System.EventHandler(this.buttonGlass_Click);
+            // 
             // mainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(743, 493);
+            this.Controls.Add(this.buttonGlass);
             this.Controls.Add(this.buttonVerticalWaves);
             this.Controls.Add(this.buttonHorizontalWaves);
             this.Controls.Add(this.labelRotateAngle);
@@ -297,6 +309,7 @@
         private System.Windows.Forms.TextBox textBoxRotateAngle;
         private System.Windows.Forms.Button buttonHorizontalWaves;
         private System.Windows.Forms.Button buttonVerticalWaves;
+        private System.Windows.Forms.Button buttonGlass;
     }
 }
 

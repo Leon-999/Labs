@@ -175,6 +175,12 @@ namespace photoFilter
             this.workImage = this.filter.verticalWaves(sourceImage);
             this.refreshCanvas();
         }
+
+        private void buttonGlass_Click(object sender, EventArgs e)
+        {
+            this.workImage = this.filter.glass(sourceImage);
+            this.refreshCanvas();
+        }
         
     }
 }
