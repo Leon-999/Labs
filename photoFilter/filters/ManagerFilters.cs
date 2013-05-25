@@ -15,6 +15,8 @@ namespace photoFilter.filters
         private static int numberOfParts;
         private static bool progressBarActive;
 
+        private static int countFeaturedPixels;
+
         public ManagerFilters(ProgressBar progressBar)
         {
             ManagerFilters.progressBar = progressBar;
@@ -51,6 +53,7 @@ namespace photoFilter.filters
                 ManagerFilters.progressBar.Value = 0;
                 ManagerFilters.progressBar.Visible = true;
                 ManagerFilters.progressBarActive = true;
+                countFeaturedPixels = 0;
             }
         }
 
@@ -66,6 +69,16 @@ namespace photoFilter.filters
         {
             if (ManagerFilters.progressBar != null) ManagerFilters.progressBar.Visible = false;
             ManagerFilters.progressBarActive = false;
+        }
+
+        internal static void featuredPixel()
+        {
+            ManagerFilters.countFeaturedPixels++;
+            if (ManagerFilters.countFeaturedPixels == ManagerFilters.SIZE_PART)
+            {
+                ManagerFilters.countFeaturedPixels = 0;
+                ManagerFilters.completePartWork();
+            }
         }
 
     }

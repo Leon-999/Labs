@@ -8,12 +8,11 @@ namespace photoFilter.filters
 {
     internal class BlackAndWhite
     {
-        private const int MONOCHROME_BORDER = 130;
+        private const int MONOCHROME_BORDER = 133;
 
         internal static Bitmap employ(Bitmap sourceImage)
         {
             Bitmap returned = new Bitmap(1, 1);
-            int countFeaturedPixels = 0;
 
             if (sourceImage != null)
             {
@@ -30,12 +29,7 @@ namespace photoFilter.filters
                         component = (component >= BlackAndWhite.MONOCHROME_BORDER) ? 255 : 0;
                         returned.SetPixel(i, j, Color.FromArgb(component, component, component));
 
-                        countFeaturedPixels++;
-                        if (countFeaturedPixels == ManagerFilters.SIZE_PART)
-                        {
-                            countFeaturedPixels = 0;
-                            ManagerFilters.completePartWork();
-                        }
+                        ManagerFilters.featuredPixel();
                     }
                 }
 

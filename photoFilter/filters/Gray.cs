@@ -11,7 +11,6 @@ namespace photoFilter.filters
         internal static Bitmap employ(Bitmap sourceImage)
         {
             Bitmap returned = new Bitmap(1,1);
-            int countFeaturedPixels = 0;
 
             if (sourceImage != null)
             {
@@ -27,12 +26,7 @@ namespace photoFilter.filters
                         component = (int)(0.2126 * currentPixel.R + 0.7152 * currentPixel.G + 0.0722 * currentPixel.B);
                         returned.SetPixel(i, j, Color.FromArgb(component, component, component));
 
-                        countFeaturedPixels++;
-                        if (countFeaturedPixels == ManagerFilters.SIZE_PART)
-                        {
-                            countFeaturedPixels = 0;
-                            ManagerFilters.completePartWork();
-                        }
+                        ManagerFilters.featuredPixel();
                     }
                 }
 
