@@ -39,6 +39,8 @@ namespace photoFilter.filters
                         if (currentPixel.R < minRed) minRed = currentPixel.R;
                         if (currentPixel.G < minGreen) minGreen = currentPixel.G;
                         if (currentPixel.B < minBlue) minBlue = currentPixel.B;
+
+                        ManagerFilters.featuredPixel();
                     }
                 }
                 for (int i = 0; i < sourceImage.Width; i++)

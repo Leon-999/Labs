@@ -97,7 +97,10 @@ namespace photoFilter.filters
         {
             if (ManagerFilters.progressBar != null && ManagerFilters.progressBarActive)
             {
-                ManagerFilters.progressBar.Value++;
+                if (ManagerFilters.progressBar.Value != ManagerFilters.progressBar.Maximum)
+                    ManagerFilters.progressBar.Value++;
+                else
+                    ManagerFilters.progressBar.Value = 0;
             }
         }
 
