@@ -47,6 +47,7 @@
             this.buttonRotate = new System.Windows.Forms.Button();
             this.labelRotateAngle = new System.Windows.Forms.Label();
             this.textBoxRotateAngle = new System.Windows.Forms.TextBox();
+            this.buttonHorizontalWaves = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.canvas)).BeginInit();
             this.menuStrip.SuspendLayout();
             this.SuspendLayout();
@@ -156,7 +157,7 @@
             // 
             this.buttonSourceFile.Location = new System.Drawing.Point(606, 27);
             this.buttonSourceFile.Name = "buttonSourceFile";
-            this.buttonSourceFile.Size = new System.Drawing.Size(87, 21);
+            this.buttonSourceFile.Size = new System.Drawing.Size(97, 21);
             this.buttonSourceFile.TabIndex = 14;
             this.buttonSourceFile.Text = "source image";
             this.buttonSourceFile.UseVisualStyleBackColor = true;
@@ -166,7 +167,7 @@
             // 
             this.buttonGray.Location = new System.Drawing.Point(606, 54);
             this.buttonGray.Name = "buttonGray";
-            this.buttonGray.Size = new System.Drawing.Size(87, 21);
+            this.buttonGray.Size = new System.Drawing.Size(97, 21);
             this.buttonGray.TabIndex = 15;
             this.buttonGray.Text = "gray";
             this.buttonGray.UseVisualStyleBackColor = true;
@@ -176,7 +177,7 @@
             // 
             this.buttonBlackAndWhite.Location = new System.Drawing.Point(606, 81);
             this.buttonBlackAndWhite.Name = "buttonBlackAndWhite";
-            this.buttonBlackAndWhite.Size = new System.Drawing.Size(87, 21);
+            this.buttonBlackAndWhite.Size = new System.Drawing.Size(97, 21);
             this.buttonBlackAndWhite.TabIndex = 16;
             this.buttonBlackAndWhite.Text = "black-white";
             this.buttonBlackAndWhite.UseVisualStyleBackColor = true;
@@ -186,7 +187,7 @@
             // 
             this.buttonShift.Location = new System.Drawing.Point(606, 107);
             this.buttonShift.Name = "buttonShift";
-            this.buttonShift.Size = new System.Drawing.Size(87, 21);
+            this.buttonShift.Size = new System.Drawing.Size(97, 21);
             this.buttonShift.TabIndex = 17;
             this.buttonShift.Text = "shift";
             this.buttonShift.UseVisualStyleBackColor = true;
@@ -196,7 +197,7 @@
             // 
             this.buttonRotate.Location = new System.Drawing.Point(606, 160);
             this.buttonRotate.Name = "buttonRotate";
-            this.buttonRotate.Size = new System.Drawing.Size(87, 21);
+            this.buttonRotate.Size = new System.Drawing.Size(97, 21);
             this.buttonRotate.TabIndex = 18;
             this.buttonRotate.Text = "rotate";
             this.buttonRotate.UseVisualStyleBackColor = true;
@@ -219,11 +220,22 @@
             this.textBoxRotateAngle.TabIndex = 19;
             this.textBoxRotateAngle.Text = "0";
             // 
+            // buttonHorizontalWaves
+            // 
+            this.buttonHorizontalWaves.Location = new System.Drawing.Point(606, 216);
+            this.buttonHorizontalWaves.Name = "buttonHorizontalWaves";
+            this.buttonHorizontalWaves.Size = new System.Drawing.Size(97, 21);
+            this.buttonHorizontalWaves.TabIndex = 21;
+            this.buttonHorizontalWaves.Text = "horizontal waves";
+            this.buttonHorizontalWaves.UseVisualStyleBackColor = true;
+            this.buttonHorizontalWaves.Click += new System.EventHandler(this.buttonHorizontalWaves_Click);
+            // 
             // mainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(743, 493);
+            this.Controls.Add(this.buttonHorizontalWaves);
             this.Controls.Add(this.labelRotateAngle);
             this.Controls.Add(this.textBoxRotateAngle);
             this.Controls.Add(this.buttonRotate);
@@ -271,6 +283,7 @@
         private System.Windows.Forms.Button buttonRotate;
         private System.Windows.Forms.Label labelRotateAngle;
         private System.Windows.Forms.TextBox textBoxRotateAngle;
+        private System.Windows.Forms.Button buttonHorizontalWaves;
     }
 }
 

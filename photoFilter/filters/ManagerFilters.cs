@@ -49,6 +49,12 @@ namespace photoFilter.filters
             return Rotate.employ(sourceImage, angle);
         }
 
+        public Bitmap horozontalWaves(Bitmap sourceImage)
+        {
+            this.countParts(sourceImage);
+            return HorizontalWaves.employ(sourceImage);
+        }
+
         private void countParts(Bitmap sourceImage)
         {
             if (ManagerFilters.progressBar != null && sourceImage != null)

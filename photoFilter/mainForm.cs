@@ -163,6 +163,12 @@ namespace photoFilter
             }
 
         }
+
+        private void buttonHorizontalWaves_Click(object sender, EventArgs e)
+        {
+            this.workImage = this.filter.horozontalWaves(sourceImage);
+            this.refreshCanvas();
+        }
         
     }
 }
