@@ -67,6 +67,12 @@ namespace photoFilter.filters
             return Glass.employ(sourceImage);
         }
 
+        public Bitmap correction(Bitmap sourceImage, Color baseColor, Color destinationColor)
+        {
+            this.countParts(sourceImage);
+            return Correction.employ(sourceImage, baseColor, destinationColor);
+        }
+
         private void countParts(Bitmap sourceImage)
         {
             if (ManagerFilters.progressBar != null && sourceImage != null)

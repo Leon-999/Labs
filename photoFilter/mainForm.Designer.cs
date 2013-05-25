@@ -50,8 +50,15 @@
             this.buttonHorizontalWaves = new System.Windows.Forms.Button();
             this.buttonVerticalWaves = new System.Windows.Forms.Button();
             this.buttonGlass = new System.Windows.Forms.Button();
+            this.buttonCorrection = new System.Windows.Forms.Button();
+            this.pictureBoxBaseColor = new System.Windows.Forms.PictureBox();
+            this.labelBase = new System.Windows.Forms.Label();
+            this.labelDestination = new System.Windows.Forms.Label();
+            this.pictureBoxDestinationColor = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.canvas)).BeginInit();
             this.menuStrip.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxBaseColor)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxDestinationColor)).BeginInit();
             this.SuspendLayout();
             // 
             // canvas
@@ -62,6 +69,7 @@
             this.canvas.Size = new System.Drawing.Size(535, 454);
             this.canvas.TabIndex = 0;
             this.canvas.TabStop = false;
+            this.canvas.MouseClick += new System.Windows.Forms.MouseEventHandler(this.canvas_MouseClick);
             // 
             // menuStrip
             // 
@@ -86,21 +94,21 @@
             // openToolStripMenu
             // 
             this.openToolStripMenu.Name = "openToolStripMenu";
-            this.openToolStripMenu.Size = new System.Drawing.Size(152, 22);
+            this.openToolStripMenu.Size = new System.Drawing.Size(112, 22);
             this.openToolStripMenu.Text = "Open";
             this.openToolStripMenu.Click += new System.EventHandler(this.openToolStripMenu_Click);
             // 
             // saveAsToolStripMenu
             // 
             this.saveAsToolStripMenu.Name = "saveAsToolStripMenu";
-            this.saveAsToolStripMenu.Size = new System.Drawing.Size(152, 22);
+            this.saveAsToolStripMenu.Size = new System.Drawing.Size(112, 22);
             this.saveAsToolStripMenu.Text = "Save as";
             this.saveAsToolStripMenu.Click += new System.EventHandler(this.saveAsToolStripMenu_Click);
             // 
             // exitToolStripMenu
             // 
             this.exitToolStripMenu.Name = "exitToolStripMenu";
-            this.exitToolStripMenu.Size = new System.Drawing.Size(152, 22);
+            this.exitToolStripMenu.Size = new System.Drawing.Size(112, 22);
             this.exitToolStripMenu.Text = "Exit";
             this.exitToolStripMenu.Click += new System.EventHandler(this.exitToolStripMenu_Click);
             // 
@@ -252,11 +260,64 @@
             this.buttonGlass.UseVisualStyleBackColor = true;
             this.buttonGlass.Click += new System.EventHandler(this.buttonGlass_Click);
             // 
+            // buttonCorrection
+            // 
+            this.buttonCorrection.Location = new System.Drawing.Point(606, 297);
+            this.buttonCorrection.Name = "buttonCorrection";
+            this.buttonCorrection.Size = new System.Drawing.Size(97, 21);
+            this.buttonCorrection.TabIndex = 24;
+            this.buttonCorrection.Text = "correction";
+            this.buttonCorrection.UseVisualStyleBackColor = true;
+            this.buttonCorrection.Click += new System.EventHandler(this.buttonCorrection_Click);
+            // 
+            // pictureBoxBaseColor
+            // 
+            this.pictureBoxBaseColor.BackColor = System.Drawing.SystemColors.Highlight;
+            this.pictureBoxBaseColor.Location = new System.Drawing.Point(606, 325);
+            this.pictureBoxBaseColor.Name = "pictureBoxBaseColor";
+            this.pictureBoxBaseColor.Size = new System.Drawing.Size(32, 31);
+            this.pictureBoxBaseColor.TabIndex = 25;
+            this.pictureBoxBaseColor.TabStop = false;
+            this.pictureBoxBaseColor.Click += new System.EventHandler(this.pictureBoxBaseColor_Click);
+            // 
+            // labelBase
+            // 
+            this.labelBase.AutoSize = true;
+            this.labelBase.Location = new System.Drawing.Point(570, 343);
+            this.labelBase.Name = "labelBase";
+            this.labelBase.Size = new System.Drawing.Size(30, 13);
+            this.labelBase.TabIndex = 26;
+            this.labelBase.Text = "base";
+            // 
+            // labelDestination
+            // 
+            this.labelDestination.AutoSize = true;
+            this.labelDestination.Location = new System.Drawing.Point(643, 343);
+            this.labelDestination.Name = "labelDestination";
+            this.labelDestination.Size = new System.Drawing.Size(58, 13);
+            this.labelDestination.TabIndex = 28;
+            this.labelDestination.Text = "destination";
+            // 
+            // pictureBoxDestinationColor
+            // 
+            this.pictureBoxDestinationColor.BackColor = System.Drawing.SystemColors.Window;
+            this.pictureBoxDestinationColor.Location = new System.Drawing.Point(707, 325);
+            this.pictureBoxDestinationColor.Name = "pictureBoxDestinationColor";
+            this.pictureBoxDestinationColor.Size = new System.Drawing.Size(32, 31);
+            this.pictureBoxDestinationColor.TabIndex = 27;
+            this.pictureBoxDestinationColor.TabStop = false;
+            this.pictureBoxDestinationColor.Click += new System.EventHandler(this.pictureBoxDestinationColor_Click);
+            // 
             // mainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(743, 493);
+            this.Controls.Add(this.labelDestination);
+            this.Controls.Add(this.pictureBoxDestinationColor);
+            this.Controls.Add(this.labelBase);
+            this.Controls.Add(this.pictureBoxBaseColor);
+            this.Controls.Add(this.buttonCorrection);
             this.Controls.Add(this.buttonGlass);
             this.Controls.Add(this.buttonVerticalWaves);
             this.Controls.Add(this.buttonHorizontalWaves);
@@ -281,6 +342,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.canvas)).EndInit();
             this.menuStrip.ResumeLayout(false);
             this.menuStrip.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxBaseColor)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxDestinationColor)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -310,6 +373,11 @@
         private System.Windows.Forms.Button buttonHorizontalWaves;
         private System.Windows.Forms.Button buttonVerticalWaves;
         private System.Windows.Forms.Button buttonGlass;
+        private System.Windows.Forms.Button buttonCorrection;
+        private System.Windows.Forms.PictureBox pictureBoxBaseColor;
+        private System.Windows.Forms.Label labelBase;
+        private System.Windows.Forms.Label labelDestination;
+        private System.Windows.Forms.PictureBox pictureBoxDestinationColor;
     }
 }
 

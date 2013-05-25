@@ -47,6 +47,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="filters\BlackAndWhite.cs" />
+    <Compile Include="filters\Correction.cs" />
     <Compile Include="filters\Glass.cs" />
     <Compile Include="filters\HorizontalWaves.cs" />
     <Compile Include="filters\ManagerFilters.cs" />
