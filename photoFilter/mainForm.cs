@@ -194,6 +194,13 @@ namespace photoFilter
             this.refreshCanvas();
         }
 
+
+        private void buttonIdealReflector_Click(object sender, EventArgs e)
+        {
+            this.workImage = this.filter.idealReflector(this.sourceImage);
+            this.refreshCanvas();
+        }
+
         private void pictureBoxBaseColor_Click(object sender, EventArgs e)
         {
             MessageBox.Show("Выберите мышкой пиксель на картинке");

@@ -56,6 +56,7 @@
             this.labelDestination = new System.Windows.Forms.Label();
             this.pictureBoxDestinationColor = new System.Windows.Forms.PictureBox();
             this.buttonAutoCorrection = new System.Windows.Forms.Button();
+            this.buttonIdealReflector = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.canvas)).BeginInit();
             this.menuStrip.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxBaseColor)).BeginInit();
@@ -319,11 +320,22 @@
             this.buttonAutoCorrection.UseVisualStyleBackColor = true;
             this.buttonAutoCorrection.Click += new System.EventHandler(this.buttonAutoCorrection_Click);
             // 
+            // buttonIdealReflector
+            // 
+            this.buttonIdealReflector.Location = new System.Drawing.Point(606, 389);
+            this.buttonIdealReflector.Name = "buttonIdealReflector";
+            this.buttonIdealReflector.Size = new System.Drawing.Size(97, 21);
+            this.buttonIdealReflector.TabIndex = 30;
+            this.buttonIdealReflector.Text = "ideal reflector";
+            this.buttonIdealReflector.UseVisualStyleBackColor = true;
+            this.buttonIdealReflector.Click += new System.EventHandler(this.buttonIdealReflector_Click);
+            // 
             // mainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(743, 493);
+            this.Controls.Add(this.buttonIdealReflector);
             this.Controls.Add(this.buttonAutoCorrection);
             this.Controls.Add(this.labelDestination);
             this.Controls.Add(this.pictureBoxDestinationColor);
@@ -391,6 +403,7 @@
         private System.Windows.Forms.Label labelDestination;
         private System.Windows.Forms.PictureBox pictureBoxDestinationColor;
         private System.Windows.Forms.Button buttonAutoCorrection;
+        private System.Windows.Forms.Button buttonIdealReflector;
     }
 }
 

@@ -79,6 +79,12 @@ namespace photoFilter.filters
             return AutoCorrection.employ(sourceImage);
         }
 
+        public Bitmap idealReflector(Bitmap sourceImage)
+        {
+            this.countParts(sourceImage);
+            return IdealReflector.employ(sourceImage);
+        }
+
         private void countParts(Bitmap sourceImage)
         {
             if (ManagerFilters.progressBar != null && sourceImage != null)

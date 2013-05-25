@@ -50,6 +50,7 @@
     <Compile Include="filters\Correction.cs" />
     <Compile Include="filters\Glass.cs" />
     <Compile Include="filters\HorizontalWaves.cs" />
+    <Compile Include="filters\IdealReflector.cs" />
     <Compile Include="filters\ManagerFilters.cs" />
     <Compile Include="filters\Rotate.cs" />
     <Compile Include="filters\Shift.cs" />
