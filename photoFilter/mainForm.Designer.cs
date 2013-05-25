@@ -34,7 +34,7 @@
             this.openToolStripMenu = new System.Windows.Forms.ToolStripMenuItem();
             this.saveAsToolStripMenu = new System.Windows.Forms.ToolStripMenuItem();
             this.exitToolStripMenu = new System.Windows.Forms.ToolStripMenuItem();
-            this.label1 = new System.Windows.Forms.Label();
+            this.labelWhatDisplay = new System.Windows.Forms.Label();
             this.textBoxShiftX = new System.Windows.Forms.TextBox();
             this.textBoxShiftY = new System.Windows.Forms.TextBox();
             this.labelShiftX = new System.Windows.Forms.Label();
@@ -44,6 +44,9 @@
             this.buttonGray = new System.Windows.Forms.Button();
             this.buttonBlackAndWhite = new System.Windows.Forms.Button();
             this.buttonShift = new System.Windows.Forms.Button();
+            this.buttonRotate = new System.Windows.Forms.Button();
+            this.labelRotateAngle = new System.Windows.Forms.Label();
+            this.textBoxRotateAngle = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.canvas)).BeginInit();
             this.menuStrip.SuspendLayout();
             this.SuspendLayout();
@@ -98,14 +101,14 @@
             this.exitToolStripMenu.Text = "Exit";
             this.exitToolStripMenu.Click += new System.EventHandler(this.exitToolStripMenu_Click);
             // 
-            // label1
+            // labelWhatDisplay
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(580, 6);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(74, 13);
-            this.label1.TabIndex = 4;
-            this.label1.Text = "What display?";
+            this.labelWhatDisplay.AutoSize = true;
+            this.labelWhatDisplay.Location = new System.Drawing.Point(580, 6);
+            this.labelWhatDisplay.Name = "labelWhatDisplay";
+            this.labelWhatDisplay.Size = new System.Drawing.Size(74, 13);
+            this.labelWhatDisplay.TabIndex = 4;
+            this.labelWhatDisplay.Text = "What display?";
             // 
             // textBoxShiftX
             // 
@@ -189,11 +192,41 @@
             this.buttonShift.UseVisualStyleBackColor = true;
             this.buttonShift.Click += new System.EventHandler(this.buttonShift_Click);
             // 
+            // buttonRotate
+            // 
+            this.buttonRotate.Location = new System.Drawing.Point(606, 160);
+            this.buttonRotate.Name = "buttonRotate";
+            this.buttonRotate.Size = new System.Drawing.Size(87, 21);
+            this.buttonRotate.TabIndex = 18;
+            this.buttonRotate.Text = "rotate";
+            this.buttonRotate.UseVisualStyleBackColor = true;
+            this.buttonRotate.Click += new System.EventHandler(this.buttonRotate_Click);
+            // 
+            // labelRotateAngle
+            // 
+            this.labelRotateAngle.AutoSize = true;
+            this.labelRotateAngle.Location = new System.Drawing.Point(599, 193);
+            this.labelRotateAngle.Name = "labelRotateAngle";
+            this.labelRotateAngle.Size = new System.Drawing.Size(33, 13);
+            this.labelRotateAngle.TabIndex = 20;
+            this.labelRotateAngle.Text = "angle";
+            // 
+            // textBoxRotateAngle
+            // 
+            this.textBoxRotateAngle.Location = new System.Drawing.Point(638, 190);
+            this.textBoxRotateAngle.Name = "textBoxRotateAngle";
+            this.textBoxRotateAngle.Size = new System.Drawing.Size(43, 20);
+            this.textBoxRotateAngle.TabIndex = 19;
+            this.textBoxRotateAngle.Text = "0";
+            // 
             // mainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(743, 493);
+            this.Controls.Add(this.labelRotateAngle);
+            this.Controls.Add(this.textBoxRotateAngle);
+            this.Controls.Add(this.buttonRotate);
             this.Controls.Add(this.buttonShift);
             this.Controls.Add(this.buttonBlackAndWhite);
             this.Controls.Add(this.buttonGray);
@@ -203,7 +236,7 @@
             this.Controls.Add(this.labelShiftX);
             this.Controls.Add(this.textBoxShiftY);
             this.Controls.Add(this.textBoxShiftX);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.labelWhatDisplay);
             this.Controls.Add(this.canvas);
             this.Controls.Add(this.menuStrip);
             this.MainMenuStrip = this.menuStrip;
@@ -225,7 +258,7 @@
         private System.Windows.Forms.ToolStripMenuItem openToolStripMenu;
         private System.Windows.Forms.ToolStripMenuItem saveAsToolStripMenu;
         private System.Windows.Forms.ToolStripMenuItem exitToolStripMenu;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label labelWhatDisplay;
         private System.Windows.Forms.TextBox textBoxShiftX;
         private System.Windows.Forms.TextBox textBoxShiftY;
         private System.Windows.Forms.Label labelShiftX;
@@ -235,6 +268,9 @@
         private System.Windows.Forms.Button buttonGray;
         private System.Windows.Forms.Button buttonBlackAndWhite;
         private System.Windows.Forms.Button buttonShift;
+        private System.Windows.Forms.Button buttonRotate;
+        private System.Windows.Forms.Label labelRotateAngle;
+        private System.Windows.Forms.TextBox textBoxRotateAngle;
     }
 }
 

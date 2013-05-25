@@ -10,7 +10,7 @@ namespace photoFilter.filters
     {
         internal static Bitmap employ(Bitmap sourceImage)
         {
-            Bitmap returned = new Bitmap(1,1);
+            Bitmap returned = null;
 
             if (sourceImage != null)
             {

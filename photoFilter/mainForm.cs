@@ -142,7 +142,24 @@ namespace photoFilter
             }
             catch
             {
-                MessageBox.Show("Смещение введено не верно");
+                MessageBox.Show("Смещение введено неверно");
+            }
+
+        }
+
+
+        private void buttonRotate_Click(object sender, EventArgs e)
+        {
+            float angle;
+            try
+            {
+                angle = (float)Convert.ToDouble(this.textBoxRotateAngle.Text);
+                this.workImage = this.filter.rotate(this.sourceImage, angle);
+                this.refreshCanvas();
+            }
+            catch
+            {
+                MessageBox.Show("Угол введен неверно");
             }
 
         }

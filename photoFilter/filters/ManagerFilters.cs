@@ -43,6 +43,12 @@ namespace photoFilter.filters
             return Shift.employ(sourceImage, dX, dY); 
         }
 
+        public Bitmap rotate(Bitmap sourceImage, float angle)
+        {
+            this.countParts(sourceImage);
+            return Rotate.employ(sourceImage, angle);
+        }
+
         private void countParts(Bitmap sourceImage)
         {
             if (ManagerFilters.progressBar != null && sourceImage != null)
