@@ -54,7 +54,7 @@
     <Compile Include="filters\ManagerFilters.cs" />
     <Compile Include="filters\Rotate.cs" />
     <Compile Include="filters\Shift.cs" />
-    <Compile Include="filters\AutoCorrection.cs" />
+    <Compile Include="filters\ContrastStretching.cs" />
     <Compile Include="filters\VerticalWaves.cs" />
     <Compile Include="mainForm.cs">
       <SubType>Form</SubType>

@@ -6,7 +6,7 @@ using System.Drawing;
 
 namespace photoFilter.filters
 {
-    class AutoCorrection
+    class ContrastStretching
     {
         internal static Bitmap employ(Bitmap sourceImage)
         {

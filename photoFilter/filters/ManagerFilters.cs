@@ -73,10 +73,10 @@ namespace photoFilter.filters
             return Correction.employ(sourceImage, baseColor, destinationColor);
         }
 
-        public Bitmap autoCorrection(Bitmap sourceImage)
+        public Bitmap contrastStretching(Bitmap sourceImage)
         {
             this.countParts(sourceImage);
-            return AutoCorrection.employ(sourceImage);
+            return ContrastStretching.employ(sourceImage);
         }
 
         public Bitmap idealReflector(Bitmap sourceImage)

@@ -190,7 +190,7 @@ namespace photoFilter
 
         private void buttonAutoCorrection_Click(object sender, EventArgs e)
         {
-            this.workImage = this.filter.autoCorrection(this.sourceImage);
+            this.workImage = this.filter.contrastStretching(this.sourceImage);
             this.refreshCanvas();
         }
 
