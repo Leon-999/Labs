@@ -48,6 +48,7 @@
             this.labelRotateAngle = new System.Windows.Forms.Label();
             this.textBoxRotateAngle = new System.Windows.Forms.TextBox();
             this.buttonHorizontalWaves = new System.Windows.Forms.Button();
+            this.buttonVerticalWaves = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.canvas)).BeginInit();
             this.menuStrip.SuspendLayout();
             this.SuspendLayout();
@@ -230,11 +231,22 @@
             this.buttonHorizontalWaves.UseVisualStyleBackColor = true;
             this.buttonHorizontalWaves.Click += new System.EventHandler(this.buttonHorizontalWaves_Click);
             // 
+            // buttonVerticalWaves
+            // 
+            this.buttonVerticalWaves.Location = new System.Drawing.Point(606, 243);
+            this.buttonVerticalWaves.Name = "buttonVerticalWaves";
+            this.buttonVerticalWaves.Size = new System.Drawing.Size(97, 21);
+            this.buttonVerticalWaves.TabIndex = 22;
+            this.buttonVerticalWaves.Text = "vertical waves";
+            this.buttonVerticalWaves.UseVisualStyleBackColor = true;
+            this.buttonVerticalWaves.Click += new System.EventHandler(this.buttonVerticalWaves_Click);
+            // 
             // mainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(743, 493);
+            this.Controls.Add(this.buttonVerticalWaves);
             this.Controls.Add(this.buttonHorizontalWaves);
             this.Controls.Add(this.labelRotateAngle);
             this.Controls.Add(this.textBoxRotateAngle);
@@ -284,6 +296,7 @@
         private System.Windows.Forms.Label labelRotateAngle;
         private System.Windows.Forms.TextBox textBoxRotateAngle;
         private System.Windows.Forms.Button buttonHorizontalWaves;
+        private System.Windows.Forms.Button buttonVerticalWaves;
     }
 }
 

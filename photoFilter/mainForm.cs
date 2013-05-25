@@ -169,6 +169,12 @@ namespace photoFilter
             this.workImage = this.filter.horozontalWaves(sourceImage);
             this.refreshCanvas();
         }
+
+        private void buttonVerticalWaves_Click(object sender, EventArgs e)
+        {
+            this.workImage = this.filter.verticalWaves(sourceImage);
+            this.refreshCanvas();
+        }
         
     }
 }

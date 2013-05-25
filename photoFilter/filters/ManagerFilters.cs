@@ -55,6 +55,12 @@ namespace photoFilter.filters
             return HorizontalWaves.employ(sourceImage);
         }
 
+        public Bitmap verticalWaves(Bitmap sourceImage)
+        {
+            this.countParts(sourceImage);
+            return VerticalWaves.employ(sourceImage);
+        }
+
         private void countParts(Bitmap sourceImage)
         {
             if (ManagerFilters.progressBar != null && sourceImage != null)
