@@ -57,6 +57,7 @@
             this.pictureBoxDestinationColor = new System.Windows.Forms.PictureBox();
             this.buttonContrastStretching = new System.Windows.Forms.Button();
             this.buttonIdealReflector = new System.Windows.Forms.Button();
+            this.buttonStatisticalCorrection = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.canvas)).BeginInit();
             this.menuStrip.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxBaseColor)).BeginInit();
@@ -169,7 +170,7 @@
             // 
             this.buttonSourceFile.Location = new System.Drawing.Point(606, 27);
             this.buttonSourceFile.Name = "buttonSourceFile";
-            this.buttonSourceFile.Size = new System.Drawing.Size(105, 21);
+            this.buttonSourceFile.Size = new System.Drawing.Size(110, 21);
             this.buttonSourceFile.TabIndex = 14;
             this.buttonSourceFile.Text = "source image";
             this.buttonSourceFile.UseVisualStyleBackColor = true;
@@ -179,7 +180,7 @@
             // 
             this.buttonGray.Location = new System.Drawing.Point(606, 54);
             this.buttonGray.Name = "buttonGray";
-            this.buttonGray.Size = new System.Drawing.Size(105, 21);
+            this.buttonGray.Size = new System.Drawing.Size(110, 21);
             this.buttonGray.TabIndex = 15;
             this.buttonGray.Text = "gray";
             this.buttonGray.UseVisualStyleBackColor = true;
@@ -189,7 +190,7 @@
             // 
             this.buttonBlackAndWhite.Location = new System.Drawing.Point(606, 81);
             this.buttonBlackAndWhite.Name = "buttonBlackAndWhite";
-            this.buttonBlackAndWhite.Size = new System.Drawing.Size(105, 21);
+            this.buttonBlackAndWhite.Size = new System.Drawing.Size(110, 21);
             this.buttonBlackAndWhite.TabIndex = 16;
             this.buttonBlackAndWhite.Text = "black-white";
             this.buttonBlackAndWhite.UseVisualStyleBackColor = true;
@@ -199,7 +200,7 @@
             // 
             this.buttonShift.Location = new System.Drawing.Point(606, 107);
             this.buttonShift.Name = "buttonShift";
-            this.buttonShift.Size = new System.Drawing.Size(105, 21);
+            this.buttonShift.Size = new System.Drawing.Size(110, 21);
             this.buttonShift.TabIndex = 17;
             this.buttonShift.Text = "shift";
             this.buttonShift.UseVisualStyleBackColor = true;
@@ -209,7 +210,7 @@
             // 
             this.buttonRotate.Location = new System.Drawing.Point(606, 160);
             this.buttonRotate.Name = "buttonRotate";
-            this.buttonRotate.Size = new System.Drawing.Size(105, 21);
+            this.buttonRotate.Size = new System.Drawing.Size(110, 21);
             this.buttonRotate.TabIndex = 18;
             this.buttonRotate.Text = "rotate";
             this.buttonRotate.UseVisualStyleBackColor = true;
@@ -236,7 +237,7 @@
             // 
             this.buttonHorizontalWaves.Location = new System.Drawing.Point(606, 216);
             this.buttonHorizontalWaves.Name = "buttonHorizontalWaves";
-            this.buttonHorizontalWaves.Size = new System.Drawing.Size(105, 21);
+            this.buttonHorizontalWaves.Size = new System.Drawing.Size(110, 21);
             this.buttonHorizontalWaves.TabIndex = 21;
             this.buttonHorizontalWaves.Text = "horizontal waves";
             this.buttonHorizontalWaves.UseVisualStyleBackColor = true;
@@ -246,7 +247,7 @@
             // 
             this.buttonVerticalWaves.Location = new System.Drawing.Point(606, 243);
             this.buttonVerticalWaves.Name = "buttonVerticalWaves";
-            this.buttonVerticalWaves.Size = new System.Drawing.Size(105, 21);
+            this.buttonVerticalWaves.Size = new System.Drawing.Size(110, 21);
             this.buttonVerticalWaves.TabIndex = 22;
             this.buttonVerticalWaves.Text = "vertical waves";
             this.buttonVerticalWaves.UseVisualStyleBackColor = true;
@@ -256,7 +257,7 @@
             // 
             this.buttonGlass.Location = new System.Drawing.Point(606, 270);
             this.buttonGlass.Name = "buttonGlass";
-            this.buttonGlass.Size = new System.Drawing.Size(105, 21);
+            this.buttonGlass.Size = new System.Drawing.Size(110, 21);
             this.buttonGlass.TabIndex = 23;
             this.buttonGlass.Text = "glass";
             this.buttonGlass.UseVisualStyleBackColor = true;
@@ -266,7 +267,7 @@
             // 
             this.buttonCorrection.Location = new System.Drawing.Point(606, 297);
             this.buttonCorrection.Name = "buttonCorrection";
-            this.buttonCorrection.Size = new System.Drawing.Size(105, 21);
+            this.buttonCorrection.Size = new System.Drawing.Size(110, 21);
             this.buttonCorrection.TabIndex = 24;
             this.buttonCorrection.Text = "correction";
             this.buttonCorrection.UseVisualStyleBackColor = true;
@@ -314,7 +315,7 @@
             // 
             this.buttonContrastStretching.Location = new System.Drawing.Point(606, 362);
             this.buttonContrastStretching.Name = "buttonContrastStretching";
-            this.buttonContrastStretching.Size = new System.Drawing.Size(105, 21);
+            this.buttonContrastStretching.Size = new System.Drawing.Size(110, 21);
             this.buttonContrastStretching.TabIndex = 29;
             this.buttonContrastStretching.Text = "contrast stretching";
             this.buttonContrastStretching.UseVisualStyleBackColor = true;
@@ -324,17 +325,28 @@
             // 
             this.buttonIdealReflector.Location = new System.Drawing.Point(606, 389);
             this.buttonIdealReflector.Name = "buttonIdealReflector";
-            this.buttonIdealReflector.Size = new System.Drawing.Size(105, 21);
+            this.buttonIdealReflector.Size = new System.Drawing.Size(110, 21);
             this.buttonIdealReflector.TabIndex = 30;
             this.buttonIdealReflector.Text = "ideal reflector";
             this.buttonIdealReflector.UseVisualStyleBackColor = true;
             this.buttonIdealReflector.Click += new System.EventHandler(this.buttonIdealReflector_Click);
+            // 
+            // buttonStatisticalCorrection
+            // 
+            this.buttonStatisticalCorrection.Location = new System.Drawing.Point(606, 416);
+            this.buttonStatisticalCorrection.Name = "buttonStatisticalCorrection";
+            this.buttonStatisticalCorrection.Size = new System.Drawing.Size(110, 21);
+            this.buttonStatisticalCorrection.TabIndex = 31;
+            this.buttonStatisticalCorrection.Text = "statistical correction";
+            this.buttonStatisticalCorrection.UseVisualStyleBackColor = true;
+            this.buttonStatisticalCorrection.Click += new System.EventHandler(this.buttonStatisticalCorrection_Click);
             // 
             // mainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(743, 493);
+            this.Controls.Add(this.buttonStatisticalCorrection);
             this.Controls.Add(this.buttonIdealReflector);
             this.Controls.Add(this.buttonContrastStretching);
             this.Controls.Add(this.labelDestination);
@@ -404,6 +416,7 @@
         private System.Windows.Forms.PictureBox pictureBoxDestinationColor;
         private System.Windows.Forms.Button buttonContrastStretching;
         private System.Windows.Forms.Button buttonIdealReflector;
+        private System.Windows.Forms.Button buttonStatisticalCorrection;
     }
 }
 

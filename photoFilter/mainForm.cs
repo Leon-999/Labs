@@ -201,6 +201,19 @@ namespace photoFilter
             this.refreshCanvas();
         }
 
+
+        private void buttonStatisticalCorrection_Click(object sender, EventArgs e)
+        {
+            if (this.openFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                Bitmap targetImage = new Bitmap(openFileDialog.FileName);
+
+                this.workImage = this.filter.statisticalCorrection(sourceImage, targetImage);
+                this.refreshCanvas();
+                targetImage.Dispose();
+            }
+        }
+
         private void pictureBoxBaseColor_Click(object sender, EventArgs e)
         {
             MessageBox.Show("Выберите мышкой пиксель на картинке");

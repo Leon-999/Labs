@@ -85,6 +85,12 @@ namespace photoFilter.filters
             return IdealReflector.employ(sourceImage);
         }
 
+        public Bitmap statisticalCorrection(Bitmap sourceImage, Bitmap targetImage)
+        {
+            this.countParts(sourceImage);
+            return StatisticalCorrection.employ(sourceImage, targetImage);
+        }
+
         private void countParts(Bitmap sourceImage)
         {
             if (ManagerFilters.progressBar != null && sourceImage != null)
