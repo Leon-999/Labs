@@ -8,7 +8,7 @@ namespace photoFilter.filters
 {
     class VerticalWaves
     {
-        const int AMPLITUDE = 33;
+        private const int AMPLITUDE = 33;
 
         internal static Bitmap employ(Bitmap sourceImage)
         {
