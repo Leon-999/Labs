@@ -58,10 +58,15 @@
             this.buttonContrastStretching = new System.Windows.Forms.Button();
             this.buttonIdealReflector = new System.Windows.Forms.Button();
             this.buttonStatisticalCorrection = new System.Windows.Forms.Button();
+            this.panelFilters = new System.Windows.Forms.Panel();
+            this.radioButtonFilters = new System.Windows.Forms.RadioButton();
+            this.radioButtonSquelch = new System.Windows.Forms.RadioButton();
+            this.panelSquelch = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.canvas)).BeginInit();
             this.menuStrip.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxBaseColor)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxDestinationColor)).BeginInit();
+            this.panelFilters.SuspendLayout();
             this.SuspendLayout();
             // 
             // canvas
@@ -120,13 +125,13 @@
             this.labelWhatDisplay.AutoSize = true;
             this.labelWhatDisplay.Location = new System.Drawing.Point(580, 6);
             this.labelWhatDisplay.Name = "labelWhatDisplay";
-            this.labelWhatDisplay.Size = new System.Drawing.Size(74, 13);
+            this.labelWhatDisplay.Size = new System.Drawing.Size(66, 13);
             this.labelWhatDisplay.TabIndex = 4;
-            this.labelWhatDisplay.Text = "What display?";
+            this.labelWhatDisplay.Text = "What to do?";
             // 
             // textBoxShiftX
             // 
-            this.textBoxShiftX.Location = new System.Drawing.Point(625, 134);
+            this.textBoxShiftX.Location = new System.Drawing.Point(64, 109);
             this.textBoxShiftX.Name = "textBoxShiftX";
             this.textBoxShiftX.Size = new System.Drawing.Size(43, 20);
             this.textBoxShiftX.TabIndex = 8;
@@ -134,7 +139,7 @@
             // 
             // textBoxShiftY
             // 
-            this.textBoxShiftY.Location = new System.Drawing.Point(696, 134);
+            this.textBoxShiftY.Location = new System.Drawing.Point(135, 109);
             this.textBoxShiftY.Name = "textBoxShiftY";
             this.textBoxShiftY.Size = new System.Drawing.Size(43, 20);
             this.textBoxShiftY.TabIndex = 9;
@@ -143,7 +148,7 @@
             // labelShiftX
             // 
             this.labelShiftX.AutoSize = true;
-            this.labelShiftX.Location = new System.Drawing.Point(599, 137);
+            this.labelShiftX.Location = new System.Drawing.Point(38, 112);
             this.labelShiftX.Name = "labelShiftX";
             this.labelShiftX.Size = new System.Drawing.Size(20, 13);
             this.labelShiftX.TabIndex = 10;
@@ -152,7 +157,7 @@
             // labelShiftY
             // 
             this.labelShiftY.AutoSize = true;
-            this.labelShiftY.Location = new System.Drawing.Point(673, 137);
+            this.labelShiftY.Location = new System.Drawing.Point(112, 112);
             this.labelShiftY.Name = "labelShiftY";
             this.labelShiftY.Size = new System.Drawing.Size(20, 13);
             this.labelShiftY.TabIndex = 11;
@@ -168,7 +173,7 @@
             // 
             // buttonSourceFile
             // 
-            this.buttonSourceFile.Location = new System.Drawing.Point(606, 27);
+            this.buttonSourceFile.Location = new System.Drawing.Point(45, 2);
             this.buttonSourceFile.Name = "buttonSourceFile";
             this.buttonSourceFile.Size = new System.Drawing.Size(110, 21);
             this.buttonSourceFile.TabIndex = 14;
@@ -178,7 +183,7 @@
             // 
             // buttonGray
             // 
-            this.buttonGray.Location = new System.Drawing.Point(606, 54);
+            this.buttonGray.Location = new System.Drawing.Point(45, 29);
             this.buttonGray.Name = "buttonGray";
             this.buttonGray.Size = new System.Drawing.Size(110, 21);
             this.buttonGray.TabIndex = 15;
@@ -188,7 +193,7 @@
             // 
             // buttonBlackAndWhite
             // 
-            this.buttonBlackAndWhite.Location = new System.Drawing.Point(606, 81);
+            this.buttonBlackAndWhite.Location = new System.Drawing.Point(45, 56);
             this.buttonBlackAndWhite.Name = "buttonBlackAndWhite";
             this.buttonBlackAndWhite.Size = new System.Drawing.Size(110, 21);
             this.buttonBlackAndWhite.TabIndex = 16;
@@ -198,7 +203,7 @@
             // 
             // buttonShift
             // 
-            this.buttonShift.Location = new System.Drawing.Point(606, 107);
+            this.buttonShift.Location = new System.Drawing.Point(45, 82);
             this.buttonShift.Name = "buttonShift";
             this.buttonShift.Size = new System.Drawing.Size(110, 21);
             this.buttonShift.TabIndex = 17;
@@ -208,7 +213,7 @@
             // 
             // buttonRotate
             // 
-            this.buttonRotate.Location = new System.Drawing.Point(606, 160);
+            this.buttonRotate.Location = new System.Drawing.Point(45, 135);
             this.buttonRotate.Name = "buttonRotate";
             this.buttonRotate.Size = new System.Drawing.Size(110, 21);
             this.buttonRotate.TabIndex = 18;
@@ -219,7 +224,7 @@
             // labelRotateAngle
             // 
             this.labelRotateAngle.AutoSize = true;
-            this.labelRotateAngle.Location = new System.Drawing.Point(599, 193);
+            this.labelRotateAngle.Location = new System.Drawing.Point(38, 168);
             this.labelRotateAngle.Name = "labelRotateAngle";
             this.labelRotateAngle.Size = new System.Drawing.Size(33, 13);
             this.labelRotateAngle.TabIndex = 20;
@@ -227,7 +232,7 @@
             // 
             // textBoxRotateAngle
             // 
-            this.textBoxRotateAngle.Location = new System.Drawing.Point(638, 190);
+            this.textBoxRotateAngle.Location = new System.Drawing.Point(77, 165);
             this.textBoxRotateAngle.Name = "textBoxRotateAngle";
             this.textBoxRotateAngle.Size = new System.Drawing.Size(43, 20);
             this.textBoxRotateAngle.TabIndex = 19;
@@ -235,7 +240,7 @@
             // 
             // buttonHorizontalWaves
             // 
-            this.buttonHorizontalWaves.Location = new System.Drawing.Point(606, 216);
+            this.buttonHorizontalWaves.Location = new System.Drawing.Point(45, 191);
             this.buttonHorizontalWaves.Name = "buttonHorizontalWaves";
             this.buttonHorizontalWaves.Size = new System.Drawing.Size(110, 21);
             this.buttonHorizontalWaves.TabIndex = 21;
@@ -245,7 +250,7 @@
             // 
             // buttonVerticalWaves
             // 
-            this.buttonVerticalWaves.Location = new System.Drawing.Point(606, 243);
+            this.buttonVerticalWaves.Location = new System.Drawing.Point(45, 218);
             this.buttonVerticalWaves.Name = "buttonVerticalWaves";
             this.buttonVerticalWaves.Size = new System.Drawing.Size(110, 21);
             this.buttonVerticalWaves.TabIndex = 22;
@@ -255,7 +260,7 @@
             // 
             // buttonGlass
             // 
-            this.buttonGlass.Location = new System.Drawing.Point(606, 270);
+            this.buttonGlass.Location = new System.Drawing.Point(45, 245);
             this.buttonGlass.Name = "buttonGlass";
             this.buttonGlass.Size = new System.Drawing.Size(110, 21);
             this.buttonGlass.TabIndex = 23;
@@ -265,7 +270,7 @@
             // 
             // buttonCorrection
             // 
-            this.buttonCorrection.Location = new System.Drawing.Point(606, 297);
+            this.buttonCorrection.Location = new System.Drawing.Point(45, 272);
             this.buttonCorrection.Name = "buttonCorrection";
             this.buttonCorrection.Size = new System.Drawing.Size(110, 21);
             this.buttonCorrection.TabIndex = 24;
@@ -276,7 +281,7 @@
             // pictureBoxBaseColor
             // 
             this.pictureBoxBaseColor.BackColor = System.Drawing.SystemColors.Highlight;
-            this.pictureBoxBaseColor.Location = new System.Drawing.Point(606, 325);
+            this.pictureBoxBaseColor.Location = new System.Drawing.Point(45, 300);
             this.pictureBoxBaseColor.Name = "pictureBoxBaseColor";
             this.pictureBoxBaseColor.Size = new System.Drawing.Size(32, 31);
             this.pictureBoxBaseColor.TabIndex = 25;
@@ -286,7 +291,7 @@
             // labelBase
             // 
             this.labelBase.AutoSize = true;
-            this.labelBase.Location = new System.Drawing.Point(570, 343);
+            this.labelBase.Location = new System.Drawing.Point(9, 318);
             this.labelBase.Name = "labelBase";
             this.labelBase.Size = new System.Drawing.Size(30, 13);
             this.labelBase.TabIndex = 26;
@@ -295,7 +300,7 @@
             // labelDestination
             // 
             this.labelDestination.AutoSize = true;
-            this.labelDestination.Location = new System.Drawing.Point(643, 343);
+            this.labelDestination.Location = new System.Drawing.Point(82, 318);
             this.labelDestination.Name = "labelDestination";
             this.labelDestination.Size = new System.Drawing.Size(58, 13);
             this.labelDestination.TabIndex = 28;
@@ -304,7 +309,7 @@
             // pictureBoxDestinationColor
             // 
             this.pictureBoxDestinationColor.BackColor = System.Drawing.SystemColors.Window;
-            this.pictureBoxDestinationColor.Location = new System.Drawing.Point(707, 325);
+            this.pictureBoxDestinationColor.Location = new System.Drawing.Point(146, 300);
             this.pictureBoxDestinationColor.Name = "pictureBoxDestinationColor";
             this.pictureBoxDestinationColor.Size = new System.Drawing.Size(32, 31);
             this.pictureBoxDestinationColor.TabIndex = 27;
@@ -313,7 +318,7 @@
             // 
             // buttonContrastStretching
             // 
-            this.buttonContrastStretching.Location = new System.Drawing.Point(606, 362);
+            this.buttonContrastStretching.Location = new System.Drawing.Point(45, 337);
             this.buttonContrastStretching.Name = "buttonContrastStretching";
             this.buttonContrastStretching.Size = new System.Drawing.Size(110, 21);
             this.buttonContrastStretching.TabIndex = 29;
@@ -323,7 +328,7 @@
             // 
             // buttonIdealReflector
             // 
-            this.buttonIdealReflector.Location = new System.Drawing.Point(606, 389);
+            this.buttonIdealReflector.Location = new System.Drawing.Point(45, 364);
             this.buttonIdealReflector.Name = "buttonIdealReflector";
             this.buttonIdealReflector.Size = new System.Drawing.Size(110, 21);
             this.buttonIdealReflector.TabIndex = 30;
@@ -333,7 +338,7 @@
             // 
             // buttonStatisticalCorrection
             // 
-            this.buttonStatisticalCorrection.Location = new System.Drawing.Point(606, 416);
+            this.buttonStatisticalCorrection.Location = new System.Drawing.Point(45, 391);
             this.buttonStatisticalCorrection.Name = "buttonStatisticalCorrection";
             this.buttonStatisticalCorrection.Size = new System.Drawing.Size(110, 21);
             this.buttonStatisticalCorrection.TabIndex = 31;
@@ -341,37 +346,79 @@
             this.buttonStatisticalCorrection.UseVisualStyleBackColor = true;
             this.buttonStatisticalCorrection.Click += new System.EventHandler(this.buttonStatisticalCorrection_Click);
             // 
+            // panelFilters
+            // 
+            this.panelFilters.Controls.Add(this.buttonStatisticalCorrection);
+            this.panelFilters.Controls.Add(this.buttonIdealReflector);
+            this.panelFilters.Controls.Add(this.buttonContrastStretching);
+            this.panelFilters.Controls.Add(this.labelDestination);
+            this.panelFilters.Controls.Add(this.pictureBoxDestinationColor);
+            this.panelFilters.Controls.Add(this.labelBase);
+            this.panelFilters.Controls.Add(this.pictureBoxBaseColor);
+            this.panelFilters.Controls.Add(this.buttonCorrection);
+            this.panelFilters.Controls.Add(this.buttonGlass);
+            this.panelFilters.Controls.Add(this.buttonVerticalWaves);
+            this.panelFilters.Controls.Add(this.buttonHorizontalWaves);
+            this.panelFilters.Controls.Add(this.labelRotateAngle);
+            this.panelFilters.Controls.Add(this.textBoxRotateAngle);
+            this.panelFilters.Controls.Add(this.buttonRotate);
+            this.panelFilters.Controls.Add(this.buttonShift);
+            this.panelFilters.Controls.Add(this.buttonBlackAndWhite);
+            this.panelFilters.Controls.Add(this.buttonGray);
+            this.panelFilters.Controls.Add(this.buttonSourceFile);
+            this.panelFilters.Controls.Add(this.labelShiftY);
+            this.panelFilters.Controls.Add(this.labelShiftX);
+            this.panelFilters.Controls.Add(this.textBoxShiftY);
+            this.panelFilters.Controls.Add(this.textBoxShiftX);
+            this.panelFilters.Location = new System.Drawing.Point(561, 25);
+            this.panelFilters.Name = "panelFilters";
+            this.panelFilters.Size = new System.Drawing.Size(181, 422);
+            this.panelFilters.TabIndex = 32;
+            // 
+            // radioButtonFilters
+            // 
+            this.radioButtonFilters.AutoSize = true;
+            this.radioButtonFilters.Checked = true;
+            this.radioButtonFilters.Location = new System.Drawing.Point(573, 464);
+            this.radioButtonFilters.Name = "radioButtonFilters";
+            this.radioButtonFilters.Size = new System.Drawing.Size(49, 17);
+            this.radioButtonFilters.TabIndex = 33;
+            this.radioButtonFilters.TabStop = true;
+            this.radioButtonFilters.Text = "filters";
+            this.radioButtonFilters.UseVisualStyleBackColor = true;
+            this.radioButtonFilters.CheckedChanged += new System.EventHandler(this.radioButtonFilters_CheckedChanged);
+            // 
+            // radioButtonSquelch
+            // 
+            this.radioButtonSquelch.AutoSize = true;
+            this.radioButtonSquelch.Location = new System.Drawing.Point(654, 464);
+            this.radioButtonSquelch.Name = "radioButtonSquelch";
+            this.radioButtonSquelch.Size = new System.Drawing.Size(62, 17);
+            this.radioButtonSquelch.TabIndex = 34;
+            this.radioButtonSquelch.Text = "squelch";
+            this.radioButtonSquelch.UseVisualStyleBackColor = true;
+            this.radioButtonSquelch.CheckedChanged += new System.EventHandler(this.radioButtonSquelch_CheckedChanged);
+            // 
+            // panelSquelch
+            // 
+            this.panelSquelch.Location = new System.Drawing.Point(560, 25);
+            this.panelSquelch.Name = "panelSquelch";
+            this.panelSquelch.Size = new System.Drawing.Size(182, 422);
+            this.panelSquelch.TabIndex = 35;
+            // 
             // mainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(743, 493);
-            this.Controls.Add(this.buttonStatisticalCorrection);
-            this.Controls.Add(this.buttonIdealReflector);
-            this.Controls.Add(this.buttonContrastStretching);
-            this.Controls.Add(this.labelDestination);
-            this.Controls.Add(this.pictureBoxDestinationColor);
-            this.Controls.Add(this.labelBase);
-            this.Controls.Add(this.pictureBoxBaseColor);
-            this.Controls.Add(this.buttonCorrection);
-            this.Controls.Add(this.buttonGlass);
-            this.Controls.Add(this.buttonVerticalWaves);
-            this.Controls.Add(this.buttonHorizontalWaves);
-            this.Controls.Add(this.labelRotateAngle);
-            this.Controls.Add(this.textBoxRotateAngle);
-            this.Controls.Add(this.buttonRotate);
-            this.Controls.Add(this.buttonShift);
-            this.Controls.Add(this.buttonBlackAndWhite);
-            this.Controls.Add(this.buttonGray);
-            this.Controls.Add(this.buttonSourceFile);
+            this.Controls.Add(this.radioButtonSquelch);
+            this.Controls.Add(this.radioButtonFilters);
             this.Controls.Add(this.progressBar);
-            this.Controls.Add(this.labelShiftY);
-            this.Controls.Add(this.labelShiftX);
-            this.Controls.Add(this.textBoxShiftY);
-            this.Controls.Add(this.textBoxShiftX);
             this.Controls.Add(this.labelWhatDisplay);
             this.Controls.Add(this.canvas);
             this.Controls.Add(this.menuStrip);
+            this.Controls.Add(this.panelFilters);
+            this.Controls.Add(this.panelSquelch);
             this.MainMenuStrip = this.menuStrip;
             this.Name = "mainForm";
             this.Text = "MainForm";
@@ -380,6 +427,8 @@
             this.menuStrip.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxBaseColor)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxDestinationColor)).EndInit();
+            this.panelFilters.ResumeLayout(false);
+            this.panelFilters.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -417,6 +466,10 @@
         private System.Windows.Forms.Button buttonContrastStretching;
         private System.Windows.Forms.Button buttonIdealReflector;
         private System.Windows.Forms.Button buttonStatisticalCorrection;
+        private System.Windows.Forms.Panel panelFilters;
+        private System.Windows.Forms.RadioButton radioButtonFilters;
+        private System.Windows.Forms.RadioButton radioButtonSquelch;
+        private System.Windows.Forms.Panel panelSquelch;
     }
 }
 

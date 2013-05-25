@@ -242,6 +242,22 @@ namespace photoFilter
                 this.pictureBoxBaseColor.BackColor = ((Bitmap)this.canvas.Image).GetPixel(getX, getY);
             }
         }
+
+        private void radioButtonFilters_CheckedChanged(object sender, EventArgs e)
+        {
+            if (this.radioButtonFilters.Checked)
+                this.panelFilters.Visible = true;
+            else
+                this.panelFilters.Visible = false;
+        }
+
+        private void radioButtonSquelch_CheckedChanged(object sender, EventArgs e)
+        {
+            if (this.radioButtonSquelch.Checked)
+                this.panelSquelch.Visible = true;
+            else
+                this.panelSquelch.Visible = false;
+        }
         
     }
 }
