@@ -55,6 +55,7 @@
             this.labelBase = new System.Windows.Forms.Label();
             this.labelDestination = new System.Windows.Forms.Label();
             this.pictureBoxDestinationColor = new System.Windows.Forms.PictureBox();
+            this.buttonAutoCorrection = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.canvas)).BeginInit();
             this.menuStrip.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxBaseColor)).BeginInit();
@@ -308,11 +309,22 @@
             this.pictureBoxDestinationColor.TabStop = false;
             this.pictureBoxDestinationColor.Click += new System.EventHandler(this.pictureBoxDestinationColor_Click);
             // 
+            // buttonAutoCorrection
+            // 
+            this.buttonAutoCorrection.Location = new System.Drawing.Point(606, 362);
+            this.buttonAutoCorrection.Name = "buttonAutoCorrection";
+            this.buttonAutoCorrection.Size = new System.Drawing.Size(97, 21);
+            this.buttonAutoCorrection.TabIndex = 29;
+            this.buttonAutoCorrection.Text = "auto correction";
+            this.buttonAutoCorrection.UseVisualStyleBackColor = true;
+            this.buttonAutoCorrection.Click += new System.EventHandler(this.buttonAutoCorrection_Click);
+            // 
             // mainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(743, 493);
+            this.Controls.Add(this.buttonAutoCorrection);
             this.Controls.Add(this.labelDestination);
             this.Controls.Add(this.pictureBoxDestinationColor);
             this.Controls.Add(this.labelBase);
@@ -378,6 +390,7 @@
         private System.Windows.Forms.Label labelBase;
         private System.Windows.Forms.Label labelDestination;
         private System.Windows.Forms.PictureBox pictureBoxDestinationColor;
+        private System.Windows.Forms.Button buttonAutoCorrection;
     }
 }
 

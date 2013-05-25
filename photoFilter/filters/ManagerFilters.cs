@@ -73,6 +73,12 @@ namespace photoFilter.filters
             return Correction.employ(sourceImage, baseColor, destinationColor);
         }
 
+        public Bitmap autoCorrection(Bitmap sourceImage)
+        {
+            this.countParts(sourceImage);
+            return AutoCorrection.employ(sourceImage);
+        }
+
         private void countParts(Bitmap sourceImage)
         {
             if (ManagerFilters.progressBar != null && sourceImage != null)
