@@ -91,20 +91,11 @@ namespace photoFilter.squelch
 
         protected void buildup()
         {
-            BinaryMatrix centerStructuralMatrix = this.getCenterStructuralElement();
-            BinaryMatrix pointer = new BinaryMatrix(centerStructuralMatrix.WIDTH, centerStructuralMatrix.HEIGHT);
-            int dXStructuralMatrix = (int)Math.Round((double)(this.structuralElement.WIDTH / 2)) - 1;
-            int dYStructuralMatrix = (int)Math.Round((double)(this.structuralElement.HEIGHT / 2)) - 1;
-
             for (int i = 0; i < this.sourceMatrix.WIDTH; ++i)
                 for (int j = 0; j < this.sourceMatrix.HEIGHT; ++j)
                 {
-                    for(int x=0; x < pointer.WIDTH; ++x)
-                        for(int y=0; y < pointer.HEIGHT; ++y)
-                            pointer.setValue(x, y, this.sourceMatrix.getValue(i + x, j + y));
-
-                    if (BinaryMatrix.compare(centerStructuralMatrix, pointer))
-                        this.writeChange(i - dXStructuralMatrix, j - dYStructuralMatrix, this.structuralElement, this.sourceMatrix);
+                    if (this.sourceMatrix.getValue(i, j) == this.structuralElement.getValue(0,0))
+                        this.writeChange(i, j, this.structuralElement, this.sourceMatrix);
 
                     ManagerFilters.featuredPixel();
                 }
