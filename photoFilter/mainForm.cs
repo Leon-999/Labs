@@ -226,6 +226,14 @@ namespace photoFilter
             this.workImage = this.filter.buildup(this.sourceImage, structuralElement);
             this.refreshCanvas();
         }
+
+        private void buttonErosion_Click(object sender, EventArgs e)
+        {
+            BinaryMatrix structuralElement = this.readStruralElement();
+            this.workImage = this.filter.erosion(this.sourceImage, structuralElement);
+            this.refreshCanvas();
+        }
+
         //ужас
         private BinaryMatrix readStruralElement()
         {

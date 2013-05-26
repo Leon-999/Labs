@@ -68,6 +68,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="squelch\BinaryMatrix.cs" />
     <Compile Include="squelch\Buildup.cs" />
+    <Compile Include="squelch\Erosion.cs" />
     <Compile Include="squelch\MathematicalMorphology.cs" />
     <EmbeddedResource Include="mainForm.resx">
       <DependentUpon>mainForm.cs</DependentUpon>

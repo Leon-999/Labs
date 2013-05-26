@@ -58,7 +58,7 @@ namespace photoFilter.squelch
                 }
         }
 
-        protected void writeChange(int x, int y, BinaryMatrix addendum)
+        protected void writeChange(int x, int y, BinaryMatrix addendum, BinaryMatrix source)
         {
             int shiftX, shiftY;
             for (int i = 0; i < addendum.WIDTH; ++i)
@@ -67,7 +67,7 @@ namespace photoFilter.squelch
                     shiftX = x + i;
                     shiftY = y + j;
                     if(shiftX > -1 && shiftX > -1)
-                        if (this.sourceMatrix.getValue(shiftX, shiftY) || addendum.getValue(i, j))
+                        if (source.getValue(shiftX, shiftY) || addendum.getValue(i, j))
                             this.resultMatrix.setValue(shiftX, shiftY, true);
 
                 }
@@ -104,7 +104,30 @@ namespace photoFilter.squelch
                             pointer.setValue(x, y, this.sourceMatrix.getValue(i + x, j + y));
 
                     if (BinaryMatrix.compare(centerStructuralMatrix, pointer))
-                        this.writeChange(i - dXStructuralMatrix, j - dYStructuralMatrix, this.structuralElement);
+                        this.writeChange(i - dXStructuralMatrix, j - dYStructuralMatrix, this.structuralElement, this.sourceMatrix);
+
+                    ManagerFilters.featuredPixel();
+                }
+
+            ManagerFilters.completeWork();
+        }
+
+        protected void erosion()
+        {
+            BinaryMatrix centerStructuralMatrix = this.getCenterStructuralElement();
+            BinaryMatrix pointer = new BinaryMatrix(this.structuralElement.WIDTH, this.structuralElement.HEIGHT);
+            int dXStructuralMatrix = (int)Math.Round((double)(this.structuralElement.WIDTH / 2)) - 1;
+            int dYStructuralMatrix = (int)Math.Round((double)(this.structuralElement.HEIGHT / 2)) - 1;
+
+            for (int i = 0; i < this.sourceMatrix.WIDTH; ++i)
+                for (int j = 0; j < this.sourceMatrix.HEIGHT; ++j)
+                {
+                    for (int x = 0; x < pointer.WIDTH; ++x)
+                        for (int y = 0; y < pointer.HEIGHT; ++y)
+                            pointer.setValue(x, y, this.sourceMatrix.getValue(i + x, j + y));
+
+                    if (BinaryMatrix.compare(this.structuralElement, pointer))
+                        this.writeChange(i + dXStructuralMatrix, j + dYStructuralMatrix, centerStructuralMatrix, this.resultMatrix);
 
                     ManagerFilters.featuredPixel();
                 }

@@ -93,6 +93,7 @@
             this.pictureBoxSE0x2 = new System.Windows.Forms.PictureBox();
             this.pictureBoxSE0x1 = new System.Windows.Forms.PictureBox();
             this.pictureBoxSE0x0 = new System.Windows.Forms.PictureBox();
+            this.buttonErosion = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.canvas)).BeginInit();
             this.menuStrip.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxBaseColor)).BeginInit();
@@ -458,6 +459,7 @@
             // 
             // panelSquelch
             // 
+            this.panelSquelch.Controls.Add(this.buttonErosion);
             this.panelSquelch.Controls.Add(this.buttonSourceImage);
             this.panelSquelch.Controls.Add(this.buttonBuildup);
             this.panelSquelch.Controls.Add(this.radioButton5x5);
@@ -858,6 +860,16 @@
             this.pictureBoxSE0x0.Tag = "true";
             this.pictureBoxSE0x0.Click += new System.EventHandler(this.pictureBoxSENxM_Click);
             // 
+            // buttonErosion
+            // 
+            this.buttonErosion.Location = new System.Drawing.Point(46, 155);
+            this.buttonErosion.Name = "buttonErosion";
+            this.buttonErosion.Size = new System.Drawing.Size(110, 21);
+            this.buttonErosion.TabIndex = 31;
+            this.buttonErosion.Text = "erosion";
+            this.buttonErosion.UseVisualStyleBackColor = true;
+            this.buttonErosion.Click += new System.EventHandler(this.buttonErosion_Click);
+            // 
             // mainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -980,6 +992,7 @@
         private System.Windows.Forms.RadioButton radioButton5x5;
         private System.Windows.Forms.Button buttonBuildup;
         private System.Windows.Forms.Button buttonSourceImage;
+        private System.Windows.Forms.Button buttonErosion;
     }
 }
 

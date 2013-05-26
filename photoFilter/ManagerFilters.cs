@@ -100,6 +100,13 @@ namespace photoFilter
             return worker.employ(sourceImage, structuralElement);
         }
 
+        public Bitmap erosion(Bitmap sourceImage, BinaryMatrix structuralElement)
+        {
+            this.countParts(sourceImage);
+            Erosion worker = new Erosion();
+            return worker.employ(sourceImage, structuralElement);
+        }
+
         private void countParts(Bitmap sourceImage)
         {
             if (ManagerFilters.progressBar != null && sourceImage != null)

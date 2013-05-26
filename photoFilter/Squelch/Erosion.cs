@@ -6,19 +6,19 @@ using System.Drawing;
 
 namespace photoFilter.squelch
 {
-    class Buildup:MathematicalMorphology
+    class Erosion:MathematicalMorphology
     {
         internal Bitmap employ(Bitmap sourceImage, BinaryMatrix structuralElement)
         {
             Bitmap result = null;
 
-            if( sourceImage != null)
+            if (sourceImage != null)
             {
                 this.sourceMatrix = this.imageToBinaryMatrix(sourceImage);
                 this.structuralElement = structuralElement;
                 this.resultMatrix = new BinaryMatrix(this.sourceMatrix.WIDTH, this.sourceMatrix.HEIGHT);
                 this.resultMatrix.nulling();
-                this.buildup();
+                this.erosion();
 
                 result = this.binaryMatrixToImage(this.resultMatrix);
             }
