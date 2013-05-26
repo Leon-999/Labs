@@ -114,6 +114,13 @@ namespace photoFilter
             return worker.employ(sourceImage, structuralElement);
         }
 
+        public Bitmap closing(Bitmap sourceImage, BinaryMatrix structuralElement)
+        {
+            this.countParts(sourceImage);
+            Closing worker = new Closing();
+            return worker.employ(sourceImage, structuralElement);
+        }
+
         private void countParts(Bitmap sourceImage)
         {
             if (ManagerFilters.progressBar != null && sourceImage != null)

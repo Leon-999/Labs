@@ -242,6 +242,13 @@ namespace photoFilter
             this.refreshCanvas();
         }
 
+        private void buttonClosing_Click(object sender, EventArgs e)
+        {
+            BinaryMatrix structuralElement = this.readStruralElement();
+            this.workImage = this.filter.closing(this.sourceImage, structuralElement);
+            this.refreshCanvas();
+        }
+
         //ужас
         private BinaryMatrix readStruralElement()
         {

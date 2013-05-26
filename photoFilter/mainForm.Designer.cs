@@ -95,6 +95,7 @@
             this.buttonErosion = new System.Windows.Forms.Button();
             this.panelSquelch = new System.Windows.Forms.Panel();
             this.buttonDisclosure = new System.Windows.Forms.Button();
+            this.buttonClosing = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.canvas)).BeginInit();
             this.menuStrip.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxBaseColor)).BeginInit();
@@ -834,6 +835,7 @@
             // 
             // panelSquelch
             // 
+            this.panelSquelch.Controls.Add(this.buttonClosing);
             this.panelSquelch.Controls.Add(this.buttonDisclosure);
             this.panelSquelch.Controls.Add(this.buttonErosion);
             this.panelSquelch.Controls.Add(this.buttonSourceImage);
@@ -881,6 +883,16 @@
             this.buttonDisclosure.Text = "disclosure";
             this.buttonDisclosure.UseVisualStyleBackColor = true;
             this.buttonDisclosure.Click += new System.EventHandler(this.buttonDisclosure_Click);
+            // 
+            // buttonClosing
+            // 
+            this.buttonClosing.Location = new System.Drawing.Point(46, 209);
+            this.buttonClosing.Name = "buttonClosing";
+            this.buttonClosing.Size = new System.Drawing.Size(110, 21);
+            this.buttonClosing.TabIndex = 33;
+            this.buttonClosing.Text = "closing";
+            this.buttonClosing.UseVisualStyleBackColor = true;
+            this.buttonClosing.Click += new System.EventHandler(this.buttonClosing_Click);
             // 
             // mainForm
             // 
@@ -1006,6 +1018,7 @@
         private System.Windows.Forms.Button buttonErosion;
         private System.Windows.Forms.Panel panelSquelch;
         private System.Windows.Forms.Button buttonDisclosure;
+        private System.Windows.Forms.Button buttonClosing;
     }
 }
 
