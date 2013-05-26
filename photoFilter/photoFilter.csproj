@@ -51,7 +51,7 @@
     <Compile Include="filters\Glass.cs" />
     <Compile Include="filters\HorizontalWaves.cs" />
     <Compile Include="filters\IdealReflector.cs" />
-    <Compile Include="filters\ManagerFilters.cs" />
+    <Compile Include="ManagerFilters.cs" />
     <Compile Include="filters\Rotate.cs" />
     <Compile Include="filters\Shift.cs" />
     <Compile Include="filters\ContrastStretching.cs" />
@@ -66,8 +66,9 @@
     <Compile Include="filters\Gray.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Squelch\Buildup.cs" />
-    <Compile Include="Squelch\MathematicalMorphology.cs" />
+    <Compile Include="squelch\BinaryMatrix.cs" />
+    <Compile Include="squelch\Buildup.cs" />
+    <Compile Include="squelch\MathematicalMorphology.cs" />
     <EmbeddedResource Include="mainForm.resx">
       <DependentUpon>mainForm.cs</DependentUpon>
     </EmbeddedResource>

@@ -4,8 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using System.Drawing;
+using photoFilter.filters;
+using photoFilter.squelch;
 
-namespace photoFilter.filters
+namespace photoFilter
 {
     class ManagerFilters
     {
@@ -89,6 +91,13 @@ namespace photoFilter.filters
         {
             this.countParts(sourceImage);
             return StatisticalCorrection.employ(sourceImage, targetImage);
+        }
+
+        public Bitmap buildup(Bitmap sourceImage, BinaryMatrix structuralElement)
+        {
+            this.countParts(sourceImage);
+            Buildup worker = new Buildup();
+            return worker.employ(sourceImage, structuralElement);
         }
 
         private void countParts(Bitmap sourceImage)

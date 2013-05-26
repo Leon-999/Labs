@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using photoFilter.filters;
+using photoFilter.squelch;
 
 namespace photoFilter
 {
@@ -19,6 +20,8 @@ namespace photoFilter
         private Bitmap sourceImage;
         private Bitmap workImage;
 
+        //private BinaryMatrix structoralMatrix;
+
         private ManagerFilters filter;
 
         private int canvasWidth, canvasHeight;
@@ -28,6 +31,7 @@ namespace photoFilter
             InitializeComponent();
             this.radioButton4x4_CheckedChanged();
             this.radioButton5x5_CheckedChanged();
+            this.radioButtonSquelch_CheckedChanged();
 
             this.openFileDialog = new OpenFileDialog();
             this.saveFileDialog = new SaveFileDialog();
@@ -210,10 +214,71 @@ namespace photoFilter
             {
                 Bitmap targetImage = new Bitmap(openFileDialog.FileName);
 
-                this.workImage = this.filter.statisticalCorrection(sourceImage, targetImage);
+                this.workImage = this.filter.statisticalCorrection(this.sourceImage, targetImage);
                 this.refreshCanvas();
                 targetImage.Dispose();
             }
+        }
+
+        private void buttonBuildup_Click(object sender, EventArgs e)
+        {
+            BinaryMatrix structuralElement = this.readStruralElement();
+            this.workImage = this.filter.buildup(this.sourceImage, structuralElement);
+            this.refreshCanvas();
+        }
+        //ужас
+        private BinaryMatrix readStruralElement()
+        {
+            BinaryMatrix result;
+            int width = 0, height = 0;
+
+            if (this.radioButton3x3.Checked)
+                width = height = 3;
+            else if (this.radioButton4x4.Checked)
+                width = height = 4;
+            else if (this.radioButton5x5.Checked)
+                width = height = 5;
+
+            result = new BinaryMatrix(width, height);
+
+            result.setValue(0, 0, Convert.ToBoolean(this.pictureBoxSE0x0.Tag));
+            result.setValue(0, 1, Convert.ToBoolean(this.pictureBoxSE0x2.Tag));
+            result.setValue(0, 2, Convert.ToBoolean(this.pictureBoxSE0x2.Tag));
+
+            result.setValue(1, 0, Convert.ToBoolean(this.pictureBoxSE1x0.Tag));
+            result.setValue(1, 1, Convert.ToBoolean(this.pictureBoxSE1x1.Tag));
+            result.setValue(1, 2, Convert.ToBoolean(this.pictureBoxSE1x2.Tag));
+
+            result.setValue(2, 0, Convert.ToBoolean(this.pictureBoxSE2x0.Tag));
+            result.setValue(2, 1, Convert.ToBoolean(this.pictureBoxSE2x1.Tag));
+            result.setValue(2, 2, Convert.ToBoolean(this.pictureBoxSE2x2.Tag));
+
+            if (this.radioButton4x4.Checked || this.radioButton5x5.Checked)
+            {
+                result.setValue(3, 0, Convert.ToBoolean(this.pictureBoxSE3x0.Tag));
+                result.setValue(3, 1, Convert.ToBoolean(this.pictureBoxSE3x1.Tag));
+                result.setValue(3, 2, Convert.ToBoolean(this.pictureBoxSE3x2.Tag));
+                result.setValue(3, 3, Convert.ToBoolean(this.pictureBoxSE3x3.Tag));
+
+                result.setValue(0, 3, Convert.ToBoolean(this.pictureBoxSE0x3.Tag));
+                result.setValue(1, 3, Convert.ToBoolean(this.pictureBoxSE1x3.Tag));
+                result.setValue(2, 3, Convert.ToBoolean(this.pictureBoxSE2x3.Tag));
+            }
+            if (this.radioButton5x5.Checked)
+            {
+                result.setValue(4, 0, Convert.ToBoolean(this.pictureBoxSE4x0.Tag));
+                result.setValue(4, 1, Convert.ToBoolean(this.pictureBoxSE4x1.Tag));
+                result.setValue(4, 2, Convert.ToBoolean(this.pictureBoxSE4x2.Tag));
+                result.setValue(4, 3, Convert.ToBoolean(this.pictureBoxSE4x3.Tag));
+                result.setValue(4, 4, Convert.ToBoolean(this.pictureBoxSE4x4.Tag));
+
+                result.setValue(0, 4, Convert.ToBoolean(this.pictureBoxSE0x4.Tag));
+                result.setValue(1, 4, Convert.ToBoolean(this.pictureBoxSE1x4.Tag));
+                result.setValue(2, 4, Convert.ToBoolean(this.pictureBoxSE2x4.Tag));
+                result.setValue(3, 4, Convert.ToBoolean(this.pictureBoxSE2x4.Tag));
+            }
+
+            return result;
         }
 
         private void pictureBoxBaseColor_Click(object sender, EventArgs e)
@@ -245,7 +310,7 @@ namespace photoFilter
             }
         }
 
-        private void radioButtonFilters_CheckedChanged(object sender, EventArgs e)
+        private void radioButtonFilters_CheckedChanged(object sender = null, EventArgs e = null)
         {
             if (this.radioButtonFilters.Checked)
                 this.panelFilters.Visible = true;
@@ -253,7 +318,7 @@ namespace photoFilter
                 this.panelFilters.Visible = false;
         }
 
-        private void radioButtonSquelch_CheckedChanged(object sender, EventArgs e)
+        private void radioButtonSquelch_CheckedChanged(object sender = null, EventArgs e = null)
         {
             if (this.radioButtonSquelch.Checked)
                 this.panelSquelch.Visible = true;
@@ -263,18 +328,24 @@ namespace photoFilter
 
         private void pictureBoxSENxM_Click(object sender, EventArgs e)
         {
-            PictureBox pictereBoxSE = (PictureBox)sender;
+            PictureBox pictureBoxSE = (PictureBox)sender;
 
             int n,m;
             for (n = 0; n < 5; ++n)
                 for (m = 0; m < 5; ++m)
                 {
-                    if (pictereBoxSE.Name == "pictureBoxSE" + n + "x" + m)
+                    if (pictureBoxSE.Name == "pictureBoxSE" + n + "x" + m)
                     {
-                        if (pictereBoxSE.BackColor == Color.White)
-                            pictereBoxSE.BackColor = Color.DimGray;
+                        if (pictureBoxSE.BackColor == Color.White)
+                        {
+                            pictureBoxSE.BackColor = Color.DimGray;
+                            pictureBoxSE.Tag = "true";
+                        }
                         else
-                            pictereBoxSE.BackColor = Color.White;
+                        {
+                            pictureBoxSE.BackColor = Color.White;
+                            pictureBoxSE.Tag = "false";
+                        }
                     }
                 }
 
@@ -282,7 +353,7 @@ namespace photoFilter
         //выглядит ужастно
         private void radioButton4x4_CheckedChanged(object sender = null, EventArgs e = null)
         {
-            if (this.radioButton4x4.Checked)
+            if (this.radioButton4x4.Checked || this.radioButton5x5.Checked)
             {
                 this.pictureBoxSE3x0.Visible = true;
                 this.pictureBoxSE3x1.Visible = true;
@@ -309,6 +380,8 @@ namespace photoFilter
 
         private void radioButton5x5_CheckedChanged(object sender = null, EventArgs e = null)
         {
+            this.radioButton4x4_CheckedChanged();
+
             if (this.radioButton5x5.Checked)
             {
                 this.pictureBoxSE4x0.Visible = true;
@@ -334,6 +407,12 @@ namespace photoFilter
                 this.pictureBoxSE2x4.Visible = false;
                 this.pictureBoxSE3x4.Visible = false;
             }
+        }
+
+        private void radioButton3x3_CheckedChanged(object sender, EventArgs e)
+        {
+            this.radioButton4x4_CheckedChanged();
+            this.radioButton5x5_CheckedChanged();
         }
         
     }

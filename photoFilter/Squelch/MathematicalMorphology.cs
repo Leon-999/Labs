@@ -4,134 +4,28 @@ using System.Linq;
 using System.Text;
 using System.Drawing;
 
-namespace photoFilter.Squelch
+namespace photoFilter.squelch
 {
-    class BinaryMatrix
-    {
-        private int width;
-        private int height;
-
-        private bool[][] matrix;
-
-        public BinaryMatrix(int width, int height)
-        {
-            if (width < 0)
-                this.width = 0;
-            else
-                this.width = width;
-
-            if (height < 0)
-                this.height = 0;
-            else
-                this.height = height;
-
-            this.matrix = new bool[this.width][];
-            for (int i = 0; i < this.width; ++i)
-                this.matrix[i] = new bool[this.height];
-        }
-
-        public BinaryMatrix(BinaryMatrix sourceMatrix)
-        {
-            this.width = sourceMatrix.width;
-            this.height = sourceMatrix.height;
-            for (int i = 0; i < sourceMatrix.width; ++i)
-                for (int j = 0; j < sourceMatrix.height; ++j)
-                    this.matrix[i][j] = sourceMatrix.matrix[i][j];
-                    
-        }
-
-        public int WIDTH
-        {
-            get
-            {
-                return this.width;
-            }
-            set
-            {
-                this.width = (value < 0) ? 0 : value;
-            }
-        }
-
-        public int HEIGHT
-        {
-            get
-            {
-                return this.height;
-            }
-            set
-            {
-                this.height = (value < 0) ? 0 : value;
-            }
-        }
-
-        public void setValue(int x, int y, bool value)
-        {
-            if ((x >= 0 && x < this.width) && (y >= 0 && y < this.height))
-                this.matrix[x][y] = value;
-        }
-
-        public bool getValue(int x, int y)
-        {
-            bool returned;
-
-            if ((x >= 0 && x < this.width) && (y >= 0 && y < this.height))
-                returned = this.matrix[x][y];
-            else
-                returned = false;
-
-            return returned;
-        }
-
-        protected void nulling()
-        {
-            for (int i = 0; i < this.width; ++i)
-                for (int j = 0; j < this.height; ++j)
-                    this.setValue(i, j, false);
-        }
-
-        public static bool compare(BinaryMatrix firstMatrix, BinaryMatrix secondMatrix)
-        {
-            bool result = true;
-
-            if (firstMatrix.WIDTH != secondMatrix.WIDTH || firstMatrix.HEIGHT != secondMatrix.HEIGHT)
-                result = false;
-            else
-                for (int i = 0; i < firstMatrix.WIDTH; ++i)
-                    for (int j = 0; j < firstMatrix.HEIGHT; ++j)
-                    {
-                        if (firstMatrix.getValue(i, j) != secondMatrix.getValue(i, j))
-                        {
-                            result = false;
-                        }
-                    }
-
-
-            return result;
-        }
-
-
-    }
-
     abstract class MathematicalMorphology
     {
-        private BinaryMatrix sourceMatrix;
-        private BinaryMatrix structuralElement;
-        private BinaryMatrix resultMatrix;
+        protected BinaryMatrix sourceMatrix;
+        protected BinaryMatrix structuralElement;
+        protected BinaryMatrix resultMatrix;
 
         protected BinaryMatrix imageToBinaryMatrix(Bitmap sourceImage)
         {
-            BinaryMatrix returned = new BinaryMatrix(sourceImage.Width, sourceImage.Height);
+                BinaryMatrix returned = new BinaryMatrix(sourceImage.Width, sourceImage.Height);
 
-            for (int i = 0; i < sourceImage.Width; ++i)
-                for (int j = 0; j < sourceImage.Height; ++j)
-                {
-                    Color currentPixel = sourceImage.GetPixel(i, j);
-                    if(currentPixel == Color.White) 
-                        returned.setValue(i, j, false);
-                    else
-                        returned.setValue(i, j, true);
+                for (int i = 0; i < sourceImage.Width; ++i)
+                    for (int j = 0; j < sourceImage.Height; ++j)
+                    {
+                        Color currentPixel = sourceImage.GetPixel(i, j);
+                        if (currentPixel.ToArgb() == Color.White.ToArgb())
+                            returned.setValue(i, j, false);
+                        else
+                            returned.setValue(i, j, true);
 
-                }
+                    }
 
             return returned;
         }
@@ -158,7 +52,10 @@ namespace photoFilter.Squelch
         {
             for (int i = 0; i < this.resultMatrix.WIDTH; ++i)
                 for (int j = 0; j < this.resultMatrix.HEIGHT; ++j)
+                {
                     this.resultMatrix.setValue(i, j, false);
+                    ManagerFilters.featuredPixel();
+                }
         }
 
         protected void writeChange(int x, int y, BinaryMatrix addendum)
@@ -208,7 +105,11 @@ namespace photoFilter.Squelch
 
                     if (BinaryMatrix.compare(centerStructuralMatrix, pointer))
                         this.writeChange(i - dXStructuralMatrix, j - dYStructuralMatrix, this.structuralElement);
+
+                    ManagerFilters.featuredPixel();
                 }
+
+            ManagerFilters.completeWork();
         }
     }
 }
