@@ -6,7 +6,7 @@ using System.Drawing;
 
 namespace photoFilter.squelch
 {
-    class Erosion:MathematicalMorphology
+    class Disclosure:MathematicalMorphology
     {
         internal Bitmap employ(Bitmap sourceImage, BinaryMatrix structuralElement)
         {
@@ -16,6 +16,9 @@ namespace photoFilter.squelch
             {
                 this.initialization(sourceImage, structuralElement);
                 this.erosion();
+                this.sourceMatrix = new BinaryMatrix(this.resultMatrix);
+                this.resultMatrix.nulling();
+                this.buildup();
 
                 result = this.binaryMatrixToImage(this.resultMatrix);
             }

@@ -14,10 +14,7 @@ namespace photoFilter.squelch
 
             if( sourceImage != null)
             {
-                this.sourceMatrix = this.imageToBinaryMatrix(sourceImage);
-                this.structuralElement = structuralElement;
-                this.resultMatrix = new BinaryMatrix(this.sourceMatrix.WIDTH, this.sourceMatrix.HEIGHT);
-                this.resultMatrix.nulling();
+                this.initialization(sourceImage, structuralElement);
                 this.buildup();
 
                 result = this.binaryMatrixToImage(this.resultMatrix);

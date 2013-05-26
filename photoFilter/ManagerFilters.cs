@@ -107,6 +107,13 @@ namespace photoFilter
             return worker.employ(sourceImage, structuralElement);
         }
 
+        public Bitmap disclosure(Bitmap sourceImage, BinaryMatrix structuralElement)
+        {
+            this.countParts(sourceImage);
+            Disclosure worker = new Disclosure();
+            return worker.employ(sourceImage, structuralElement);
+        }
+
         private void countParts(Bitmap sourceImage)
         {
             if (ManagerFilters.progressBar != null && sourceImage != null)

@@ -58,6 +58,14 @@ namespace photoFilter.squelch
                 }
         }
 
+        protected void initialization(Bitmap sourceImage, BinaryMatrix structuralElement)
+        {
+            this.sourceMatrix = this.imageToBinaryMatrix(sourceImage);
+            this.structuralElement = structuralElement;
+            this.resultMatrix = new BinaryMatrix(this.sourceMatrix.WIDTH, this.sourceMatrix.HEIGHT);
+            this.resultMatrix.nulling();
+        }
+
         protected void writeChange(int x, int y, BinaryMatrix addendum, BinaryMatrix source)
         {
             int shiftX, shiftY;
@@ -101,6 +109,8 @@ namespace photoFilter.squelch
                 }
 
             ManagerFilters.completeWork();
+
+
         }
 
         protected void erosion()
