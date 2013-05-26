@@ -62,11 +62,66 @@
             this.radioButtonFilters = new System.Windows.Forms.RadioButton();
             this.radioButtonSquelch = new System.Windows.Forms.RadioButton();
             this.panelSquelch = new System.Windows.Forms.Panel();
+            this.labelStructuralElement = new System.Windows.Forms.Label();
+            this.pictureBoxSE2x2 = new System.Windows.Forms.PictureBox();
+            this.pictureBoxSE2x1 = new System.Windows.Forms.PictureBox();
+            this.pictureBoxSE2x0 = new System.Windows.Forms.PictureBox();
+            this.pictureBoxSE1x2 = new System.Windows.Forms.PictureBox();
+            this.pictureBoxSE1x1 = new System.Windows.Forms.PictureBox();
+            this.pictureBoxSE1x0 = new System.Windows.Forms.PictureBox();
+            this.pictureBoxSE0x2 = new System.Windows.Forms.PictureBox();
+            this.pictureBoxSE0x1 = new System.Windows.Forms.PictureBox();
+            this.pictureBoxSE0x0 = new System.Windows.Forms.PictureBox();
+            this.pictureBoxSE2x3 = new System.Windows.Forms.PictureBox();
+            this.pictureBoxSE1x3 = new System.Windows.Forms.PictureBox();
+            this.pictureBoxSE0x3 = new System.Windows.Forms.PictureBox();
+            this.pictureBoxSE2x4 = new System.Windows.Forms.PictureBox();
+            this.pictureBoxSE1x4 = new System.Windows.Forms.PictureBox();
+            this.pictureBoxSE0x4 = new System.Windows.Forms.PictureBox();
+            this.pictureBoxSE3x4 = new System.Windows.Forms.PictureBox();
+            this.pictureBoxSE3x3 = new System.Windows.Forms.PictureBox();
+            this.pictureBoxSE3x2 = new System.Windows.Forms.PictureBox();
+            this.pictureBoxSE3x1 = new System.Windows.Forms.PictureBox();
+            this.pictureBoxSE3x0 = new System.Windows.Forms.PictureBox();
+            this.pictureBoxSE4x4 = new System.Windows.Forms.PictureBox();
+            this.pictureBoxSE4x3 = new System.Windows.Forms.PictureBox();
+            this.pictureBoxSE4x2 = new System.Windows.Forms.PictureBox();
+            this.pictureBoxSE4x1 = new System.Windows.Forms.PictureBox();
+            this.pictureBoxSE4x0 = new System.Windows.Forms.PictureBox();
+            this.radioButton3x3 = new System.Windows.Forms.RadioButton();
+            this.radioButton4x4 = new System.Windows.Forms.RadioButton();
+            this.radioButton5x5 = new System.Windows.Forms.RadioButton();
             ((System.ComponentModel.ISupportInitialize)(this.canvas)).BeginInit();
             this.menuStrip.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxBaseColor)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxDestinationColor)).BeginInit();
             this.panelFilters.SuspendLayout();
+            this.panelSquelch.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxSE2x2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxSE2x1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxSE2x0)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxSE1x2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxSE1x1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxSE1x0)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxSE0x2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxSE0x1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxSE0x0)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxSE2x3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxSE1x3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxSE0x3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxSE2x4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxSE1x4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxSE0x4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxSE3x4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxSE3x3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxSE3x2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxSE3x1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxSE3x0)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxSE4x4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxSE4x3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxSE4x2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxSE4x1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxSE4x0)).BeginInit();
             this.SuspendLayout();
             // 
             // canvas
@@ -401,10 +456,357 @@
             // 
             // panelSquelch
             // 
+            this.panelSquelch.Controls.Add(this.radioButton5x5);
+            this.panelSquelch.Controls.Add(this.radioButton4x4);
+            this.panelSquelch.Controls.Add(this.radioButton3x3);
+            this.panelSquelch.Controls.Add(this.pictureBoxSE4x4);
+            this.panelSquelch.Controls.Add(this.pictureBoxSE4x3);
+            this.panelSquelch.Controls.Add(this.pictureBoxSE4x2);
+            this.panelSquelch.Controls.Add(this.pictureBoxSE4x1);
+            this.panelSquelch.Controls.Add(this.pictureBoxSE4x0);
+            this.panelSquelch.Controls.Add(this.pictureBoxSE3x4);
+            this.panelSquelch.Controls.Add(this.pictureBoxSE3x3);
+            this.panelSquelch.Controls.Add(this.pictureBoxSE3x2);
+            this.panelSquelch.Controls.Add(this.pictureBoxSE3x1);
+            this.panelSquelch.Controls.Add(this.pictureBoxSE3x0);
+            this.panelSquelch.Controls.Add(this.pictureBoxSE2x4);
+            this.panelSquelch.Controls.Add(this.pictureBoxSE1x4);
+            this.panelSquelch.Controls.Add(this.pictureBoxSE0x4);
+            this.panelSquelch.Controls.Add(this.pictureBoxSE2x3);
+            this.panelSquelch.Controls.Add(this.pictureBoxSE1x3);
+            this.panelSquelch.Controls.Add(this.pictureBoxSE0x3);
+            this.panelSquelch.Controls.Add(this.labelStructuralElement);
+            this.panelSquelch.Controls.Add(this.pictureBoxSE2x2);
+            this.panelSquelch.Controls.Add(this.pictureBoxSE2x1);
+            this.panelSquelch.Controls.Add(this.pictureBoxSE2x0);
+            this.panelSquelch.Controls.Add(this.pictureBoxSE1x2);
+            this.panelSquelch.Controls.Add(this.pictureBoxSE1x1);
+            this.panelSquelch.Controls.Add(this.pictureBoxSE1x0);
+            this.panelSquelch.Controls.Add(this.pictureBoxSE0x2);
+            this.panelSquelch.Controls.Add(this.pictureBoxSE0x1);
+            this.panelSquelch.Controls.Add(this.pictureBoxSE0x0);
             this.panelSquelch.Location = new System.Drawing.Point(560, 25);
             this.panelSquelch.Name = "panelSquelch";
             this.panelSquelch.Size = new System.Drawing.Size(182, 422);
             this.panelSquelch.TabIndex = 35;
+            // 
+            // labelStructuralElement
+            // 
+            this.labelStructuralElement.AutoSize = true;
+            this.labelStructuralElement.Location = new System.Drawing.Point(31, 30);
+            this.labelStructuralElement.Name = "labelStructuralElement";
+            this.labelStructuralElement.Size = new System.Drawing.Size(90, 13);
+            this.labelStructuralElement.TabIndex = 9;
+            this.labelStructuralElement.Text = "structural element";
+            // 
+            // pictureBoxSE2x2
+            // 
+            this.pictureBoxSE2x2.BackColor = System.Drawing.Color.DimGray;
+            this.pictureBoxSE2x2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pictureBoxSE2x2.Location = new System.Drawing.Point(146, 40);
+            this.pictureBoxSE2x2.Name = "pictureBoxSE2x2";
+            this.pictureBoxSE2x2.Size = new System.Drawing.Size(10, 10);
+            this.pictureBoxSE2x2.TabIndex = 8;
+            this.pictureBoxSE2x2.TabStop = false;
+            this.pictureBoxSE2x2.Click += new System.EventHandler(this.pictureBoxSENxM_Click);
+            // 
+            // pictureBoxSE2x1
+            // 
+            this.pictureBoxSE2x1.BackColor = System.Drawing.Color.DimGray;
+            this.pictureBoxSE2x1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pictureBoxSE2x1.Location = new System.Drawing.Point(137, 40);
+            this.pictureBoxSE2x1.Name = "pictureBoxSE2x1";
+            this.pictureBoxSE2x1.Size = new System.Drawing.Size(10, 10);
+            this.pictureBoxSE2x1.TabIndex = 7;
+            this.pictureBoxSE2x1.TabStop = false;
+            this.pictureBoxSE2x1.Click += new System.EventHandler(this.pictureBoxSENxM_Click);
+            // 
+            // pictureBoxSE2x0
+            // 
+            this.pictureBoxSE2x0.BackColor = System.Drawing.Color.DimGray;
+            this.pictureBoxSE2x0.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pictureBoxSE2x0.Location = new System.Drawing.Point(128, 40);
+            this.pictureBoxSE2x0.Name = "pictureBoxSE2x0";
+            this.pictureBoxSE2x0.Size = new System.Drawing.Size(10, 10);
+            this.pictureBoxSE2x0.TabIndex = 6;
+            this.pictureBoxSE2x0.TabStop = false;
+            this.pictureBoxSE2x0.Click += new System.EventHandler(this.pictureBoxSENxM_Click);
+            // 
+            // pictureBoxSE1x2
+            // 
+            this.pictureBoxSE1x2.BackColor = System.Drawing.Color.DimGray;
+            this.pictureBoxSE1x2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pictureBoxSE1x2.Location = new System.Drawing.Point(146, 31);
+            this.pictureBoxSE1x2.Name = "pictureBoxSE1x2";
+            this.pictureBoxSE1x2.Size = new System.Drawing.Size(10, 10);
+            this.pictureBoxSE1x2.TabIndex = 5;
+            this.pictureBoxSE1x2.TabStop = false;
+            this.pictureBoxSE1x2.Click += new System.EventHandler(this.pictureBoxSENxM_Click);
+            // 
+            // pictureBoxSE1x1
+            // 
+            this.pictureBoxSE1x1.BackColor = System.Drawing.Color.DimGray;
+            this.pictureBoxSE1x1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pictureBoxSE1x1.Location = new System.Drawing.Point(137, 31);
+            this.pictureBoxSE1x1.Name = "pictureBoxSE1x1";
+            this.pictureBoxSE1x1.Size = new System.Drawing.Size(10, 10);
+            this.pictureBoxSE1x1.TabIndex = 4;
+            this.pictureBoxSE1x1.TabStop = false;
+            this.pictureBoxSE1x1.Click += new System.EventHandler(this.pictureBoxSENxM_Click);
+            // 
+            // pictureBoxSE1x0
+            // 
+            this.pictureBoxSE1x0.BackColor = System.Drawing.Color.DimGray;
+            this.pictureBoxSE1x0.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pictureBoxSE1x0.Location = new System.Drawing.Point(128, 31);
+            this.pictureBoxSE1x0.Name = "pictureBoxSE1x0";
+            this.pictureBoxSE1x0.Size = new System.Drawing.Size(10, 10);
+            this.pictureBoxSE1x0.TabIndex = 3;
+            this.pictureBoxSE1x0.TabStop = false;
+            this.pictureBoxSE1x0.Click += new System.EventHandler(this.pictureBoxSENxM_Click);
+            // 
+            // pictureBoxSE0x2
+            // 
+            this.pictureBoxSE0x2.BackColor = System.Drawing.Color.DimGray;
+            this.pictureBoxSE0x2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pictureBoxSE0x2.Location = new System.Drawing.Point(146, 22);
+            this.pictureBoxSE0x2.Name = "pictureBoxSE0x2";
+            this.pictureBoxSE0x2.Size = new System.Drawing.Size(10, 10);
+            this.pictureBoxSE0x2.TabIndex = 2;
+            this.pictureBoxSE0x2.TabStop = false;
+            this.pictureBoxSE0x2.Click += new System.EventHandler(this.pictureBoxSENxM_Click);
+            // 
+            // pictureBoxSE0x1
+            // 
+            this.pictureBoxSE0x1.BackColor = System.Drawing.Color.DimGray;
+            this.pictureBoxSE0x1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pictureBoxSE0x1.Location = new System.Drawing.Point(137, 22);
+            this.pictureBoxSE0x1.Name = "pictureBoxSE0x1";
+            this.pictureBoxSE0x1.Size = new System.Drawing.Size(10, 10);
+            this.pictureBoxSE0x1.TabIndex = 1;
+            this.pictureBoxSE0x1.TabStop = false;
+            this.pictureBoxSE0x1.Click += new System.EventHandler(this.pictureBoxSENxM_Click);
+            // 
+            // pictureBoxSE0x0
+            // 
+            this.pictureBoxSE0x0.BackColor = System.Drawing.Color.DimGray;
+            this.pictureBoxSE0x0.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pictureBoxSE0x0.Location = new System.Drawing.Point(128, 22);
+            this.pictureBoxSE0x0.Name = "pictureBoxSE0x0";
+            this.pictureBoxSE0x0.Size = new System.Drawing.Size(10, 10);
+            this.pictureBoxSE0x0.TabIndex = 0;
+            this.pictureBoxSE0x0.TabStop = false;
+            this.pictureBoxSE0x0.Click += new System.EventHandler(this.pictureBoxSENxM_Click);
+            // 
+            // pictureBoxSE2x3
+            // 
+            this.pictureBoxSE2x3.BackColor = System.Drawing.Color.DimGray;
+            this.pictureBoxSE2x3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pictureBoxSE2x3.Location = new System.Drawing.Point(155, 40);
+            this.pictureBoxSE2x3.Name = "pictureBoxSE2x3";
+            this.pictureBoxSE2x3.Size = new System.Drawing.Size(10, 10);
+            this.pictureBoxSE2x3.TabIndex = 12;
+            this.pictureBoxSE2x3.TabStop = false;
+            this.pictureBoxSE2x3.Click += new System.EventHandler(this.pictureBoxSENxM_Click);
+            // 
+            // pictureBoxSE1x3
+            // 
+            this.pictureBoxSE1x3.BackColor = System.Drawing.Color.DimGray;
+            this.pictureBoxSE1x3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pictureBoxSE1x3.Location = new System.Drawing.Point(155, 31);
+            this.pictureBoxSE1x3.Name = "pictureBoxSE1x3";
+            this.pictureBoxSE1x3.Size = new System.Drawing.Size(10, 10);
+            this.pictureBoxSE1x3.TabIndex = 11;
+            this.pictureBoxSE1x3.TabStop = false;
+            this.pictureBoxSE1x3.Click += new System.EventHandler(this.pictureBoxSENxM_Click);
+            // 
+            // pictureBoxSE0x3
+            // 
+            this.pictureBoxSE0x3.BackColor = System.Drawing.Color.DimGray;
+            this.pictureBoxSE0x3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pictureBoxSE0x3.Location = new System.Drawing.Point(155, 22);
+            this.pictureBoxSE0x3.Name = "pictureBoxSE0x3";
+            this.pictureBoxSE0x3.Size = new System.Drawing.Size(10, 10);
+            this.pictureBoxSE0x3.TabIndex = 10;
+            this.pictureBoxSE0x3.TabStop = false;
+            this.pictureBoxSE0x3.Click += new System.EventHandler(this.pictureBoxSENxM_Click);
+            // 
+            // pictureBoxSE2x4
+            // 
+            this.pictureBoxSE2x4.BackColor = System.Drawing.Color.DimGray;
+            this.pictureBoxSE2x4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pictureBoxSE2x4.Location = new System.Drawing.Point(164, 40);
+            this.pictureBoxSE2x4.Name = "pictureBoxSE2x4";
+            this.pictureBoxSE2x4.Size = new System.Drawing.Size(10, 10);
+            this.pictureBoxSE2x4.TabIndex = 15;
+            this.pictureBoxSE2x4.TabStop = false;
+            this.pictureBoxSE2x4.Click += new System.EventHandler(this.pictureBoxSENxM_Click);
+            // 
+            // pictureBoxSE1x4
+            // 
+            this.pictureBoxSE1x4.BackColor = System.Drawing.Color.DimGray;
+            this.pictureBoxSE1x4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pictureBoxSE1x4.Location = new System.Drawing.Point(164, 31);
+            this.pictureBoxSE1x4.Name = "pictureBoxSE1x4";
+            this.pictureBoxSE1x4.Size = new System.Drawing.Size(10, 10);
+            this.pictureBoxSE1x4.TabIndex = 14;
+            this.pictureBoxSE1x4.TabStop = false;
+            this.pictureBoxSE1x4.Click += new System.EventHandler(this.pictureBoxSENxM_Click);
+            // 
+            // pictureBoxSE0x4
+            // 
+            this.pictureBoxSE0x4.BackColor = System.Drawing.Color.DimGray;
+            this.pictureBoxSE0x4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pictureBoxSE0x4.Location = new System.Drawing.Point(164, 22);
+            this.pictureBoxSE0x4.Name = "pictureBoxSE0x4";
+            this.pictureBoxSE0x4.Size = new System.Drawing.Size(10, 10);
+            this.pictureBoxSE0x4.TabIndex = 13;
+            this.pictureBoxSE0x4.TabStop = false;
+            this.pictureBoxSE0x4.Click += new System.EventHandler(this.pictureBoxSENxM_Click);
+            // 
+            // pictureBoxSE3x4
+            // 
+            this.pictureBoxSE3x4.BackColor = System.Drawing.Color.DimGray;
+            this.pictureBoxSE3x4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pictureBoxSE3x4.Location = new System.Drawing.Point(164, 49);
+            this.pictureBoxSE3x4.Name = "pictureBoxSE3x4";
+            this.pictureBoxSE3x4.Size = new System.Drawing.Size(10, 10);
+            this.pictureBoxSE3x4.TabIndex = 20;
+            this.pictureBoxSE3x4.TabStop = false;
+            this.pictureBoxSE3x4.Click += new System.EventHandler(this.pictureBoxSENxM_Click);
+            // 
+            // pictureBoxSE3x3
+            // 
+            this.pictureBoxSE3x3.BackColor = System.Drawing.Color.DimGray;
+            this.pictureBoxSE3x3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pictureBoxSE3x3.Location = new System.Drawing.Point(155, 49);
+            this.pictureBoxSE3x3.Name = "pictureBoxSE3x3";
+            this.pictureBoxSE3x3.Size = new System.Drawing.Size(10, 10);
+            this.pictureBoxSE3x3.TabIndex = 19;
+            this.pictureBoxSE3x3.TabStop = false;
+            this.pictureBoxSE3x3.Click += new System.EventHandler(this.pictureBoxSENxM_Click);
+            // 
+            // pictureBoxSE3x2
+            // 
+            this.pictureBoxSE3x2.BackColor = System.Drawing.Color.DimGray;
+            this.pictureBoxSE3x2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pictureBoxSE3x2.Location = new System.Drawing.Point(146, 49);
+            this.pictureBoxSE3x2.Name = "pictureBoxSE3x2";
+            this.pictureBoxSE3x2.Size = new System.Drawing.Size(10, 10);
+            this.pictureBoxSE3x2.TabIndex = 18;
+            this.pictureBoxSE3x2.TabStop = false;
+            this.pictureBoxSE3x2.Click += new System.EventHandler(this.pictureBoxSENxM_Click);
+            // 
+            // pictureBoxSE3x1
+            // 
+            this.pictureBoxSE3x1.BackColor = System.Drawing.Color.DimGray;
+            this.pictureBoxSE3x1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pictureBoxSE3x1.Location = new System.Drawing.Point(137, 49);
+            this.pictureBoxSE3x1.Name = "pictureBoxSE3x1";
+            this.pictureBoxSE3x1.Size = new System.Drawing.Size(10, 10);
+            this.pictureBoxSE3x1.TabIndex = 17;
+            this.pictureBoxSE3x1.TabStop = false;
+            this.pictureBoxSE3x1.Click += new System.EventHandler(this.pictureBoxSENxM_Click);
+            // 
+            // pictureBoxSE3x0
+            // 
+            this.pictureBoxSE3x0.BackColor = System.Drawing.Color.DimGray;
+            this.pictureBoxSE3x0.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pictureBoxSE3x0.Location = new System.Drawing.Point(128, 49);
+            this.pictureBoxSE3x0.Name = "pictureBoxSE3x0";
+            this.pictureBoxSE3x0.Size = new System.Drawing.Size(10, 10);
+            this.pictureBoxSE3x0.TabIndex = 16;
+            this.pictureBoxSE3x0.TabStop = false;
+            this.pictureBoxSE3x0.Click += new System.EventHandler(this.pictureBoxSENxM_Click);
+            // 
+            // pictureBoxSE4x4
+            // 
+            this.pictureBoxSE4x4.BackColor = System.Drawing.Color.DimGray;
+            this.pictureBoxSE4x4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pictureBoxSE4x4.Location = new System.Drawing.Point(164, 58);
+            this.pictureBoxSE4x4.Name = "pictureBoxSE4x4";
+            this.pictureBoxSE4x4.Size = new System.Drawing.Size(10, 10);
+            this.pictureBoxSE4x4.TabIndex = 25;
+            this.pictureBoxSE4x4.TabStop = false;
+            this.pictureBoxSE4x4.Click += new System.EventHandler(this.pictureBoxSENxM_Click);
+            // 
+            // pictureBoxSE4x3
+            // 
+            this.pictureBoxSE4x3.BackColor = System.Drawing.Color.DimGray;
+            this.pictureBoxSE4x3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pictureBoxSE4x3.Location = new System.Drawing.Point(155, 58);
+            this.pictureBoxSE4x3.Name = "pictureBoxSE4x3";
+            this.pictureBoxSE4x3.Size = new System.Drawing.Size(10, 10);
+            this.pictureBoxSE4x3.TabIndex = 24;
+            this.pictureBoxSE4x3.TabStop = false;
+            this.pictureBoxSE4x3.Click += new System.EventHandler(this.pictureBoxSENxM_Click);
+            // 
+            // pictureBoxSE4x2
+            // 
+            this.pictureBoxSE4x2.BackColor = System.Drawing.Color.DimGray;
+            this.pictureBoxSE4x2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pictureBoxSE4x2.Location = new System.Drawing.Point(146, 58);
+            this.pictureBoxSE4x2.Name = "pictureBoxSE4x2";
+            this.pictureBoxSE4x2.Size = new System.Drawing.Size(10, 10);
+            this.pictureBoxSE4x2.TabIndex = 23;
+            this.pictureBoxSE4x2.TabStop = false;
+            this.pictureBoxSE4x2.Click += new System.EventHandler(this.pictureBoxSENxM_Click);
+            // 
+            // pictureBoxSE4x1
+            // 
+            this.pictureBoxSE4x1.BackColor = System.Drawing.Color.DimGray;
+            this.pictureBoxSE4x1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pictureBoxSE4x1.Location = new System.Drawing.Point(137, 58);
+            this.pictureBoxSE4x1.Name = "pictureBoxSE4x1";
+            this.pictureBoxSE4x1.Size = new System.Drawing.Size(10, 10);
+            this.pictureBoxSE4x1.TabIndex = 22;
+            this.pictureBoxSE4x1.TabStop = false;
+            this.pictureBoxSE4x1.Click += new System.EventHandler(this.pictureBoxSENxM_Click);
+            // 
+            // pictureBoxSE4x0
+            // 
+            this.pictureBoxSE4x0.BackColor = System.Drawing.Color.DimGray;
+            this.pictureBoxSE4x0.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pictureBoxSE4x0.Location = new System.Drawing.Point(128, 58);
+            this.pictureBoxSE4x0.Name = "pictureBoxSE4x0";
+            this.pictureBoxSE4x0.Size = new System.Drawing.Size(10, 10);
+            this.pictureBoxSE4x0.TabIndex = 21;
+            this.pictureBoxSE4x0.TabStop = false;
+            this.pictureBoxSE4x0.Click += new System.EventHandler(this.pictureBoxSENxM_Click);
+            // 
+            // radioButton3x3
+            // 
+            this.radioButton3x3.AutoSize = true;
+            this.radioButton3x3.Checked = true;
+            this.radioButton3x3.Location = new System.Drawing.Point(20, 85);
+            this.radioButton3x3.Name = "radioButton3x3";
+            this.radioButton3x3.Size = new System.Drawing.Size(48, 17);
+            this.radioButton3x3.TabIndex = 26;
+            this.radioButton3x3.TabStop = true;
+            this.radioButton3x3.Text = "3 x 3";
+            this.radioButton3x3.UseVisualStyleBackColor = true;
+            // 
+            // radioButton4x4
+            // 
+            this.radioButton4x4.AutoSize = true;
+            this.radioButton4x4.Location = new System.Drawing.Point(74, 86);
+            this.radioButton4x4.Name = "radioButton4x4";
+            this.radioButton4x4.Size = new System.Drawing.Size(48, 17);
+            this.radioButton4x4.TabIndex = 27;
+            this.radioButton4x4.Text = "4 x 4";
+            this.radioButton4x4.UseVisualStyleBackColor = true;
+            this.radioButton4x4.CheckedChanged += new System.EventHandler(this.radioButton4x4_CheckedChanged);
+            // 
+            // radioButton5x5
+            // 
+            this.radioButton5x5.AutoSize = true;
+            this.radioButton5x5.Location = new System.Drawing.Point(128, 86);
+            this.radioButton5x5.Name = "radioButton5x5";
+            this.radioButton5x5.Size = new System.Drawing.Size(48, 17);
+            this.radioButton5x5.TabIndex = 28;
+            this.radioButton5x5.Text = "5 x 5";
+            this.radioButton5x5.UseVisualStyleBackColor = true;
+            this.radioButton5x5.CheckedChanged += new System.EventHandler(this.radioButton5x5_CheckedChanged);
             // 
             // mainForm
             // 
@@ -417,8 +819,8 @@
             this.Controls.Add(this.labelWhatDisplay);
             this.Controls.Add(this.canvas);
             this.Controls.Add(this.menuStrip);
-            this.Controls.Add(this.panelFilters);
             this.Controls.Add(this.panelSquelch);
+            this.Controls.Add(this.panelFilters);
             this.MainMenuStrip = this.menuStrip;
             this.Name = "mainForm";
             this.Text = "MainForm";
@@ -429,6 +831,33 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxDestinationColor)).EndInit();
             this.panelFilters.ResumeLayout(false);
             this.panelFilters.PerformLayout();
+            this.panelSquelch.ResumeLayout(false);
+            this.panelSquelch.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxSE2x2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxSE2x1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxSE2x0)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxSE1x2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxSE1x1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxSE1x0)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxSE0x2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxSE0x1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxSE0x0)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxSE2x3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxSE1x3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxSE0x3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxSE2x4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxSE1x4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxSE0x4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxSE3x4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxSE3x3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxSE3x2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxSE3x1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxSE3x0)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxSE4x4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxSE4x3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxSE4x2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxSE4x1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxSE4x0)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -470,6 +899,35 @@
         private System.Windows.Forms.RadioButton radioButtonFilters;
         private System.Windows.Forms.RadioButton radioButtonSquelch;
         private System.Windows.Forms.Panel panelSquelch;
+        private System.Windows.Forms.PictureBox pictureBoxSE2x2;
+        private System.Windows.Forms.PictureBox pictureBoxSE2x1;
+        private System.Windows.Forms.PictureBox pictureBoxSE2x0;
+        private System.Windows.Forms.PictureBox pictureBoxSE1x2;
+        private System.Windows.Forms.PictureBox pictureBoxSE1x1;
+        private System.Windows.Forms.PictureBox pictureBoxSE1x0;
+        private System.Windows.Forms.PictureBox pictureBoxSE0x2;
+        private System.Windows.Forms.PictureBox pictureBoxSE0x1;
+        private System.Windows.Forms.PictureBox pictureBoxSE0x0;
+        private System.Windows.Forms.Label labelStructuralElement;
+        private System.Windows.Forms.RadioButton radioButton4x4;
+        private System.Windows.Forms.RadioButton radioButton3x3;
+        private System.Windows.Forms.PictureBox pictureBoxSE4x4;
+        private System.Windows.Forms.PictureBox pictureBoxSE4x3;
+        private System.Windows.Forms.PictureBox pictureBoxSE4x2;
+        private System.Windows.Forms.PictureBox pictureBoxSE4x1;
+        private System.Windows.Forms.PictureBox pictureBoxSE4x0;
+        private System.Windows.Forms.PictureBox pictureBoxSE3x4;
+        private System.Windows.Forms.PictureBox pictureBoxSE3x3;
+        private System.Windows.Forms.PictureBox pictureBoxSE3x2;
+        private System.Windows.Forms.PictureBox pictureBoxSE3x1;
+        private System.Windows.Forms.PictureBox pictureBoxSE3x0;
+        private System.Windows.Forms.PictureBox pictureBoxSE2x4;
+        private System.Windows.Forms.PictureBox pictureBoxSE1x4;
+        private System.Windows.Forms.PictureBox pictureBoxSE0x4;
+        private System.Windows.Forms.PictureBox pictureBoxSE2x3;
+        private System.Windows.Forms.PictureBox pictureBoxSE1x3;
+        private System.Windows.Forms.PictureBox pictureBoxSE0x3;
+        private System.Windows.Forms.RadioButton radioButton5x5;
     }
 }
 

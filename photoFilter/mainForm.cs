@@ -258,6 +258,81 @@ namespace photoFilter
             else
                 this.panelSquelch.Visible = false;
         }
+
+        private void pictureBoxSENxM_Click(object sender, EventArgs e)
+        {
+            PictureBox pictereBoxSE = (PictureBox)sender;
+
+            int n,m;
+            for (n = 0; n < 5; ++n)
+                for (m = 0; m < 5; ++m)
+                {
+                    if (pictereBoxSE.Name == "pictureBoxSE" + n + "x" + m)
+                    {
+                        if (pictereBoxSE.BackColor == Color.White)
+                            pictereBoxSE.BackColor = Color.DimGray;
+                        else
+                            pictereBoxSE.BackColor = Color.White;
+                    }
+                }
+
+        }
+        //выглядит ужастно
+        private void radioButton4x4_CheckedChanged(object sender, EventArgs e)
+        {
+            if (this.radioButton4x4.Checked)
+            {
+                this.pictureBoxSE3x0.Visible = true;
+                this.pictureBoxSE3x1.Visible = true;
+                this.pictureBoxSE3x2.Visible = true;
+                this.pictureBoxSE3x3.Visible = true;
+                this.pictureBoxSE0x3.Visible = true;
+                this.pictureBoxSE1x3.Visible = true;
+                this.pictureBoxSE2x3.Visible = true;
+            }
+            else
+            {
+                if (!this.radioButton5x5.Checked)
+                {
+                    this.pictureBoxSE3x0.Visible = false;
+                    this.pictureBoxSE3x1.Visible = false;
+                    this.pictureBoxSE3x2.Visible = false;
+                    this.pictureBoxSE3x3.Visible = false;
+                    this.pictureBoxSE0x3.Visible = false;
+                    this.pictureBoxSE1x3.Visible = false;
+                    this.pictureBoxSE2x3.Visible = false;
+                }
+            }
+        }
+
+        private void radioButton5x5_CheckedChanged(object sender, EventArgs e)
+        {
+            if (this.radioButton5x5.Checked)
+            {
+                this.pictureBoxSE4x0.Visible = true;
+                this.pictureBoxSE4x1.Visible = true;
+                this.pictureBoxSE4x2.Visible = true;
+                this.pictureBoxSE4x3.Visible = true;
+                this.pictureBoxSE4x4.Visible = true;
+                this.pictureBoxSE0x4.Visible = true;
+                this.pictureBoxSE1x4.Visible = true;
+                this.pictureBoxSE2x4.Visible = true;
+                this.pictureBoxSE3x4.Visible = true;
+
+            }
+            else
+            {
+                this.pictureBoxSE4x0.Visible = false;
+                this.pictureBoxSE4x1.Visible = false;
+                this.pictureBoxSE4x2.Visible = false;
+                this.pictureBoxSE4x3.Visible = false;
+                this.pictureBoxSE4x4.Visible = false;
+                this.pictureBoxSE0x4.Visible = false;
+                this.pictureBoxSE1x4.Visible = false;
+                this.pictureBoxSE2x4.Visible = false;
+                this.pictureBoxSE3x4.Visible = false;
+            }
+        }
         
     }
 }
