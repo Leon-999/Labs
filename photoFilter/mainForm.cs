@@ -26,6 +26,8 @@ namespace photoFilter
         public mainForm()
         {
             InitializeComponent();
+            this.radioButton4x4_CheckedChanged();
+            this.radioButton5x5_CheckedChanged();
 
             this.openFileDialog = new OpenFileDialog();
             this.saveFileDialog = new SaveFileDialog();
@@ -278,7 +280,7 @@ namespace photoFilter
 
         }
         //выглядит ужастно
-        private void radioButton4x4_CheckedChanged(object sender, EventArgs e)
+        private void radioButton4x4_CheckedChanged(object sender = null, EventArgs e = null)
         {
             if (this.radioButton4x4.Checked)
             {
@@ -305,7 +307,7 @@ namespace photoFilter
             }
         }
 
-        private void radioButton5x5_CheckedChanged(object sender, EventArgs e)
+        private void radioButton5x5_CheckedChanged(object sender = null, EventArgs e = null)
         {
             if (this.radioButton5x5.Checked)
             {
