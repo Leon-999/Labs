@@ -98,6 +98,7 @@
             this.buttonClosing = new System.Windows.Forms.Button();
             this.buttonMorphologicalGradient = new System.Windows.Forms.Button();
             this.buttonBlackHat = new System.Windows.Forms.Button();
+            this.buttonConventionalBuildup = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.canvas)).BeginInit();
             this.menuStrip.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxBaseColor)).BeginInit();
@@ -837,6 +838,7 @@
             // 
             // panelSquelch
             // 
+            this.panelSquelch.Controls.Add(this.buttonConventionalBuildup);
             this.panelSquelch.Controls.Add(this.buttonBlackHat);
             this.panelSquelch.Controls.Add(this.buttonMorphologicalGradient);
             this.panelSquelch.Controls.Add(this.buttonClosing);
@@ -917,6 +919,16 @@
             this.buttonBlackHat.Text = "black hat";
             this.buttonBlackHat.UseVisualStyleBackColor = true;
             this.buttonBlackHat.Click += new System.EventHandler(this.buttonBlackHat_Click);
+            // 
+            // buttonConventionalBuildup
+            // 
+            this.buttonConventionalBuildup.Location = new System.Drawing.Point(46, 290);
+            this.buttonConventionalBuildup.Name = "buttonConventionalBuildup";
+            this.buttonConventionalBuildup.Size = new System.Drawing.Size(125, 21);
+            this.buttonConventionalBuildup.TabIndex = 36;
+            this.buttonConventionalBuildup.Text = "conventional buildup";
+            this.buttonConventionalBuildup.UseVisualStyleBackColor = true;
+            this.buttonConventionalBuildup.Click += new System.EventHandler(this.buttonConventionalBuildup_Click);
             // 
             // mainForm
             // 
@@ -1045,6 +1057,7 @@
         private System.Windows.Forms.Button buttonClosing;
         private System.Windows.Forms.Button buttonMorphologicalGradient;
         private System.Windows.Forms.Button buttonBlackHat;
+        private System.Windows.Forms.Button buttonConventionalBuildup;
     }
 }
 

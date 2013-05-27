@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Windows.Forms;
 
 namespace photoFilter.squelch
 {
@@ -111,6 +112,30 @@ namespace photoFilter.squelch
                         {
                             result = false;
                         }
+
+                        ManagerFilters.featuredPixel();
+                    }
+
+
+            return result;
+        }
+
+        public static bool significantlyCompare(BinaryMatrix significantlyMatrix, BinaryMatrix secondMatrix)
+        {
+            bool result = true;
+
+            if (significantlyMatrix.WIDTH != secondMatrix.WIDTH || significantlyMatrix.HEIGHT != secondMatrix.HEIGHT)
+                result = false;
+            else
+                for (int i = 0; i < significantlyMatrix.WIDTH; ++i)
+                    for (int j = 0; j < significantlyMatrix.HEIGHT; ++j)
+                    {
+                        if (significantlyMatrix.getValue(i, j) && !secondMatrix.getValue(i, j))
+                        {
+                            result = false;
+                        }
+
+                        ManagerFilters.featuredPixel();
                     }
 
 
@@ -130,6 +155,32 @@ namespace photoFilter.squelch
                         if (firstMatrix.getValue(i, j) && !subtrahendMatrix.getValue(i, j))
                         {
                             result.setValue(i,j, true);
+                        }
+                        else
+                            result.setValue(i, j, false);
+
+                        ManagerFilters.featuredPixel();
+                    }
+            }
+
+
+            return result;
+        }
+
+        public static BinaryMatrix confluence(BinaryMatrix firstMatrix, BinaryMatrix subtrahendMatrix)
+        {
+            BinaryMatrix result = null;
+
+            if (firstMatrix.WIDTH == subtrahendMatrix.WIDTH && firstMatrix.HEIGHT == subtrahendMatrix.HEIGHT)
+            {
+                result = new BinaryMatrix(firstMatrix.WIDTH, firstMatrix.HEIGHT);
+                for (int i = 0; i < firstMatrix.WIDTH; ++i)
+                    for (int j = 0; j < firstMatrix.HEIGHT; ++j)
+                    {
+                        if (firstMatrix.getValue(i, j) && subtrahendMatrix.getValue(i, j))
+                        {
+                            result.setValue(i,j, true);
+                            //MessageBox.Show(Convert.ToString(firstMatrix.getValue(i, j)) +  Convert.ToString(subtrahendMatrix.getValue(i, j)));
                         }
                         else
                             result.setValue(i, j, false);

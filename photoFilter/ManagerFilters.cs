@@ -134,6 +134,18 @@ namespace photoFilter
             BlackHat worker = new BlackHat();
             return worker.employ(sourceImage, structuralElement);
         }
+        public Bitmap conventionalBuildup(Bitmap sourceImage, BinaryMatrix structuralElementErosion)
+        {
+            this.countParts(sourceImage);
+            ConventionalBuildup worker = new ConventionalBuildup();
+            
+            BinaryMatrix structuralElementBuildup = new BinaryMatrix(structuralElementErosion.WIDTH, structuralElementErosion.HEIGHT);
+            for(int i=0; i < structuralElementBuildup.WIDTH; ++i)
+                for(int j=0; j < structuralElementBuildup.HEIGHT; ++j)
+                    structuralElementBuildup.setValue(i, j, true);
+
+            return worker.employ(sourceImage, structuralElementErosion, structuralElementBuildup);
+        }
 
         private void countParts(Bitmap sourceImage)
         {

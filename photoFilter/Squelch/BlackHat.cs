@@ -6,6 +6,7 @@ using System.Drawing;
 
 namespace photoFilter.squelch
 {
+    //выделяет тёмные области, по сравнению с окружением
     class BlackHat:MathematicalMorphology
     {
         internal Bitmap employ(Bitmap sourceImage, BinaryMatrix structuralElement)

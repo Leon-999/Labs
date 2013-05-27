@@ -70,6 +70,7 @@
     <Compile Include="squelch\BlackHat.cs" />
     <Compile Include="squelch\Buildup.cs" />
     <Compile Include="squelch\Closing.cs" />
+    <Compile Include="squelch\ConventionalBuildup.cs" />
     <Compile Include="squelch\Disclosure.cs" />
     <Compile Include="squelch\Erosion.cs" />
     <Compile Include="squelch\MathematicalMorphology.cs" />

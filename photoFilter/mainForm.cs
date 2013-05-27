@@ -263,6 +263,13 @@ namespace photoFilter
             this.refreshCanvas();
         }
 
+        private void buttonConventionalBuildup_Click(object sender, EventArgs e)
+        {
+            BinaryMatrix structuralElement = this.readStruralElement();
+            this.workImage = this.filter.conventionalBuildup(this.sourceImage, structuralElement);
+            this.refreshCanvas();
+        }
+
         //ужас
         private BinaryMatrix readStruralElement()
         {

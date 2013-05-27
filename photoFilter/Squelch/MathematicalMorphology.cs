@@ -124,7 +124,7 @@ namespace photoFilter.squelch
                         for (int y = 0; y < pointer.HEIGHT; ++y)
                             pointer.setValue(x, y, this.sourceMatrix.getValue(i + x, j + y));
 
-                    if (BinaryMatrix.compare(this.structuralElement, pointer))
+                    if (BinaryMatrix.significantlyCompare(this.structuralElement, pointer))
                         this.writeChange(i + dXStructuralMatrix, j + dYStructuralMatrix, centerStructuralMatrix, this.resultMatrix);
 
                     ManagerFilters.featuredPixel();
