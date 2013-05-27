@@ -108,9 +108,6 @@ namespace photoFilter.squelch
                     ManagerFilters.featuredPixel();
                 }
 
-            ManagerFilters.completeWork();
-
-
         }
 
         protected void erosion()
@@ -132,8 +129,6 @@ namespace photoFilter.squelch
 
                     ManagerFilters.featuredPixel();
                 }
-
-            ManagerFilters.completeWork();
         }
     }
 }

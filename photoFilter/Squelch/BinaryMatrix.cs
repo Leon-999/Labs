@@ -117,6 +117,31 @@ namespace photoFilter.squelch
             return result;
         }
 
+        public static BinaryMatrix difference(BinaryMatrix firstMatrix, BinaryMatrix subtrahendMatrix)
+        {
+            BinaryMatrix result = null;
+
+            if (firstMatrix.WIDTH == subtrahendMatrix.WIDTH && firstMatrix.HEIGHT == subtrahendMatrix.HEIGHT)
+            {
+                result = new BinaryMatrix(firstMatrix.WIDTH, firstMatrix.HEIGHT);
+                for (int i = 0; i < firstMatrix.WIDTH; ++i)
+                    for (int j = 0; j < firstMatrix.HEIGHT; ++j)
+                    {
+                        if (firstMatrix.getValue(i, j) && !subtrahendMatrix.getValue(i, j))
+                        {
+                            result.setValue(i,j, true);
+                        }
+                        else
+                            result.setValue(i, j, false);
+
+                        ManagerFilters.featuredPixel();
+                    }
+            }
+
+
+            return result;
+        }
+
 
     }
 }

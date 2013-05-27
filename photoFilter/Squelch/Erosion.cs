@@ -17,6 +17,7 @@ namespace photoFilter.squelch
                 this.initialization(sourceImage, structuralElement);
                 this.erosion();
 
+                ManagerFilters.completeWork();
                 result = this.binaryMatrixToImage(this.resultMatrix);
             }
 

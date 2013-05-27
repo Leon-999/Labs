@@ -72,6 +72,7 @@
     <Compile Include="squelch\Disclosure.cs" />
     <Compile Include="squelch\Erosion.cs" />
     <Compile Include="squelch\MathematicalMorphology.cs" />
+    <Compile Include="squelch\MorphologicalGradient.cs" />
     <EmbeddedResource Include="mainForm.resx">
       <DependentUpon>mainForm.cs</DependentUpon>
     </EmbeddedResource>

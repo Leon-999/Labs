@@ -121,6 +121,13 @@ namespace photoFilter
             return worker.employ(sourceImage, structuralElement);
         }
 
+        public Bitmap morphologicalGradient(Bitmap sourceImage, BinaryMatrix structuralElement)
+        {
+            this.countParts(sourceImage);
+            MorphologicalGradient worker = new MorphologicalGradient();
+            return worker.employ(sourceImage, structuralElement);
+        }
+
         private void countParts(Bitmap sourceImage)
         {
             if (ManagerFilters.progressBar != null && sourceImage != null)

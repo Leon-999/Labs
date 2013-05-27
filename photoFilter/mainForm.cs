@@ -249,6 +249,13 @@ namespace photoFilter
             this.refreshCanvas();
         }
 
+        private void buttonMorphologicalGradient_Click(object sender, EventArgs e)
+        {
+            BinaryMatrix structuralElement = this.readStruralElement();
+            this.workImage = this.filter.morphologicalGradient(this.sourceImage, structuralElement);
+            this.refreshCanvas();
+        }
+
         //ужас
         private BinaryMatrix readStruralElement()
         {

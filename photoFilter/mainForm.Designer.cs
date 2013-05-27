@@ -96,6 +96,7 @@
             this.panelSquelch = new System.Windows.Forms.Panel();
             this.buttonDisclosure = new System.Windows.Forms.Button();
             this.buttonClosing = new System.Windows.Forms.Button();
+            this.buttonMorphologicalGradient = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.canvas)).BeginInit();
             this.menuStrip.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxBaseColor)).BeginInit();
@@ -807,7 +808,7 @@
             // 
             this.buttonBuildup.Location = new System.Drawing.Point(46, 128);
             this.buttonBuildup.Name = "buttonBuildup";
-            this.buttonBuildup.Size = new System.Drawing.Size(110, 21);
+            this.buttonBuildup.Size = new System.Drawing.Size(125, 21);
             this.buttonBuildup.TabIndex = 29;
             this.buttonBuildup.Text = "buildup";
             this.buttonBuildup.UseVisualStyleBackColor = true;
@@ -817,7 +818,7 @@
             // 
             this.buttonSourceImage.Location = new System.Drawing.Point(42, 11);
             this.buttonSourceImage.Name = "buttonSourceImage";
-            this.buttonSourceImage.Size = new System.Drawing.Size(110, 21);
+            this.buttonSourceImage.Size = new System.Drawing.Size(125, 21);
             this.buttonSourceImage.TabIndex = 30;
             this.buttonSourceImage.Text = "source image";
             this.buttonSourceImage.UseVisualStyleBackColor = true;
@@ -827,7 +828,7 @@
             // 
             this.buttonErosion.Location = new System.Drawing.Point(46, 155);
             this.buttonErosion.Name = "buttonErosion";
-            this.buttonErosion.Size = new System.Drawing.Size(110, 21);
+            this.buttonErosion.Size = new System.Drawing.Size(125, 21);
             this.buttonErosion.TabIndex = 31;
             this.buttonErosion.Text = "erosion";
             this.buttonErosion.UseVisualStyleBackColor = true;
@@ -835,6 +836,7 @@
             // 
             // panelSquelch
             // 
+            this.panelSquelch.Controls.Add(this.buttonMorphologicalGradient);
             this.panelSquelch.Controls.Add(this.buttonClosing);
             this.panelSquelch.Controls.Add(this.buttonDisclosure);
             this.panelSquelch.Controls.Add(this.buttonErosion);
@@ -878,7 +880,7 @@
             // 
             this.buttonDisclosure.Location = new System.Drawing.Point(46, 182);
             this.buttonDisclosure.Name = "buttonDisclosure";
-            this.buttonDisclosure.Size = new System.Drawing.Size(110, 21);
+            this.buttonDisclosure.Size = new System.Drawing.Size(125, 21);
             this.buttonDisclosure.TabIndex = 32;
             this.buttonDisclosure.Text = "disclosure";
             this.buttonDisclosure.UseVisualStyleBackColor = true;
@@ -888,11 +890,21 @@
             // 
             this.buttonClosing.Location = new System.Drawing.Point(46, 209);
             this.buttonClosing.Name = "buttonClosing";
-            this.buttonClosing.Size = new System.Drawing.Size(110, 21);
+            this.buttonClosing.Size = new System.Drawing.Size(125, 21);
             this.buttonClosing.TabIndex = 33;
             this.buttonClosing.Text = "closing";
             this.buttonClosing.UseVisualStyleBackColor = true;
             this.buttonClosing.Click += new System.EventHandler(this.buttonClosing_Click);
+            // 
+            // buttonMorphologicalGradient
+            // 
+            this.buttonMorphologicalGradient.Location = new System.Drawing.Point(46, 236);
+            this.buttonMorphologicalGradient.Name = "buttonMorphologicalGradient";
+            this.buttonMorphologicalGradient.Size = new System.Drawing.Size(125, 21);
+            this.buttonMorphologicalGradient.TabIndex = 34;
+            this.buttonMorphologicalGradient.Text = "morphological gradient";
+            this.buttonMorphologicalGradient.UseVisualStyleBackColor = true;
+            this.buttonMorphologicalGradient.Click += new System.EventHandler(this.buttonMorphologicalGradient_Click);
             // 
             // mainForm
             // 
@@ -1019,6 +1031,7 @@
         private System.Windows.Forms.Panel panelSquelch;
         private System.Windows.Forms.Button buttonDisclosure;
         private System.Windows.Forms.Button buttonClosing;
+        private System.Windows.Forms.Button buttonMorphologicalGradient;
     }
 }
 

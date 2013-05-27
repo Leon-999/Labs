@@ -20,6 +20,7 @@ namespace photoFilter.squelch
                 this.resultMatrix.nulling();
                 this.buildup();
 
+                ManagerFilters.completeWork();
                 result = this.binaryMatrixToImage(this.resultMatrix);
             }
 
