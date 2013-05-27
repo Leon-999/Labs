@@ -12,7 +12,9 @@ namespace photoFilter.squelch
         private Bitmap resultImage;
         private int size;
         private int N;
-        private Color[] vector; 
+        private int[] vectorR;
+        private int[] vectorG;
+        private int[] vectorB;
 
         internal Bitmap employ(Bitmap sourceImage, int vicinity)
         {
@@ -23,13 +25,17 @@ namespace photoFilter.squelch
                 this.sourceImage = (Bitmap)sourceImage.Clone();
                 this.resultImage = new Bitmap(this.sourceImage.Width, this.sourceImage.Height);
                 this.size = vicinity;
-                this.vector = new Color[size * size];
+                this.vectorR = new int[size * size];
+                this.vectorG = new int[size * size];
+                this.vectorB = new int[size * size];
 
                 for(int i = 0; i < this.sourceImage.Width; ++i)
                     for (int j = 0; j < this.sourceImage.Height; ++j)
                     {
-                        this.writeVector(i, j);
-                        this.resultImage.SetPixel(i, j, this.chooseMedianElement());
+                        this.writeVectors(i, j);
+                        this.resultImage.SetPixel(i, j, Color.FromArgb(this.chooseMedianElement(this.vectorR),
+                                                                       this.chooseMedianElement(this.vectorG), 
+                                                                       this.chooseMedianElement(this.vectorB)));
                         ManagerFilters.featuredPixel();
                     }
 
@@ -41,8 +47,9 @@ namespace photoFilter.squelch
             return result;
         }
 
-        private void writeVector(int x, int y)
+        private void writeVectors(int x, int y)
         {
+            Color currentColor;
             int count = 0;
             int shiftX, shiftY;
             int shift = (int)(this.size / 2);
@@ -53,7 +60,10 @@ namespace photoFilter.squelch
                     shiftY = y - shift + j;
                     if (shiftX > -1 && shiftY > -1 && shiftX < this.sourceImage.Width && shiftY < this.sourceImage.Height)
                     {
-                        this.vector[count] = this.sourceImage.GetPixel(shiftX, shiftY);
+                        currentColor = this.sourceImage.GetPixel(shiftX, shiftY);
+                        this.vectorR[count] = currentColor.R;
+                        this.vectorG[count] = currentColor.G;
+                        this.vectorB[count] = currentColor.B;
                         count++;
                     }
                 }
@@ -68,19 +78,33 @@ namespace photoFilter.squelch
             for(int i = 0; i < this.N; ++i)
                 for (int j = i; j < this.N; ++j)
                 {
-                    if (this.vector[i].R > this.vector[j].R)
+                    if (this.vectorR[i] > this.vectorR[j])
                     {
-                        Color tmp = this.vector[i];
-                        this.vector[i] = this.vector[j];
-                        this.vector[j] = tmp;
+                        int tmp = this.vectorR[i];
+                        this.vectorR[i] = this.vectorR[j];
+                        this.vectorR[j] = tmp;
+                    }
+
+                    if (this.vectorG[i] > this.vectorG[j])
+                    {
+                        int tmp = this.vectorG[i];
+                        this.vectorG[i] = this.vectorG[j];
+                        this.vectorG[j] = tmp;
+                    }
+
+                    if (this.vectorB[i] > this.vectorB[j])
+                    {
+                        int tmp = this.vectorB[i];
+                        this.vectorB[i] = this.vectorB[j];
+                        this.vectorB[j] = tmp;
                     }
                 }
         }
 
-        private Color chooseMedianElement()
+        private int chooseMedianElement(int [] vector)
         {
             int median = N / 2;
-            return this.vector[median];
+            return vector[median];
         }
     }
 }

@@ -155,11 +155,11 @@ namespace photoFilter
             return worker.employ(sourceImage, vicinity);
         }
 
-        public Bitmap gaussianFilter(Bitmap sourceImage)
+        public Bitmap gaussianFilter(Bitmap sourceImage, int vicinity)
         {
             this.countParts(sourceImage);
             GaussianFilter worker = new GaussianFilter();
-            return worker.employ(sourceImage);
+            return worker.employ(sourceImage, vicinity);
         }
 
         private void countParts(Bitmap sourceImage)

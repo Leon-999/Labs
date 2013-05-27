@@ -100,9 +100,11 @@
             this.buttonClosing = new System.Windows.Forms.Button();
             this.buttonDisclosure = new System.Windows.Forms.Button();
             this.buttonMedianFilter = new System.Windows.Forms.Button();
-            this.labelVicinity = new System.Windows.Forms.Label();
-            this.textBoxVicinity = new System.Windows.Forms.TextBox();
+            this.labelVicinityM = new System.Windows.Forms.Label();
+            this.textBoxVicinityM = new System.Windows.Forms.TextBox();
             this.buttonGaussianFilter = new System.Windows.Forms.Button();
+            this.labelVicinityG = new System.Windows.Forms.Label();
+            this.textBoxVicinityG = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.canvas)).BeginInit();
             this.menuStrip.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxBaseColor)).BeginInit();
@@ -842,9 +844,11 @@
             // 
             // panelSquelch
             // 
+            this.panelSquelch.Controls.Add(this.labelVicinityG);
+            this.panelSquelch.Controls.Add(this.textBoxVicinityG);
             this.panelSquelch.Controls.Add(this.buttonGaussianFilter);
-            this.panelSquelch.Controls.Add(this.labelVicinity);
-            this.panelSquelch.Controls.Add(this.textBoxVicinity);
+            this.panelSquelch.Controls.Add(this.labelVicinityM);
+            this.panelSquelch.Controls.Add(this.textBoxVicinityM);
             this.panelSquelch.Controls.Add(this.buttonMedianFilter);
             this.panelSquelch.Controls.Add(this.buttonConventionalBuildup);
             this.panelSquelch.Controls.Add(this.buttonBlackHat);
@@ -948,22 +952,22 @@
             this.buttonMedianFilter.UseVisualStyleBackColor = true;
             this.buttonMedianFilter.Click += new System.EventHandler(this.buttonMedianFilter_Click);
             // 
-            // labelVicinity
+            // labelVicinityM
             // 
-            this.labelVicinity.AutoSize = true;
-            this.labelVicinity.Location = new System.Drawing.Point(43, 348);
-            this.labelVicinity.Name = "labelVicinity";
-            this.labelVicinity.Size = new System.Drawing.Size(39, 13);
-            this.labelVicinity.TabIndex = 39;
-            this.labelVicinity.Text = "vicinity";
+            this.labelVicinityM.AutoSize = true;
+            this.labelVicinityM.Location = new System.Drawing.Point(43, 348);
+            this.labelVicinityM.Name = "labelVicinityM";
+            this.labelVicinityM.Size = new System.Drawing.Size(39, 13);
+            this.labelVicinityM.TabIndex = 39;
+            this.labelVicinityM.Text = "vicinity";
             // 
-            // textBoxVicinity
+            // textBoxVicinityM
             // 
-            this.textBoxVicinity.Location = new System.Drawing.Point(82, 345);
-            this.textBoxVicinity.Name = "textBoxVicinity";
-            this.textBoxVicinity.Size = new System.Drawing.Size(43, 20);
-            this.textBoxVicinity.TabIndex = 38;
-            this.textBoxVicinity.Text = "3";
+            this.textBoxVicinityM.Location = new System.Drawing.Point(82, 345);
+            this.textBoxVicinityM.Name = "textBoxVicinityM";
+            this.textBoxVicinityM.Size = new System.Drawing.Size(43, 20);
+            this.textBoxVicinityM.TabIndex = 38;
+            this.textBoxVicinityM.Text = "3";
             // 
             // buttonGaussianFilter
             // 
@@ -974,6 +978,23 @@
             this.buttonGaussianFilter.Text = "gaussian filter";
             this.buttonGaussianFilter.UseVisualStyleBackColor = true;
             this.buttonGaussianFilter.Click += new System.EventHandler(this.buttonGaussianFilter_Click);
+            // 
+            // labelVicinityG
+            // 
+            this.labelVicinityG.AutoSize = true;
+            this.labelVicinityG.Location = new System.Drawing.Point(43, 401);
+            this.labelVicinityG.Name = "labelVicinityG";
+            this.labelVicinityG.Size = new System.Drawing.Size(39, 13);
+            this.labelVicinityG.TabIndex = 42;
+            this.labelVicinityG.Text = "vicinity";
+            // 
+            // textBoxVicinityG
+            // 
+            this.textBoxVicinityG.Location = new System.Drawing.Point(82, 398);
+            this.textBoxVicinityG.Name = "textBoxVicinityG";
+            this.textBoxVicinityG.Size = new System.Drawing.Size(43, 20);
+            this.textBoxVicinityG.TabIndex = 41;
+            this.textBoxVicinityG.Text = "3";
             // 
             // mainForm
             // 
@@ -1104,9 +1125,11 @@
         private System.Windows.Forms.Button buttonBlackHat;
         private System.Windows.Forms.Button buttonConventionalBuildup;
         private System.Windows.Forms.Button buttonMedianFilter;
-        private System.Windows.Forms.Label labelVicinity;
-        private System.Windows.Forms.TextBox textBoxVicinity;
+        private System.Windows.Forms.Label labelVicinityM;
+        private System.Windows.Forms.TextBox textBoxVicinityM;
         private System.Windows.Forms.Button buttonGaussianFilter;
+        private System.Windows.Forms.Label labelVicinityG;
+        private System.Windows.Forms.TextBox textBoxVicinityG;
     }
 }
 

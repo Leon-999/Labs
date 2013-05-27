@@ -3,24 +3,24 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Drawing;
+using System.Windows.Forms;
 
 namespace photoFilter.squelch
 {
     class GaussianFilter
     {
-        internal Bitmap employ(Bitmap sourceImage)
+        internal Bitmap employ(Bitmap sourceImage, int vicinity)
         {
             Bitmap result = null;
 
             if (sourceImage != null)
             {
-                result = new Bitmap(sourceImage.Width, sourceImage.Height);
+                result = new Bitmap(sourceImage);
 
-                double sum = 0;
                 double s = 0;
                 double r = 1.398;
                 double r2 = 2 * r * r;
-                int n = 3;
+                int n = vicinity;
                 double ss;
                 double colorR=0;
                 double colorG=0;
@@ -30,54 +30,57 @@ namespace photoFilter.squelch
                 {
                     w[i] = new double[n];
                 }
+
+                int center = (int)(n / 2);
+
                 for (int i = 0; i < n; i++)
                 {
+                    s = 0;
                     for (int j = 0; j < n; j++)
                     {
-                        ss = (i * i + j * j) / r2;
+                        int distanceX = i - center;
+                        int distanceY = j - center;
+                        ss = (distanceX * distanceX + distanceY * distanceY) / r2;
                         w[i][j] = 1 / (Math.Sqrt(Math.PI * r2)) * Math.Exp(ss * (-1.0));
-                        //cout<<w[i][j]<<endl;
                         s += w[i][j];
                     }
                     for (int j = 0; j < n; j++)
                     {
-
                         w[i][j] = w[i][j] / s;
-                        sum += w[i][j];
                     }
                 }
 
                 Color currentColor = new Color();
-                for (int yi = 0; yi < sourceImage.Height - n; yi++)
+                for (int yi = 0; yi < sourceImage.Height; yi++)
                 {
-                    for (int xj = 0; xj < sourceImage.Width - n; xj++)
+                    for (int xj = 0; xj < sourceImage.Width; xj++)
                     {
-                        for (int i = 0; i < n; i++)
+                        if (xj + n - 1 < sourceImage.Width && yi + n - 1 < sourceImage.Height)
                         {
-                            colorR = 0;
-                            colorG = 0;
-                            colorB = 0;
-                            for (int j = 0; j < n; j++)
+                            for (int i = 0; i < n; i++)
                             {
-                                currentColor = sourceImage.GetPixel(j + xj,i + yi);
-                                colorR += w[i][j] * currentColor.R;
-                                colorG += w[i][j] * currentColor.G;
-                                colorB += w[i][j] * currentColor.B;
+                                colorR = 0;
+                                colorG = 0;
+                                colorB = 0;
+                                for (int j = 0; j < n; j++)
+                                {
+                                    currentColor = sourceImage.GetPixel(j + xj, i + yi);
+                                    colorR += w[i][j] * currentColor.R;
+                                    colorG += w[i][j] * currentColor.G;
+                                    colorB += w[i][j] * currentColor.B;
+                                }
                             }
+
+                            int currentedR = (int)colorR;
+                            currentedR = (currentedR > 255) ? 255 : (currentedR < 0) ? 0 : currentedR;
+                            int currentedG = (int)colorG;
+                            currentedG = (currentedG > 255) ? 255 : (currentedG < 0) ? 0 : currentedG;
+                            int currentedB = (int)colorB;
+                            currentedB = (currentedB > 255) ? 255 : (currentedB < 0) ? 0 : currentedB;
+
+                            currentColor = Color.FromArgb(currentedR, currentedG, currentedB);
+                            result.SetPixel(xj + center, yi + center * 2, currentColor);
                         }
-                        colorR /= sum;
-                        colorG /= sum;
-                        colorB /= sum;
-
-                        int currentedR = (int)(colorR * currentColor.R);
-                        currentedR = (currentedR > 255) ? 255 : (currentedR < 0) ? 0 : currentedR;
-                        int currentedG = (int)(colorG * currentColor.G);
-                        currentedG = (currentedG > 255) ? 255 : (currentedG < 0) ? 0 : currentedG;
-                        int currentedB = (int)(colorB * currentColor.B);
-                        currentedB = (currentedB > 255) ? 255 : (currentedB < 0) ? 0 : currentedB;
-
-                        currentColor = Color.FromArgb(currentedR,currentedG, currentedB );
-                        result.SetPixel(xj, yi, currentColor);
 
                         ManagerFilters.featuredPixel();
                     }

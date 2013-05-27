@@ -82,8 +82,8 @@ namespace photoFilter
                     }
                     else
                     {
-                        canvas.Width = canvasWidth;
-                        canvas.Height = Convert.ToInt16(sourceImage.Height * widthRatio);
+                        this.canvas.Width = canvasWidth;
+                        this.canvas.Height = Convert.ToInt16(this.sourceImage.Height * widthRatio);
                     }
                     this.canvas.SizeMode = PictureBoxSizeMode.StretchImage;
                 }
@@ -274,7 +274,7 @@ namespace photoFilter
         {
             try
             {
-                int vicinity = Convert.ToInt32(this.textBoxVicinity.Text);
+                int vicinity = Convert.ToInt32(this.textBoxVicinityM.Text);
                 if (vicinity % 2 == 1)
                 {
                     this.workImage = this.filter.medianFilter(this.sourceImage, vicinity);
@@ -294,8 +294,23 @@ namespace photoFilter
 
         private void buttonGaussianFilter_Click(object sender, EventArgs e)
         {
-            this.workImage = this.filter.gaussianFilter(this.sourceImage);
-            this.refreshCanvas();
+            //try
+            //{
+                int vicinity = Convert.ToInt32(this.textBoxVicinityG.Text);
+                if (vicinity % 2 == 1)
+                {
+                    this.workImage = this.filter.gaussianFilter(this.sourceImage, vicinity);
+                    this.refreshCanvas();
+                }
+                else
+                {
+                    MessageBox.Show("Окрестность должна быть нечётной");
+                }
+            /*}
+            catch
+            {
+                MessageBox.Show("Окрестность введена некорректно");
+            }*/
         }
 
         //ужас
