@@ -270,6 +270,34 @@ namespace photoFilter
             this.refreshCanvas();
         }
 
+        private void buttonMedianFilter_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                int vicinity = Convert.ToInt32(this.textBoxVicinity.Text);
+                if (vicinity % 2 == 1)
+                {
+                    this.workImage = this.filter.medianFilter(this.sourceImage, vicinity);
+                    this.refreshCanvas();
+                }
+                else
+                {
+                    MessageBox.Show("Окрестность должна быть нечётной");
+                }
+            }
+            catch
+            {
+                MessageBox.Show("Окрестность введена некорректно");
+            }
+        }
+
+
+        private void buttonGaussianFilter_Click(object sender, EventArgs e)
+        {
+            this.workImage = this.filter.gaussianFilter(this.sourceImage);
+            this.refreshCanvas();
+        }
+
         //ужас
         private BinaryMatrix readStruralElement()
         {

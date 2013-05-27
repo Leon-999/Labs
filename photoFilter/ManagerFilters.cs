@@ -134,6 +134,7 @@ namespace photoFilter
             BlackHat worker = new BlackHat();
             return worker.employ(sourceImage, structuralElement);
         }
+
         public Bitmap conventionalBuildup(Bitmap sourceImage, BinaryMatrix structuralElementErosion)
         {
             this.countParts(sourceImage);
@@ -145,6 +146,20 @@ namespace photoFilter
                     structuralElementBuildup.setValue(i, j, true);
 
             return worker.employ(sourceImage, structuralElementErosion, structuralElementBuildup);
+        }
+
+        public Bitmap medianFilter(Bitmap sourceImage, int  vicinity)
+        {
+            this.countParts(sourceImage);
+            MedianFilter worker = new MedianFilter();
+            return worker.employ(sourceImage, vicinity);
+        }
+
+        public Bitmap gaussianFilter(Bitmap sourceImage)
+        {
+            this.countParts(sourceImage);
+            GaussianFilter worker = new GaussianFilter();
+            return worker.employ(sourceImage);
         }
 
         private void countParts(Bitmap sourceImage)

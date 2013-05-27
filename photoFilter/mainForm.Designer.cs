@@ -94,11 +94,15 @@
             this.buttonSourceImage = new System.Windows.Forms.Button();
             this.buttonErosion = new System.Windows.Forms.Button();
             this.panelSquelch = new System.Windows.Forms.Panel();
-            this.buttonDisclosure = new System.Windows.Forms.Button();
-            this.buttonClosing = new System.Windows.Forms.Button();
-            this.buttonMorphologicalGradient = new System.Windows.Forms.Button();
-            this.buttonBlackHat = new System.Windows.Forms.Button();
             this.buttonConventionalBuildup = new System.Windows.Forms.Button();
+            this.buttonBlackHat = new System.Windows.Forms.Button();
+            this.buttonMorphologicalGradient = new System.Windows.Forms.Button();
+            this.buttonClosing = new System.Windows.Forms.Button();
+            this.buttonDisclosure = new System.Windows.Forms.Button();
+            this.buttonMedianFilter = new System.Windows.Forms.Button();
+            this.labelVicinity = new System.Windows.Forms.Label();
+            this.textBoxVicinity = new System.Windows.Forms.TextBox();
+            this.buttonGaussianFilter = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.canvas)).BeginInit();
             this.menuStrip.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxBaseColor)).BeginInit();
@@ -838,6 +842,10 @@
             // 
             // panelSquelch
             // 
+            this.panelSquelch.Controls.Add(this.buttonGaussianFilter);
+            this.panelSquelch.Controls.Add(this.labelVicinity);
+            this.panelSquelch.Controls.Add(this.textBoxVicinity);
+            this.panelSquelch.Controls.Add(this.buttonMedianFilter);
             this.panelSquelch.Controls.Add(this.buttonConventionalBuildup);
             this.panelSquelch.Controls.Add(this.buttonBlackHat);
             this.panelSquelch.Controls.Add(this.buttonMorphologicalGradient);
@@ -880,35 +888,15 @@
             this.panelSquelch.Size = new System.Drawing.Size(182, 422);
             this.panelSquelch.TabIndex = 35;
             // 
-            // buttonDisclosure
+            // buttonConventionalBuildup
             // 
-            this.buttonDisclosure.Location = new System.Drawing.Point(46, 182);
-            this.buttonDisclosure.Name = "buttonDisclosure";
-            this.buttonDisclosure.Size = new System.Drawing.Size(125, 21);
-            this.buttonDisclosure.TabIndex = 32;
-            this.buttonDisclosure.Text = "disclosure";
-            this.buttonDisclosure.UseVisualStyleBackColor = true;
-            this.buttonDisclosure.Click += new System.EventHandler(this.buttonDisclosure_Click);
-            // 
-            // buttonClosing
-            // 
-            this.buttonClosing.Location = new System.Drawing.Point(46, 209);
-            this.buttonClosing.Name = "buttonClosing";
-            this.buttonClosing.Size = new System.Drawing.Size(125, 21);
-            this.buttonClosing.TabIndex = 33;
-            this.buttonClosing.Text = "closing";
-            this.buttonClosing.UseVisualStyleBackColor = true;
-            this.buttonClosing.Click += new System.EventHandler(this.buttonClosing_Click);
-            // 
-            // buttonMorphologicalGradient
-            // 
-            this.buttonMorphologicalGradient.Location = new System.Drawing.Point(46, 236);
-            this.buttonMorphologicalGradient.Name = "buttonMorphologicalGradient";
-            this.buttonMorphologicalGradient.Size = new System.Drawing.Size(125, 21);
-            this.buttonMorphologicalGradient.TabIndex = 34;
-            this.buttonMorphologicalGradient.Text = "morphological gradient";
-            this.buttonMorphologicalGradient.UseVisualStyleBackColor = true;
-            this.buttonMorphologicalGradient.Click += new System.EventHandler(this.buttonMorphologicalGradient_Click);
+            this.buttonConventionalBuildup.Location = new System.Drawing.Point(46, 290);
+            this.buttonConventionalBuildup.Name = "buttonConventionalBuildup";
+            this.buttonConventionalBuildup.Size = new System.Drawing.Size(125, 21);
+            this.buttonConventionalBuildup.TabIndex = 36;
+            this.buttonConventionalBuildup.Text = "conventional buildup";
+            this.buttonConventionalBuildup.UseVisualStyleBackColor = true;
+            this.buttonConventionalBuildup.Click += new System.EventHandler(this.buttonConventionalBuildup_Click);
             // 
             // buttonBlackHat
             // 
@@ -920,15 +908,72 @@
             this.buttonBlackHat.UseVisualStyleBackColor = true;
             this.buttonBlackHat.Click += new System.EventHandler(this.buttonBlackHat_Click);
             // 
-            // buttonConventionalBuildup
+            // buttonMorphologicalGradient
             // 
-            this.buttonConventionalBuildup.Location = new System.Drawing.Point(46, 290);
-            this.buttonConventionalBuildup.Name = "buttonConventionalBuildup";
-            this.buttonConventionalBuildup.Size = new System.Drawing.Size(125, 21);
-            this.buttonConventionalBuildup.TabIndex = 36;
-            this.buttonConventionalBuildup.Text = "conventional buildup";
-            this.buttonConventionalBuildup.UseVisualStyleBackColor = true;
-            this.buttonConventionalBuildup.Click += new System.EventHandler(this.buttonConventionalBuildup_Click);
+            this.buttonMorphologicalGradient.Location = new System.Drawing.Point(46, 236);
+            this.buttonMorphologicalGradient.Name = "buttonMorphologicalGradient";
+            this.buttonMorphologicalGradient.Size = new System.Drawing.Size(125, 21);
+            this.buttonMorphologicalGradient.TabIndex = 34;
+            this.buttonMorphologicalGradient.Text = "morphological gradient";
+            this.buttonMorphologicalGradient.UseVisualStyleBackColor = true;
+            this.buttonMorphologicalGradient.Click += new System.EventHandler(this.buttonMorphologicalGradient_Click);
+            // 
+            // buttonClosing
+            // 
+            this.buttonClosing.Location = new System.Drawing.Point(46, 209);
+            this.buttonClosing.Name = "buttonClosing";
+            this.buttonClosing.Size = new System.Drawing.Size(125, 21);
+            this.buttonClosing.TabIndex = 33;
+            this.buttonClosing.Text = "closing";
+            this.buttonClosing.UseVisualStyleBackColor = true;
+            this.buttonClosing.Click += new System.EventHandler(this.buttonClosing_Click);
+            // 
+            // buttonDisclosure
+            // 
+            this.buttonDisclosure.Location = new System.Drawing.Point(46, 182);
+            this.buttonDisclosure.Name = "buttonDisclosure";
+            this.buttonDisclosure.Size = new System.Drawing.Size(125, 21);
+            this.buttonDisclosure.TabIndex = 32;
+            this.buttonDisclosure.Text = "disclosure";
+            this.buttonDisclosure.UseVisualStyleBackColor = true;
+            this.buttonDisclosure.Click += new System.EventHandler(this.buttonDisclosure_Click);
+            // 
+            // buttonMedianFilter
+            // 
+            this.buttonMedianFilter.Location = new System.Drawing.Point(46, 318);
+            this.buttonMedianFilter.Name = "buttonMedianFilter";
+            this.buttonMedianFilter.Size = new System.Drawing.Size(125, 21);
+            this.buttonMedianFilter.TabIndex = 37;
+            this.buttonMedianFilter.Text = "median filter";
+            this.buttonMedianFilter.UseVisualStyleBackColor = true;
+            this.buttonMedianFilter.Click += new System.EventHandler(this.buttonMedianFilter_Click);
+            // 
+            // labelVicinity
+            // 
+            this.labelVicinity.AutoSize = true;
+            this.labelVicinity.Location = new System.Drawing.Point(43, 348);
+            this.labelVicinity.Name = "labelVicinity";
+            this.labelVicinity.Size = new System.Drawing.Size(39, 13);
+            this.labelVicinity.TabIndex = 39;
+            this.labelVicinity.Text = "vicinity";
+            // 
+            // textBoxVicinity
+            // 
+            this.textBoxVicinity.Location = new System.Drawing.Point(82, 345);
+            this.textBoxVicinity.Name = "textBoxVicinity";
+            this.textBoxVicinity.Size = new System.Drawing.Size(43, 20);
+            this.textBoxVicinity.TabIndex = 38;
+            this.textBoxVicinity.Text = "3";
+            // 
+            // buttonGaussianFilter
+            // 
+            this.buttonGaussianFilter.Location = new System.Drawing.Point(46, 371);
+            this.buttonGaussianFilter.Name = "buttonGaussianFilter";
+            this.buttonGaussianFilter.Size = new System.Drawing.Size(125, 21);
+            this.buttonGaussianFilter.TabIndex = 40;
+            this.buttonGaussianFilter.Text = "gaussian filter";
+            this.buttonGaussianFilter.UseVisualStyleBackColor = true;
+            this.buttonGaussianFilter.Click += new System.EventHandler(this.buttonGaussianFilter_Click);
             // 
             // mainForm
             // 
@@ -1058,6 +1103,10 @@
         private System.Windows.Forms.Button buttonMorphologicalGradient;
         private System.Windows.Forms.Button buttonBlackHat;
         private System.Windows.Forms.Button buttonConventionalBuildup;
+        private System.Windows.Forms.Button buttonMedianFilter;
+        private System.Windows.Forms.Label labelVicinity;
+        private System.Windows.Forms.TextBox textBoxVicinity;
+        private System.Windows.Forms.Button buttonGaussianFilter;
     }
 }
 
