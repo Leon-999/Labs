@@ -97,6 +97,7 @@
             this.buttonDisclosure = new System.Windows.Forms.Button();
             this.buttonClosing = new System.Windows.Forms.Button();
             this.buttonMorphologicalGradient = new System.Windows.Forms.Button();
+            this.buttonBlackHat = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.canvas)).BeginInit();
             this.menuStrip.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxBaseColor)).BeginInit();
@@ -836,6 +837,7 @@
             // 
             // panelSquelch
             // 
+            this.panelSquelch.Controls.Add(this.buttonBlackHat);
             this.panelSquelch.Controls.Add(this.buttonMorphologicalGradient);
             this.panelSquelch.Controls.Add(this.buttonClosing);
             this.panelSquelch.Controls.Add(this.buttonDisclosure);
@@ -905,6 +907,16 @@
             this.buttonMorphologicalGradient.Text = "morphological gradient";
             this.buttonMorphologicalGradient.UseVisualStyleBackColor = true;
             this.buttonMorphologicalGradient.Click += new System.EventHandler(this.buttonMorphologicalGradient_Click);
+            // 
+            // buttonBlackHat
+            // 
+            this.buttonBlackHat.Location = new System.Drawing.Point(46, 263);
+            this.buttonBlackHat.Name = "buttonBlackHat";
+            this.buttonBlackHat.Size = new System.Drawing.Size(125, 21);
+            this.buttonBlackHat.TabIndex = 35;
+            this.buttonBlackHat.Text = "black hat";
+            this.buttonBlackHat.UseVisualStyleBackColor = true;
+            this.buttonBlackHat.Click += new System.EventHandler(this.buttonBlackHat_Click);
             // 
             // mainForm
             // 
@@ -1032,6 +1044,7 @@
         private System.Windows.Forms.Button buttonDisclosure;
         private System.Windows.Forms.Button buttonClosing;
         private System.Windows.Forms.Button buttonMorphologicalGradient;
+        private System.Windows.Forms.Button buttonBlackHat;
     }
 }
 

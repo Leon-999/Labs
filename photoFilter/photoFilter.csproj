@@ -67,6 +67,7 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="squelch\BinaryMatrix.cs" />
+    <Compile Include="squelch\BlackHat.cs" />
     <Compile Include="squelch\Buildup.cs" />
     <Compile Include="squelch\Closing.cs" />
     <Compile Include="squelch\Disclosure.cs" />

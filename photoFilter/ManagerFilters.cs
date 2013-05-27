@@ -128,6 +128,13 @@ namespace photoFilter
             return worker.employ(sourceImage, structuralElement);
         }
 
+        public Bitmap blackHat(Bitmap sourceImage, BinaryMatrix structuralElement)
+        {
+            this.countParts(sourceImage);
+            BlackHat worker = new BlackHat();
+            return worker.employ(sourceImage, structuralElement);
+        }
+
         private void countParts(Bitmap sourceImage)
         {
             if (ManagerFilters.progressBar != null && sourceImage != null)
