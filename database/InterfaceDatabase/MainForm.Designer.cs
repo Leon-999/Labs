@@ -68,10 +68,31 @@
             this.textBoxNameAgent = new System.Windows.Forms.TextBox();
             this.labelSurnameAgent = new System.Windows.Forms.Label();
             this.advertisement = new System.Windows.Forms.TabPage();
+            this.textBoxSurnameAgent = new System.Windows.Forms.TextBox();
+            this.textBoxNameCustomer = new System.Windows.Forms.TextBox();
+            this.textBoxNameTelecast = new System.Windows.Forms.TextBox();
+            this.labelLenght = new System.Windows.Forms.Label();
+            this.comboBoxNameAgentA = new System.Windows.Forms.ComboBox();
+            this.labelNameAgentA = new System.Windows.Forms.Label();
+            this.comboBoxNameCustomerA = new System.Windows.Forms.ComboBox();
+            this.labelNameCustomerA = new System.Windows.Forms.Label();
+            this.comboBoxNameTelecastA = new System.Windows.Forms.ComboBox();
+            this.buttonDeleteAdvertisement = new System.Windows.Forms.Button();
+            this.buttonNewAdvertisement = new System.Windows.Forms.Button();
+            this.buttonCancelEditAdvertisement = new System.Windows.Forms.Button();
+            this.buttonSaveEditAdvertisement = new System.Windows.Forms.Button();
+            this.buttonEditAdvertisement = new System.Windows.Forms.Button();
+            this.labelData = new System.Windows.Forms.Label();
+            this.textBoxLenght = new System.Windows.Forms.TextBox();
+            this.labelNameTelecastA = new System.Windows.Forms.Label();
+            this.comboBoxCodeAdvertisement = new System.Windows.Forms.ComboBox();
+            this.textBoxData = new System.Windows.Forms.TextBox();
+            this.labelCodeAdvertisement = new System.Windows.Forms.Label();
             this.tabSwitch.SuspendLayout();
             this.customers.SuspendLayout();
             this.telecasts.SuspendLayout();
             this.agents.SuspendLayout();
+            this.advertisement.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabSwitch
@@ -113,7 +134,7 @@
             // labelContact
             // 
             this.labelContact.AutoSize = true;
-            this.labelContact.Location = new System.Drawing.Point(370, 23);
+            this.labelContact.Location = new System.Drawing.Point(386, 22);
             this.labelContact.Name = "labelContact";
             this.labelContact.Size = new System.Drawing.Size(92, 13);
             this.labelContact.TabIndex = 27;
@@ -121,7 +142,7 @@
             // 
             // textBoxContact
             // 
-            this.textBoxContact.Location = new System.Drawing.Point(373, 38);
+            this.textBoxContact.Location = new System.Drawing.Point(389, 39);
             this.textBoxContact.Name = "textBoxContact";
             this.textBoxContact.Size = new System.Drawing.Size(106, 20);
             this.textBoxContact.TabIndex = 26;
@@ -181,7 +202,7 @@
             // labelTelephone
             // 
             this.labelTelephone.AutoSize = true;
-            this.labelTelephone.Location = new System.Drawing.Point(258, 23);
+            this.labelTelephone.Location = new System.Drawing.Point(274, 22);
             this.labelTelephone.Name = "labelTelephone";
             this.labelTelephone.Size = new System.Drawing.Size(50, 13);
             this.labelTelephone.TabIndex = 20;
@@ -189,7 +210,7 @@
             // 
             // textBoxTelephone
             // 
-            this.textBoxTelephone.Location = new System.Drawing.Point(261, 38);
+            this.textBoxTelephone.Location = new System.Drawing.Point(277, 39);
             this.textBoxTelephone.Name = "textBoxTelephone";
             this.textBoxTelephone.Size = new System.Drawing.Size(106, 20);
             this.textBoxTelephone.TabIndex = 19;
@@ -197,7 +218,7 @@
             // labelRequisites
             // 
             this.labelRequisites.AutoSize = true;
-            this.labelRequisites.Location = new System.Drawing.Point(130, 23);
+            this.labelRequisites.Location = new System.Drawing.Point(146, 22);
             this.labelRequisites.Name = "labelRequisites";
             this.labelRequisites.Size = new System.Drawing.Size(125, 13);
             this.labelRequisites.TabIndex = 18;
@@ -216,7 +237,7 @@
             // 
             this.textBoxRequisites.Location = new System.Drawing.Point(149, 39);
             this.textBoxRequisites.Name = "textBoxRequisites";
-            this.textBoxRequisites.Size = new System.Drawing.Size(106, 20);
+            this.textBoxRequisites.Size = new System.Drawing.Size(122, 20);
             this.textBoxRequisites.TabIndex = 16;
             // 
             // labelNameFirm
@@ -312,7 +333,7 @@
             // 
             // textBoxСostMinute
             // 
-            this.textBoxСostMinute.Location = new System.Drawing.Point(261, 38);
+            this.textBoxСostMinute.Location = new System.Drawing.Point(261, 39);
             this.textBoxСostMinute.Name = "textBoxСostMinute";
             this.textBoxСostMinute.Size = new System.Drawing.Size(106, 20);
             this.textBoxСostMinute.TabIndex = 32;
@@ -475,12 +496,206 @@
             // 
             // advertisement
             // 
+            this.advertisement.Controls.Add(this.textBoxSurnameAgent);
+            this.advertisement.Controls.Add(this.textBoxNameCustomer);
+            this.advertisement.Controls.Add(this.textBoxNameTelecast);
+            this.advertisement.Controls.Add(this.labelLenght);
+            this.advertisement.Controls.Add(this.comboBoxNameAgentA);
+            this.advertisement.Controls.Add(this.labelNameAgentA);
+            this.advertisement.Controls.Add(this.comboBoxNameCustomerA);
+            this.advertisement.Controls.Add(this.labelNameCustomerA);
+            this.advertisement.Controls.Add(this.comboBoxNameTelecastA);
+            this.advertisement.Controls.Add(this.buttonDeleteAdvertisement);
+            this.advertisement.Controls.Add(this.buttonNewAdvertisement);
+            this.advertisement.Controls.Add(this.buttonCancelEditAdvertisement);
+            this.advertisement.Controls.Add(this.buttonSaveEditAdvertisement);
+            this.advertisement.Controls.Add(this.buttonEditAdvertisement);
+            this.advertisement.Controls.Add(this.labelData);
+            this.advertisement.Controls.Add(this.textBoxLenght);
+            this.advertisement.Controls.Add(this.labelNameTelecastA);
+            this.advertisement.Controls.Add(this.comboBoxCodeAdvertisement);
+            this.advertisement.Controls.Add(this.textBoxData);
+            this.advertisement.Controls.Add(this.labelCodeAdvertisement);
             this.advertisement.Location = new System.Drawing.Point(4, 22);
             this.advertisement.Name = "advertisement";
             this.advertisement.Size = new System.Drawing.Size(511, 227);
             this.advertisement.TabIndex = 3;
             this.advertisement.Text = "реклама";
             this.advertisement.UseVisualStyleBackColor = true;
+            // 
+            // textBoxSurnameAgent
+            // 
+            this.textBoxSurnameAgent.Location = new System.Drawing.Point(353, 39);
+            this.textBoxSurnameAgent.Name = "textBoxSurnameAgent";
+            this.textBoxSurnameAgent.Size = new System.Drawing.Size(121, 20);
+            this.textBoxSurnameAgent.TabIndex = 58;
+            // 
+            // textBoxNameCustomer
+            // 
+            this.textBoxNameCustomer.Location = new System.Drawing.Point(226, 39);
+            this.textBoxNameCustomer.Name = "textBoxNameCustomer";
+            this.textBoxNameCustomer.Size = new System.Drawing.Size(121, 20);
+            this.textBoxNameCustomer.TabIndex = 57;
+            // 
+            // textBoxNameTelecast
+            // 
+            this.textBoxNameTelecast.Location = new System.Drawing.Point(99, 39);
+            this.textBoxNameTelecast.Name = "textBoxNameTelecast";
+            this.textBoxNameTelecast.Size = new System.Drawing.Size(121, 20);
+            this.textBoxNameTelecast.TabIndex = 56;
+            // 
+            // labelLenght
+            // 
+            this.labelLenght.AutoSize = true;
+            this.labelLenght.Location = new System.Drawing.Point(350, 62);
+            this.labelLenght.Name = "labelLenght";
+            this.labelLenght.Size = new System.Drawing.Size(130, 13);
+            this.labelLenght.TabIndex = 55;
+            this.labelLenght.Text = "длительность в минутах";
+            // 
+            // comboBoxNameAgentA
+            // 
+            this.comboBoxNameAgentA.FormattingEnabled = true;
+            this.comboBoxNameAgentA.Location = new System.Drawing.Point(353, 38);
+            this.comboBoxNameAgentA.Name = "comboBoxNameAgentA";
+            this.comboBoxNameAgentA.Size = new System.Drawing.Size(121, 21);
+            this.comboBoxNameAgentA.TabIndex = 54;
+            // 
+            // labelNameAgentA
+            // 
+            this.labelNameAgentA.AutoSize = true;
+            this.labelNameAgentA.Location = new System.Drawing.Point(350, 22);
+            this.labelNameAgentA.Name = "labelNameAgentA";
+            this.labelNameAgentA.Size = new System.Drawing.Size(96, 13);
+            this.labelNameAgentA.TabIndex = 53;
+            this.labelNameAgentA.Text = "рекламный агент";
+            // 
+            // comboBoxNameCustomerA
+            // 
+            this.comboBoxNameCustomerA.FormattingEnabled = true;
+            this.comboBoxNameCustomerA.Location = new System.Drawing.Point(226, 38);
+            this.comboBoxNameCustomerA.Name = "comboBoxNameCustomerA";
+            this.comboBoxNameCustomerA.Size = new System.Drawing.Size(121, 21);
+            this.comboBoxNameCustomerA.TabIndex = 52;
+            // 
+            // labelNameCustomerA
+            // 
+            this.labelNameCustomerA.AutoSize = true;
+            this.labelNameCustomerA.Location = new System.Drawing.Point(223, 22);
+            this.labelNameCustomerA.Name = "labelNameCustomerA";
+            this.labelNameCustomerA.Size = new System.Drawing.Size(91, 13);
+            this.labelNameCustomerA.TabIndex = 51;
+            this.labelNameCustomerA.Text = "фирма-заказчик";
+            // 
+            // comboBoxNameTelecastA
+            // 
+            this.comboBoxNameTelecastA.FormattingEnabled = true;
+            this.comboBoxNameTelecastA.Location = new System.Drawing.Point(99, 38);
+            this.comboBoxNameTelecastA.Name = "comboBoxNameTelecastA";
+            this.comboBoxNameTelecastA.Size = new System.Drawing.Size(121, 21);
+            this.comboBoxNameTelecastA.TabIndex = 50;
+            // 
+            // buttonDeleteAdvertisement
+            // 
+            this.buttonDeleteAdvertisement.Location = new System.Drawing.Point(226, 171);
+            this.buttonDeleteAdvertisement.Name = "buttonDeleteAdvertisement";
+            this.buttonDeleteAdvertisement.Size = new System.Drawing.Size(106, 22);
+            this.buttonDeleteAdvertisement.TabIndex = 49;
+            this.buttonDeleteAdvertisement.Text = "удалить";
+            this.buttonDeleteAdvertisement.UseVisualStyleBackColor = true;
+            this.buttonDeleteAdvertisement.Click += new System.EventHandler(this.buttonDeleteAdvertisement_Click);
+            // 
+            // buttonNewAdvertisement
+            // 
+            this.buttonNewAdvertisement.Location = new System.Drawing.Point(226, 143);
+            this.buttonNewAdvertisement.Name = "buttonNewAdvertisement";
+            this.buttonNewAdvertisement.Size = new System.Drawing.Size(106, 22);
+            this.buttonNewAdvertisement.TabIndex = 48;
+            this.buttonNewAdvertisement.Text = "добавить";
+            this.buttonNewAdvertisement.UseVisualStyleBackColor = true;
+            this.buttonNewAdvertisement.Click += new System.EventHandler(this.buttonNewAdvertisement_Click);
+            // 
+            // buttonCancelEditAdvertisement
+            // 
+            this.buttonCancelEditAdvertisement.Enabled = false;
+            this.buttonCancelEditAdvertisement.Location = new System.Drawing.Point(345, 143);
+            this.buttonCancelEditAdvertisement.Name = "buttonCancelEditAdvertisement";
+            this.buttonCancelEditAdvertisement.Size = new System.Drawing.Size(99, 22);
+            this.buttonCancelEditAdvertisement.TabIndex = 47;
+            this.buttonCancelEditAdvertisement.Text = "отмена";
+            this.buttonCancelEditAdvertisement.UseVisualStyleBackColor = true;
+            this.buttonCancelEditAdvertisement.Click += new System.EventHandler(this.buttonCancelEditAdvertisement_Click);
+            // 
+            // buttonSaveEditAdvertisement
+            // 
+            this.buttonSaveEditAdvertisement.Enabled = false;
+            this.buttonSaveEditAdvertisement.Location = new System.Drawing.Point(345, 116);
+            this.buttonSaveEditAdvertisement.Name = "buttonSaveEditAdvertisement";
+            this.buttonSaveEditAdvertisement.Size = new System.Drawing.Size(99, 21);
+            this.buttonSaveEditAdvertisement.TabIndex = 46;
+            this.buttonSaveEditAdvertisement.Text = "сохранить";
+            this.buttonSaveEditAdvertisement.UseVisualStyleBackColor = true;
+            this.buttonSaveEditAdvertisement.Click += new System.EventHandler(this.buttonSaveEditAdvertisement_Click);
+            // 
+            // buttonEditAdvertisement
+            // 
+            this.buttonEditAdvertisement.Location = new System.Drawing.Point(226, 116);
+            this.buttonEditAdvertisement.Name = "buttonEditAdvertisement";
+            this.buttonEditAdvertisement.Size = new System.Drawing.Size(106, 21);
+            this.buttonEditAdvertisement.TabIndex = 45;
+            this.buttonEditAdvertisement.Text = "редактировать";
+            this.buttonEditAdvertisement.UseVisualStyleBackColor = true;
+            this.buttonEditAdvertisement.Click += new System.EventHandler(this.buttonEditAdvertisement_Click);
+            // 
+            // labelData
+            // 
+            this.labelData.AutoSize = true;
+            this.labelData.Location = new System.Drawing.Point(223, 62);
+            this.labelData.Name = "labelData";
+            this.labelData.Size = new System.Drawing.Size(30, 13);
+            this.labelData.TabIndex = 44;
+            this.labelData.Text = "дата";
+            // 
+            // textBoxLenght
+            // 
+            this.textBoxLenght.Location = new System.Drawing.Point(353, 78);
+            this.textBoxLenght.Name = "textBoxLenght";
+            this.textBoxLenght.Size = new System.Drawing.Size(121, 20);
+            this.textBoxLenght.TabIndex = 43;
+            // 
+            // labelNameTelecastA
+            // 
+            this.labelNameTelecastA.AutoSize = true;
+            this.labelNameTelecastA.Location = new System.Drawing.Point(96, 22);
+            this.labelNameTelecastA.Name = "labelNameTelecastA";
+            this.labelNameTelecastA.Size = new System.Drawing.Size(105, 13);
+            this.labelNameTelecastA.TabIndex = 42;
+            this.labelNameTelecastA.Text = "название передачи";
+            // 
+            // comboBoxCodeAdvertisement
+            // 
+            this.comboBoxCodeAdvertisement.FormattingEnabled = true;
+            this.comboBoxCodeAdvertisement.Location = new System.Drawing.Point(23, 38);
+            this.comboBoxCodeAdvertisement.Name = "comboBoxCodeAdvertisement";
+            this.comboBoxCodeAdvertisement.Size = new System.Drawing.Size(70, 21);
+            this.comboBoxCodeAdvertisement.TabIndex = 41;
+            this.comboBoxCodeAdvertisement.TextChanged += new System.EventHandler(this.comboBoxCodeAdvertisement_TextChanged);
+            // 
+            // textBoxData
+            // 
+            this.textBoxData.Location = new System.Drawing.Point(226, 78);
+            this.textBoxData.Name = "textBoxData";
+            this.textBoxData.Size = new System.Drawing.Size(121, 20);
+            this.textBoxData.TabIndex = 40;
+            // 
+            // labelCodeAdvertisement
+            // 
+            this.labelCodeAdvertisement.AutoSize = true;
+            this.labelCodeAdvertisement.Location = new System.Drawing.Point(19, 22);
+            this.labelCodeAdvertisement.Name = "labelCodeAdvertisement";
+            this.labelCodeAdvertisement.Size = new System.Drawing.Size(74, 13);
+            this.labelCodeAdvertisement.TabIndex = 39;
+            this.labelCodeAdvertisement.Text = "код рекламы";
             // 
             // MainForm
             // 
@@ -497,6 +712,8 @@
             this.telecasts.PerformLayout();
             this.agents.ResumeLayout(false);
             this.agents.PerformLayout();
+            this.advertisement.ResumeLayout(false);
+            this.advertisement.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -543,6 +760,26 @@
         private System.Windows.Forms.ComboBox comboBoxNameTelecast;
         private System.Windows.Forms.TextBox textBoxRating;
         private System.Windows.Forms.Label labelNameTelecast;
+        private System.Windows.Forms.ComboBox comboBoxNameTelecastA;
+        private System.Windows.Forms.Button buttonDeleteAdvertisement;
+        private System.Windows.Forms.Button buttonNewAdvertisement;
+        private System.Windows.Forms.Button buttonCancelEditAdvertisement;
+        private System.Windows.Forms.Button buttonSaveEditAdvertisement;
+        private System.Windows.Forms.Button buttonEditAdvertisement;
+        private System.Windows.Forms.Label labelData;
+        private System.Windows.Forms.TextBox textBoxLenght;
+        private System.Windows.Forms.Label labelNameTelecastA;
+        private System.Windows.Forms.ComboBox comboBoxCodeAdvertisement;
+        private System.Windows.Forms.TextBox textBoxData;
+        private System.Windows.Forms.Label labelCodeAdvertisement;
+        private System.Windows.Forms.ComboBox comboBoxNameAgentA;
+        private System.Windows.Forms.Label labelNameAgentA;
+        private System.Windows.Forms.ComboBox comboBoxNameCustomerA;
+        private System.Windows.Forms.Label labelNameCustomerA;
+        private System.Windows.Forms.Label labelLenght;
+        private System.Windows.Forms.TextBox textBoxSurnameAgent;
+        private System.Windows.Forms.TextBox textBoxNameCustomer;
+        private System.Windows.Forms.TextBox textBoxNameTelecast;
 
     }
 }
