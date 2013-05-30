@@ -24,7 +24,7 @@ namespace InterfaceDatabase
         {
             InitializeComponent();
 
-            connectionString = "provider=Microsoft.Jet.OLEDB.4.0;" + "data source=C:\\DB\\DB.mdb";
+            connectionString = "provider=Microsoft.Jet.OLEDB.4.0;" + "data source = database\\DB.mdb";
             connection = new OleDbConnection(connectionString);
             command = connection.CreateCommand();
 
