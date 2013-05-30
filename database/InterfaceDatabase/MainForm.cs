@@ -44,11 +44,13 @@ namespace InterfaceDatabase
                 this.textBoxRequisites.ReadOnly = true;
                 this.textBoxTelephone.ReadOnly = true;
                 this.textBoxContact.ReadOnly = true;
-                this.writeComboBoxNameFirm();
+                this.writeInComboBoxNameFirm();
             }
             else if (nameNewPage == this.telecasts.Name)
             {
-
+                this.textBoxRating.ReadOnly = true;
+                this.textBoxСostMinute.ReadOnly = true;
+                this.writeInComboBoxNameTelecast();
             }
             else if (nameNewPage == this.agents.Name)
             {
@@ -112,6 +114,7 @@ namespace InterfaceDatabase
                 this.buttonSaveAgent.Enabled = false;
                 this.buttonCancelEditAgent.Enabled = false;
             }
+            this.add = false;
         }
 
 
@@ -136,6 +139,7 @@ namespace InterfaceDatabase
                 this.buttonSaveAgent.Enabled = false;
                 this.buttonCancelEditAgent.Enabled = false;
             }
+            this.edit = false;
         }
 
         private void buttonSaveAgent_Click(object sender, EventArgs e)
@@ -200,7 +204,7 @@ namespace InterfaceDatabase
 
         }
 
-        private void writeComboBoxNameFirm()
+        private void writeInComboBoxNameFirm()
         {
             this.comboBoxNameFirm.Items.Clear();
             this.connection.Open();
@@ -254,6 +258,7 @@ namespace InterfaceDatabase
                 this.buttonSaveCustomer.Enabled = false;
                 this.buttonCancelEditCustomer.Enabled = false;
             }
+            this.add = false;
         }
 
         private void buttonNewCustomer_Click(object sender = null, EventArgs e = null)
@@ -280,6 +285,7 @@ namespace InterfaceDatabase
                 this.buttonSaveCustomer.Enabled = false;
                 this.buttonCancelEditCustomer.Enabled = false;
             }
+            this.edit = false;
         }
 
         private void buttonSaveCustomer_Click(object sender, EventArgs e)
@@ -315,7 +321,7 @@ namespace InterfaceDatabase
                 }
 
                 this.connection.Close();
-                this.writeComboBoxNameFirm();
+                this.writeInComboBoxNameFirm();
             }
             else
             {
@@ -329,7 +335,7 @@ namespace InterfaceDatabase
                 this.buttonEditCustomer_Click();
             if (this.add)
                 this.buttonNewCustomer_Click();
-            this.writeComboBoxNameFirm();
+            this.writeInComboBoxNameFirm();
         }
 
         private void buttonDeleteCustomer_Click(object sender, EventArgs e)
@@ -343,7 +349,148 @@ namespace InterfaceDatabase
 
                 MessageBox.Show("Заказчик удалён");
                 this.connection.Close();
-                this.writeComboBoxNameFirm();
+                this.writeInComboBoxNameFirm();
+            }
+        }
+
+        private void writeInComboBoxNameTelecast()
+        {
+            this.comboBoxNameTelecast.Items.Clear();
+            this.connection.Open();
+            this.command.CommandText = "SELECT название " + "FROM передачи ";
+            this.reader = command.ExecuteReader();
+            while (reader.Read())
+            {
+                this.comboBoxNameTelecast.Items.Add(this.reader["название"]);
+            }
+            reader.Close();
+            this.connection.Close();
+            this.comboBoxNameTelecast.Text = Convert.ToString(this.comboBoxNameTelecast.Items[0]);
+        }
+
+        private void comboBoxNameTelecast_TextChanged(object sender, EventArgs e)
+        {
+            string selected = "'" + this.comboBoxNameTelecast.Text + "'";
+            this.connection.Open();
+            this.command.CommandText = "SELECT код_передачи, название, рейтинг, стоимость_минуты " +
+                                       "FROM передачи " +
+                                       "WHERE название = " + selected;
+            this.reader = command.ExecuteReader();
+            while (reader.Read())
+            {
+                this.textBoxRating.Text = Convert.ToString(this.reader["рейтинг"]);
+                this.textBoxСostMinute.Text = Convert.ToString(this.reader["стоимость_минуты"]);
+                this.codeAlterable = (int)this.reader["код_передачи"];
+            }
+            reader.Close();
+            this.connection.Close();
+        }
+
+        private void buttonEditTelecast_Click(object sender = null, EventArgs e = null)
+        {
+            if (this.edit == false)
+            {
+                this.textBoxRating.ReadOnly = false;
+                this.textBoxСostMinute.ReadOnly = false;
+                this.edit = true;
+                this.buttonSaveEditTelecast.Enabled = true;
+                this.buttonCancelEditTelecast.Enabled = true;
+            }
+            else
+            {
+                this.textBoxRating.ReadOnly = true;
+                this.textBoxСostMinute.ReadOnly = true;
+                this.edit = false;
+                this.buttonSaveEditTelecast.Enabled = false;
+                this.buttonCancelEditTelecast.Enabled = false;
+            }
+            this.add = false;
+        }
+
+        private void buttonNewTelecast_Click(object sender = null, EventArgs e = null)
+        {
+            if (this.add == false)
+            {
+                this.comboBoxNameTelecast.Text = "";
+                this.textBoxRating.ReadOnly = false;
+                this.textBoxRating.Text = "";
+                this.textBoxСostMinute.ReadOnly = false;
+                this.textBoxСostMinute.Text = "";
+                this.add = true;
+
+                this.buttonSaveEditTelecast.Enabled = true;
+                this.buttonCancelEditTelecast.Enabled = true;
+            }
+            else
+            {
+                this.textBoxRating.ReadOnly = true;
+                this.textBoxСostMinute.ReadOnly = true;
+                this.add = false;
+                this.buttonSaveEditTelecast.Enabled = false;
+                this.buttonCancelEditTelecast.Enabled = false;
+            }
+            this.edit = false;
+        }
+
+        private void buttonSaveEditTelecast_Click(object sender, EventArgs e)
+        {
+            string newName = "'" + this.comboBoxNameTelecast.Text + "'";
+            string newRating = "'" + this.textBoxRating.Text + "'";
+            string newCostMinute = "'" + this.textBoxСostMinute.Text + "'";
+            if (newName != "''" && newRating != "''" && newCostMinute != "''")
+            {
+                this.connection.Open();
+                if (this.edit)
+                {
+                    this.command.CommandText = "UPDATE передачи SET название = " + newName +
+                                               ", рейтинг = " + newRating +
+                                               ", стоимость_минуты = " + newCostMinute +
+                                               " WHERE код_передачи = " + this.codeAlterable;
+                    this.buttonEditTelecast_Click();
+                    command.ExecuteNonQuery();
+                    MessageBox.Show("Новые данные сохранены");
+                }
+                else if (this.add)
+                {
+                    this.command.CommandText = "INSERT INTO передачи (название, рейтинг, стоимость_минуты) VALUES (" +
+                                               newName +
+                                               ", " + newRating +
+                                               ", " + newCostMinute + ")";
+                    this.buttonNewTelecast_Click();
+                    command.ExecuteNonQuery();
+                    MessageBox.Show("Новая передача добавлена");
+                }
+
+                this.connection.Close();
+                this.writeInComboBoxNameTelecast();
+            }
+            else
+            {
+                MessageBox.Show("все поля должны быть обязательно");
+            }
+        }
+
+        private void buttonCancelEditTelecast_Click(object sender, EventArgs e)
+        {
+            if (this.edit)
+                this.buttonEditTelecast_Click();
+            if (this.add)
+                this.buttonNewTelecast_Click();
+            this.writeInComboBoxNameTelecast();
+        }
+
+        private void buttonDeleteTelecast_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("Вы уверены?", "Предупреждение", MessageBoxButtons.OKCancel) == DialogResult.OK)
+            {
+                this.connection.Open();
+
+                this.command.CommandText = "DELETE FROM передачи WHERE (код_передачи = " + this.codeAlterable + ")";
+                command.ExecuteNonQuery();
+
+                MessageBox.Show("Передача удалёна");
+                this.connection.Close();
+                this.writeInComboBoxNameTelecast();
             }
         }
     }

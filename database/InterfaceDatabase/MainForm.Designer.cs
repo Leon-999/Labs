@@ -44,19 +44,17 @@
             this.textBoxRequisites = new System.Windows.Forms.TextBox();
             this.labelNameFirm = new System.Windows.Forms.Label();
             this.telecasts = new System.Windows.Forms.TabPage();
-            this.label1 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
-            this.button5 = new System.Windows.Forms.Button();
-            this.label2 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.label4 = new System.Windows.Forms.Label();
+            this.buttonDeleteTelecast = new System.Windows.Forms.Button();
+            this.buttonNewTelecast = new System.Windows.Forms.Button();
+            this.buttonCancelEditTelecast = new System.Windows.Forms.Button();
+            this.buttonSaveEditTelecast = new System.Windows.Forms.Button();
+            this.buttonEditTelecast = new System.Windows.Forms.Button();
+            this.labelСostMinute = new System.Windows.Forms.Label();
+            this.textBoxСostMinute = new System.Windows.Forms.TextBox();
+            this.labelRating = new System.Windows.Forms.Label();
+            this.comboBoxNameTelecast = new System.Windows.Forms.ComboBox();
+            this.textBoxRating = new System.Windows.Forms.TextBox();
+            this.labelNameTelecast = new System.Windows.Forms.Label();
             this.agents = new System.Windows.Forms.TabPage();
             this.buttonDeleteAgent = new System.Windows.Forms.Button();
             this.buttonNewAgent = new System.Windows.Forms.Button();
@@ -232,19 +230,17 @@
             // 
             // telecasts
             // 
-            this.telecasts.Controls.Add(this.label1);
-            this.telecasts.Controls.Add(this.textBox1);
-            this.telecasts.Controls.Add(this.button1);
-            this.telecasts.Controls.Add(this.button2);
-            this.telecasts.Controls.Add(this.button3);
-            this.telecasts.Controls.Add(this.button4);
-            this.telecasts.Controls.Add(this.button5);
-            this.telecasts.Controls.Add(this.label2);
-            this.telecasts.Controls.Add(this.textBox2);
-            this.telecasts.Controls.Add(this.label3);
-            this.telecasts.Controls.Add(this.comboBox1);
-            this.telecasts.Controls.Add(this.textBox3);
-            this.telecasts.Controls.Add(this.label4);
+            this.telecasts.Controls.Add(this.buttonDeleteTelecast);
+            this.telecasts.Controls.Add(this.buttonNewTelecast);
+            this.telecasts.Controls.Add(this.buttonCancelEditTelecast);
+            this.telecasts.Controls.Add(this.buttonSaveEditTelecast);
+            this.telecasts.Controls.Add(this.buttonEditTelecast);
+            this.telecasts.Controls.Add(this.labelСostMinute);
+            this.telecasts.Controls.Add(this.textBoxСostMinute);
+            this.telecasts.Controls.Add(this.labelRating);
+            this.telecasts.Controls.Add(this.comboBoxNameTelecast);
+            this.telecasts.Controls.Add(this.textBoxRating);
+            this.telecasts.Controls.Add(this.labelNameTelecast);
             this.telecasts.Location = new System.Drawing.Point(4, 22);
             this.telecasts.Name = "telecasts";
             this.telecasts.Padding = new System.Windows.Forms.Padding(3);
@@ -253,117 +249,107 @@
             this.telecasts.Text = "передачи";
             this.telecasts.UseVisualStyleBackColor = true;
             // 
-            // label1
+            // buttonDeleteTelecast
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(370, 23);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(92, 13);
-            this.label1.TabIndex = 40;
-            this.label1.Text = "контактное лицо";
+            this.buttonDeleteTelecast.Location = new System.Drawing.Point(149, 131);
+            this.buttonDeleteTelecast.Name = "buttonDeleteTelecast";
+            this.buttonDeleteTelecast.Size = new System.Drawing.Size(106, 22);
+            this.buttonDeleteTelecast.TabIndex = 38;
+            this.buttonDeleteTelecast.Text = "удалить";
+            this.buttonDeleteTelecast.UseVisualStyleBackColor = true;
+            this.buttonDeleteTelecast.Click += new System.EventHandler(this.buttonDeleteTelecast_Click);
             // 
-            // textBox1
+            // buttonNewTelecast
             // 
-            this.textBox1.Location = new System.Drawing.Point(373, 38);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(106, 20);
-            this.textBox1.TabIndex = 39;
+            this.buttonNewTelecast.Location = new System.Drawing.Point(149, 103);
+            this.buttonNewTelecast.Name = "buttonNewTelecast";
+            this.buttonNewTelecast.Size = new System.Drawing.Size(106, 22);
+            this.buttonNewTelecast.TabIndex = 37;
+            this.buttonNewTelecast.Text = "добавить";
+            this.buttonNewTelecast.UseVisualStyleBackColor = true;
+            this.buttonNewTelecast.Click += new System.EventHandler(this.buttonNewTelecast_Click);
             // 
-            // button1
+            // buttonCancelEditTelecast
             // 
-            this.button1.Location = new System.Drawing.Point(149, 131);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(106, 22);
-            this.button1.TabIndex = 38;
-            this.button1.Text = "удалить";
-            this.button1.UseVisualStyleBackColor = true;
+            this.buttonCancelEditTelecast.Enabled = false;
+            this.buttonCancelEditTelecast.Location = new System.Drawing.Point(268, 103);
+            this.buttonCancelEditTelecast.Name = "buttonCancelEditTelecast";
+            this.buttonCancelEditTelecast.Size = new System.Drawing.Size(99, 22);
+            this.buttonCancelEditTelecast.TabIndex = 36;
+            this.buttonCancelEditTelecast.Text = "отмена";
+            this.buttonCancelEditTelecast.UseVisualStyleBackColor = true;
+            this.buttonCancelEditTelecast.Click += new System.EventHandler(this.buttonCancelEditTelecast_Click);
             // 
-            // button2
+            // buttonSaveEditTelecast
             // 
-            this.button2.Location = new System.Drawing.Point(149, 103);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(106, 22);
-            this.button2.TabIndex = 37;
-            this.button2.Text = "добавить";
-            this.button2.UseVisualStyleBackColor = true;
+            this.buttonSaveEditTelecast.Enabled = false;
+            this.buttonSaveEditTelecast.Location = new System.Drawing.Point(268, 76);
+            this.buttonSaveEditTelecast.Name = "buttonSaveEditTelecast";
+            this.buttonSaveEditTelecast.Size = new System.Drawing.Size(99, 21);
+            this.buttonSaveEditTelecast.TabIndex = 35;
+            this.buttonSaveEditTelecast.Text = "сохранить";
+            this.buttonSaveEditTelecast.UseVisualStyleBackColor = true;
+            this.buttonSaveEditTelecast.Click += new System.EventHandler(this.buttonSaveEditTelecast_Click);
             // 
-            // button3
+            // buttonEditTelecast
             // 
-            this.button3.Enabled = false;
-            this.button3.Location = new System.Drawing.Point(268, 103);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(99, 22);
-            this.button3.TabIndex = 36;
-            this.button3.Text = "отмена";
-            this.button3.UseVisualStyleBackColor = true;
+            this.buttonEditTelecast.Location = new System.Drawing.Point(149, 76);
+            this.buttonEditTelecast.Name = "buttonEditTelecast";
+            this.buttonEditTelecast.Size = new System.Drawing.Size(106, 21);
+            this.buttonEditTelecast.TabIndex = 34;
+            this.buttonEditTelecast.Text = "редактировать";
+            this.buttonEditTelecast.UseVisualStyleBackColor = true;
+            this.buttonEditTelecast.Click += new System.EventHandler(this.buttonEditTelecast_Click);
             // 
-            // button4
+            // labelСostMinute
             // 
-            this.button4.Enabled = false;
-            this.button4.Location = new System.Drawing.Point(268, 76);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(99, 21);
-            this.button4.TabIndex = 35;
-            this.button4.Text = "сохранить";
-            this.button4.UseVisualStyleBackColor = true;
+            this.labelСostMinute.AutoSize = true;
+            this.labelСostMinute.Location = new System.Drawing.Point(258, 23);
+            this.labelСostMinute.Name = "labelСostMinute";
+            this.labelСostMinute.Size = new System.Drawing.Size(102, 13);
+            this.labelСostMinute.TabIndex = 33;
+            this.labelСostMinute.Text = "стоимость минуты";
             // 
-            // button5
+            // textBoxСostMinute
             // 
-            this.button5.Location = new System.Drawing.Point(149, 76);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(106, 21);
-            this.button5.TabIndex = 34;
-            this.button5.Text = "редактировать";
-            this.button5.UseVisualStyleBackColor = true;
+            this.textBoxСostMinute.Location = new System.Drawing.Point(261, 38);
+            this.textBoxСostMinute.Name = "textBoxСostMinute";
+            this.textBoxСostMinute.Size = new System.Drawing.Size(106, 20);
+            this.textBoxСostMinute.TabIndex = 32;
             // 
-            // label2
+            // labelRating
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(258, 23);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(50, 13);
-            this.label2.TabIndex = 33;
-            this.label2.Text = "телефон";
+            this.labelRating.AutoSize = true;
+            this.labelRating.Location = new System.Drawing.Point(146, 23);
+            this.labelRating.Name = "labelRating";
+            this.labelRating.Size = new System.Drawing.Size(47, 13);
+            this.labelRating.TabIndex = 31;
+            this.labelRating.Text = "рейтинг";
             // 
-            // textBox2
+            // comboBoxNameTelecast
             // 
-            this.textBox2.Location = new System.Drawing.Point(261, 38);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(106, 20);
-            this.textBox2.TabIndex = 32;
+            this.comboBoxNameTelecast.FormattingEnabled = true;
+            this.comboBoxNameTelecast.Location = new System.Drawing.Point(22, 38);
+            this.comboBoxNameTelecast.Name = "comboBoxNameTelecast";
+            this.comboBoxNameTelecast.Size = new System.Drawing.Size(121, 21);
+            this.comboBoxNameTelecast.TabIndex = 30;
+            this.comboBoxNameTelecast.TextChanged += new System.EventHandler(this.comboBoxNameTelecast_TextChanged);
             // 
-            // label3
+            // textBoxRating
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(130, 23);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(125, 13);
-            this.label3.TabIndex = 31;
-            this.label3.Text = "банковские реквизиты";
+            this.textBoxRating.Location = new System.Drawing.Point(149, 39);
+            this.textBoxRating.Name = "textBoxRating";
+            this.textBoxRating.Size = new System.Drawing.Size(106, 20);
+            this.textBoxRating.TabIndex = 29;
             // 
-            // comboBox1
+            // labelNameTelecast
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(22, 38);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(121, 21);
-            this.comboBox1.TabIndex = 30;
-            // 
-            // textBox3
-            // 
-            this.textBox3.Location = new System.Drawing.Point(149, 39);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(106, 20);
-            this.textBox3.TabIndex = 29;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(19, 22);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(94, 13);
-            this.label4.TabIndex = 28;
-            this.label4.Text = "название фирмы";
+            this.labelNameTelecast.AutoSize = true;
+            this.labelNameTelecast.Location = new System.Drawing.Point(19, 22);
+            this.labelNameTelecast.Name = "labelNameTelecast";
+            this.labelNameTelecast.Size = new System.Drawing.Size(105, 13);
+            this.labelNameTelecast.TabIndex = 28;
+            this.labelNameTelecast.Text = "название передачи";
             // 
             // agents
             // 
@@ -546,19 +532,17 @@
         private System.Windows.Forms.Label labelNameFirm;
         private System.Windows.Forms.Label labelContact;
         private System.Windows.Forms.TextBox textBoxContact;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.Button button5;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Button buttonDeleteTelecast;
+        private System.Windows.Forms.Button buttonNewTelecast;
+        private System.Windows.Forms.Button buttonCancelEditTelecast;
+        private System.Windows.Forms.Button buttonSaveEditTelecast;
+        private System.Windows.Forms.Button buttonEditTelecast;
+        private System.Windows.Forms.Label labelСostMinute;
+        private System.Windows.Forms.TextBox textBoxСostMinute;
+        private System.Windows.Forms.Label labelRating;
+        private System.Windows.Forms.ComboBox comboBoxNameTelecast;
+        private System.Windows.Forms.TextBox textBoxRating;
+        private System.Windows.Forms.Label labelNameTelecast;
 
     }
 }
