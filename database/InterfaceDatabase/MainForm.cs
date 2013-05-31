@@ -553,23 +553,32 @@ namespace InterfaceDatabase
                                        "WHERE код_передачи = " + codeTelecast;
             this.reader = command.ExecuteReader();
             if (this.reader.Read())
+            {
                 this.textBoxNameTelecast.Text = Convert.ToString(this.reader["название"]);
+                this.comboBoxNameTelecastA.Text = this.textBoxNameTelecast.Text;
+            }
             this.reader.Close();
 
             this.command.CommandText = "SELECT название " +
                                        "FROM заказчики " +
                                        "WHERE код_заказчика = " + codeCustomer;
             this.reader = command.ExecuteReader();
-            if(this.reader.Read())
+            if (this.reader.Read())
+            {
                 this.textBoxNameCustomer.Text = Convert.ToString(this.reader["название"]);
+                this.comboBoxNameCustomerA.Text = this.textBoxNameCustomer.Text;
+            }
             this.reader.Close();
 
             this.command.CommandText = "SELECT фамилия " +
                                        "FROM агенты " +
                                        "WHERE код_агента = " + codeAgent;
             this.reader = command.ExecuteReader();
-            if(this.reader.Read())
+            if (this.reader.Read())
+            {
                 this.textBoxSurnameAgent.Text = Convert.ToString(this.reader["фамилия"]);
+                this.comboBoxNameAgentA.Text = this.textBoxSurnameAgent.Text;
+            }
             this.reader.Close();
 
             this.connection.Close();
@@ -758,7 +767,7 @@ namespace InterfaceDatabase
                 this.connection.Open();
 
                 this.command.CommandText = "DELETE FROM реклама WHERE (код_рекламы = " + this.codeAlterable + ")";
-                command.ExecuteNonQuery();
+                this.command.ExecuteNonQuery();
 
                 MessageBox.Show("Реклама удалёна");
                 this.connection.Close();
